@@ -1,0 +1,31 @@
+[%AdminHead%]
+<TABLE BGCOLOR=($cfg.color.Border) WIDTH=550 BORDER=0 CELLSPACING=1 CELLPADDING=0>
+  <TR>
+    <TD ALIGN=center>
+<TABLE BGCOLOR=#3366cc BORDER=0 CELLSPACING=0 WIDTH=100% CELLPADDING=3>
+  <TR>
+    <TH COLSPAN=2 ALIGN=center>
+      <FONT COLOR=white>
+        EasyBoard 2000 Admin Manager
+      </FONT>
+    </TH>
+  </TR>
+  <TR BGCOLOR=($cfg.color.TopMenu)>
+    <TD NOWRAP>
+      <FONT COLOR='($cfg.color.TopTxt)'>
+      ◀ 도움말 ▶
+;      ◀ <A HREF='javascript:RemoteWindow("($path.help)/adhelp.htm")'><FONT COLOR='($cfg.color.TopTxt)'>도움말</FONT></A> ▶
+      </FONT>
+    </TD>
+    <TD WIDTH=100% ALIGN=left>&nbsp;&nbsp;
+      <FONT COLOR=silver><FONT COLOR='($cfg.color.TopTxt)'>
+      DB명: [ <B>($par.db)</B> ] 게시판
+;      ($cfg.EzBoardTitle)
+      </FONT>
+    </TD>
+  </TR>
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+[%End%]

@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<TITLE>Color Table for EasyBoard</TITLE>
+<STYLE TYPE='text/css'>
+  a          { text-decoration:none; }
+  input      { font-family:굴림체; font-size:9pt; height:18px; border:1 solid; border-color:#000000 }
+  body,p,td  { font-family:굴림; font-size:7pt; }
+</STYLE>
+</HEAD>
+
+<BODY BGCOLOR=white TEXT=black MARGINWIDTH=0 MARGINHEIGHT=0 LEFTMARGIN=0 TOPMARGIN=0>
+
+<SCRIPT LANGUAGE="JavaScript">
+//----------------------------------------------------------------------------
+function ShowColor( color )
+{
+  document.ColorForm.rgb.value = color
+  document.ColorForm.col.style.backgroundColor = color
+}
+//----------------------------------------------------------------------------
+function SelColor( color )
+{
+  window.opener.document.ConfigForm[window.name].value = color;
+//  window.opener.InputColor( color );
+  self.close();
+}
+//----------------------------------------------------------------------------
+function PutColorCell( color )
+{
+  document.write( "<TD WIDTH=7 HEIGHT=7 BGCOLOR=" + color + "><A HREF='javascript:SelColor(\"" + color + "\")' onMouseOver='ShowColor(\"" + color + "\")'>&nbsp;&nbsp;&nbsp;</A></TD>" );
+}
+//----------------------------------------------------------------------------
+function ShowColorTable()
+{
+  var ColorTable = new Array(
+    '#ffeff7','#fff3ef','#fff7ef','#fffbef','#ffffef','#ffffef','#ffffef','#ffffef','#ffffef','#effff7','#efffff','#efffff','#efffff','#effbff','#effbff','#eff3ff','#ffefff','#ffefff','#ffefff','#ffefff','#ffefff','#ffefff','#ffefff','#ffefff',
+    '#ffdfe7','#ffe3de','#ffefde','#fff3de','#fffbde','#ffffde','#f7ffde','#f7ffde','#efffde','#deffe7','#defff7','#deffff','#deffff','#def7ff','#def3ff','#dee7ff','#e7dfff','#efdfff','#f7dfff','#f7dfff','#ffdfff','#ffdfff','#ffdff7','#ffdff7',
+    '#ffcfde','#ffd3ce','#ffe7ce','#ffefce','#fff7ce','#ffffce','#f7ffce','#efffce','#e7ffce','#ceffd6','#ceffef','#cefff7','#ceffff','#cef3ff','#ceebff','#cedbff','#decfff','#e7cfff','#efcfff','#efcfff','#f7cfff','#ffcfff','#ffcff7','#ffcfef',
+    '#ffaebd','#ffb6ad','#ffd3ad','#ffe3ad','#fff3ad','#ffffad','#efffad','#deffad','#ceffad','#adffb5','#adffe7','#adfff7','#adffff','#adebff','#addfff','#adbeff','#c6aeff','#d6aeff','#e7aeff','#e7aeff','#f7aeff','#ffaeff','#ffaeef','#ffaede',
+    '#ff869c','#ff8e84','#ffba84','#ffd384','#ffeb84','#ffff84','#e7ff84','#ceff84','#b5ff84','#84ff8c','#84ffd6','#84ffef','#84ffff','#84e3ff','#84cbff','#849eff','#a586ff','#bd86ff','#d686ff','#d686ff','#ef86ff','#ff86ff','#ff86e7','#ff86ce',
+    '#ff5573','#ff6152','#ffa252','#ffc352','#ffdf52','#ffff52','#d6ff52','#b5ff52','#94ff52','#52ff63','#52ffc6','#52ffde','#52ffff','#52d7ff','#52b6ff','#5275ff','#8455ff','#a555ff','#c655ff','#c655ff','#de55ff','#ff55ff','#ff55d6','#ff55b5',
+    '#ff2452','#ff3421','#ff8621','#ffae21','#ffd721','#ffff21','#ceff21','#a5ff21','#7bff21','#21ff31','#21ffad','#21ffd6','#21ffff','#21cbff','#21a2ff','#2151ff','#5a24ff','#8424ff','#ad24ff','#ad24ff','#d624ff','#ff24ff','#ff24ce','#ff24a5',
+    '#ff0031','#ff0c00','#ff6d00','#ff9e00','#ffcf00','#ffff00','#c6ff00','#94ff00','#63ff00','#00ff08','#00ff9c','#00ffce','#00ffff','#00c3ff','#0092ff','#0030ff','#3900ff','#6b00ff','#9c00ff','#9c00ff','#ce00ff','#ff00ff','#ff00c6','#ff0094',
+    '#e70029','#e70c00','#e76500','#e79200','#e7ba00','#e7e700','#ade700','#84e700','#52e700','#00e708','#00e794','#00e7bd','#00e7e7','#00aee7','#0082e7','#0028e7','#3900e7','#6300e7','#9400e7','#9400e7','#bd00e7','#e700e7','#e700ad','#e70084',
+    '#ce0021','#ce0c00','#ce5900','#ce8200','#ceaa00','#cecf00','#9ccf00','#73cf00','#4acf00','#00cf08','#00cf84','#00cfad','#00cfce','#009ece','#0075ce','#0024ce','#3100ce','#5a00ce','#8400ce','#8400ce','#ad00ce','#ce00ce','#ce009c','#ce0073',
+    '#9c0018','#9c0800','#9c2400','#9c6100','#9c8200','#9c9e00','#7b9e00','#5a9e00','#399e00','#009e08','#009e63','#009e84','#009e9c','#00799c','#00599c','#001c9c','#21009c','#42009c','#63009c','#63009c','#84009c','#9c009c','#9c007b','#9c005a',
+    '#730010','#730400','#731c00','#734900','#736100','#737500','#5a7500','#427500','#297500','#007500','#00754a','#007563','#007573','#005973','#004173','#001473','#180073','#310073','#4a0073','#4a0073','#630073','#730073','#73005a','#730042',
+    '#5a0010','#5a0400','#5a1400','#5a3800','#5a4d00','#5a5d00','#4a5d00','#315d00','#215d00','#005d00','#005d39','#005d4a','#005d5a','#00495a','#00345a','#00105a','#10005a','#29005a','#39005a','#39005a','#4a005a','#5a005a','#5a004a','#5a0031',
+    '#420008','#420400','#421000','#422c00','#423800','#424500','#314500','#294500','#184500','#004500','#004529','#004539','#004542','#003442','#002842','#000c42','#100042','#180042','#290042','#290042','#390042','#420042','#420031','#420029',
+    '#390008','#390000','#390c00','#391800','#393000','#393c00','#313c00','#213c00','#183c00','#003c00','#003c21','#003c31','#003c39','#003039','#002439','#000c39','#080039','#180039','#210039','#210039','#310039','#390039','#390031','#390021' );
+
+  document.write( "<FORM NAME=ColorForm>\n" )
+//  document.write( "<DIV ALIGN=center>\n" )
+  document.write( "<TABLE BGCOLOR=black BORDER=0 CELLPADDING=0 CELLSPACING=1>\n" )
+  //document.write( "<TR><TD COLSPAN=25><IMG SRC=./ctablehead.gif BORDER=0></TD></TR>" )
+  document.write( "<TR><TD COLSPAN=25>" )
+  document.write( "<INPUT TYPE=text NAME=rgb SIZE=12>" )
+  document.write( "<INPUT TYPE=text NAME=col SIZE=24 readonly>" )
+  document.write( "</TD></TR>\n" )
+
+  document.write( "<TR BGCOLOR=black>" );
+  var   colwidth = 24;
+  for( i = 0; i < colwidth; i++ )
+    PutColorCell( "#ffffff" );
+  document.write( "</TR>\n" );
+
+  var   colmax = 15 * colwidth;
+  for( i = 0; i < colmax; i++ )
+  {
+    if( i % colwidth == 0 )
+      document.write( "<TR>" );
+    PutColorCell( ColorTable[i] );
+    if( i % colwidth == colwidth-1 )
+      document.write( "</TR>\n" );
+  }
+
+  document.write( "<TR>" );
+  for( i = 0; i < colwidth; i++ )
+    PutColorCell( "#000000" );
+  document.write( "</TR>\n" );
+
+  //document.write( "<TR><TD COLSPAN=25><IMG SRC=./ctabletail.gif BORDER=0></TD></TR>" )
+  document.write( "</TABLE>\n" )
+//  document.write( "</DIV>\n" )
+  document.write( "</FORM>\n" )
+}
+//----------------------------------------------------------------------------
+if( window.opener )
+  ShowColorTable();
+else
+{
+  alert( "관리자 메뉴에서만 실행하십시오." );
+  self.close();
+}
+//----------------------------------------------------------------------------
+</SCRIPT>
+</BODY>
+</HTML>

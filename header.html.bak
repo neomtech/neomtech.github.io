@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE> 네오엠텍 홈페이지에 오신것을 환영합니다.</TITLE>
+<LINK HREF="font.css" REL="StyleSheet" TYPE="text/css">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_showHideLayers() { //v6.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+//-->
+</script>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" leftmargin=0 topmargin=0 marginwidth=0 marginheight=0 onLoad="MM_preloadImages('images/topmenu1_01.gif','images/topmenu1_02.gif','images/topmenu1_03.gif','images/topmenu1_04.gif','images/topmenu1_05.gif','images/topmenu_s1_01_1.gif','images/topmenu_s1_02_1.gif','images/topmenu_s1_03_1.gif','images/topmenu_s1_04_1.gif','images/topmenu_s2_01_1.gif','images/topmenu_s2_02_1.gif','images/topmenu_s3_01_1.gif','images/topmenu_s3_02_1.gif','images/topmenu_s3_03_1.gif','images/topmenu_s3_04_1.gif','images/topmenu_s4_01_1.gif','images/topmenu_s5_01_1.gif','images/topmenu_s5_02_1.gif')">
+
+<div id="Layer1" style="position:absolute; left:285px; top:54px; width:223px; height:30px; z-index:1; visibility: hidden;"> 
+  <table CELLPADDING=0 CELLSPACING=0 border="0">
+    <tr> 
+      <td><a href="company/info.html" target="_top" onMouseOver="MM_swapImage('Image6','','images/topmenu_s1_01_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s1_01.gif" name="Image6" BORDER=0 id="Image6"></a></td>
+      <td><IMG SRC="images/topme_00.gif" BORDER=0 ALT=""></td>
+      <td><a href="company/vision.html" target="_top" onMouseOver="MM_swapImage('Image7','','images/topmenu_s1_02_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s1_02.gif" name="Image7" BORDER=0 id="Image7"></a></td>
+      <td><IMG SRC="images/topme_00.gif" BORDER=0 ALT=""></td>
+      <td><a href="company/history.html" target="_top" onMouseOver="MM_swapImage('Image8','','images/topmenu_s1_03_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s1_03.gif" name="Image8" BORDER=0 id="Image8"></a></td>
+      <td><IMG SRC="images/topme_00.gif" BORDER=0 ALT=""></td>
+      <td><a href="company/organ.html" target="_top" onMouseOver="MM_swapImage('Image9','','images/topmenu_s1_04_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s1_04.gif" name="Image9" BORDER=0 id="Image9"></a></td>
+    </tr>
+  </table>
+</div>
+<div id="Layer2" style="position:absolute; left:411px; top:54px; width:166px; height:30px; z-index:2; visibility: hidden;">
+  <table CELLPADDING=0 CELLSPACING=0 border="0">
+    <tr> 
+      <td><a href="service/bank.html" target="_top" onMouseOver="MM_swapImage('Image10','','images/topmenu_s2_01_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s2_01.gif" name="Image10" BORDER=0 id="Image10"></a></td>
+      <td><IMG SRC="images/topme_00.gif" BORDER=0 ALT=""></td>
+      <td><a href="service/giro.html" target="_top" onMouseOver="MM_swapImage('Image11','','images/topmenu_s2_02_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s2_02.gif" name="Image11" BORDER=0 id="Image11"></a></td>
+    </tr>
+  </table>
+</div>
+<div id="Layer3" style="position:absolute; left:400px; top:54px; width:331px; height:30px; z-index:3; visibility: hidden;">
+  <table CELLPADDING=0 CELLSPACING=0 border="0">
+    <tr> 
+      <td><a href="solution/mts.html" target="_top" onMouseOver="MM_swapImage('Image12','','images/topmenu_s3_01_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s3_01.gif" name="Image12" BORDER=0 id="Image12"></a></td>
+      <td><IMG SRC="images/topme_00.gif" BORDER=0 ALT=""></td>
+      <td><a href="solution/player.html" target="_top" onMouseOver="MM_swapImage('Image13','','images/topmenu_s3_02_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s3_02.gif" name="Image13" BORDER=0 id="Image13"></a></td>
+      <td><IMG SRC="images/topme_00.gif" BORDER=0 ALT=""></td>
+      <td><a href="solution/study.html" target="_top" onMouseOver="MM_swapImage('Image14','','images/topmenu_s3_03_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s3_03.gif" name="Image14" BORDER=0 id="Image14"></a></td>
+      <td><IMG SRC="images/topme_00.gif" BORDER=0 ALT=""></td>
+      <td><a href="solution/sfa.html" target="_top" onMouseOver="MM_swapImage('Image15','','images/topmenu_s3_04_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s3_04.gif" name="Image15" BORDER=0 id="Image15"></a></td>
+	   <td><IMG SRC="images/topme_00.gif" BORDER=0 ALT=""></td>
+      <td><a href="solution/dc.html" target="_top" onMouseOver="MM_swapImage('Image20','','images/topmenu_s3_05.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s3_05_1.gif" name="Image20" BORDER=0 id="Image20"></a></td>
+	  <td><IMG SRC="images/topme_00.gif" BORDER=0 ALT=""></td>
+     <td><a href="solution/face.html" target="_top" onMouseOver="MM_swapImage('Image21','','images/topmenu_s3_06_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s3_06_2.gif" name="Image21" BORDER=0 id="Image21"></a></td>
+    
+	</tr>
+  </table>
+</div>
+<div id="Layer4" style="position:absolute; left:735px; top:54px; width:79px; height:30px; z-index:4; visibility: hidden;">
+  <table CELLPADDING=0 CELLSPACING=0 border="0">
+    <tr>
+      <td><a href="partner/list.html" target="_top" onMouseOver="MM_swapImage('Image16','','images/topmenu_s4_01_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s4_01.gif" name="Image16" BORDER=0 id="Image16"></a></td>
+    </tr>
+  </table>
+</div>
+<!--
+<div id="Layer5" style="position:absolute; left:855px; top:54px; width:140px; height:30px; z-index:5; visibility: hidden;">
+  <table CELLPADDING=0 CELLSPACING=0 border="0">
+    <tr>
+      <td><a href="/news/news_list.asp?nPage=1" target="_top" onMouseOver="MM_swapImage('Image17','','images/topmenu_s5_01_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s5_01.gif" name="Image17" BORDER=0 id="Image17"></a></td>
+      <td><img src="images/topme_00.gif" BORDER=0></td>
+      <td><a href="/news/notice_list.asp?nPage=1" target="_top" onMouseOver="MM_swapImage('Image18','','images/topmenu_s5_02_1.gif',1)" onMouseOut="MM_swapImgRestore()"><img src="images/topmenu_s5_02.gif" name="Image18" BORDER=0 id="Image18"></a></td>
+    </tr>
+  </table>
+</div>
+--> 
+<div id="Layer5" style="position:absolute; left:855px; top:54px; width:140px; height:30px; z-index:5; visibility: hidden;">
+  <table CELLPADDING=0 CELLSPACING=0 border="0">
+    <tr>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
+
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 HEIGHT=99 class="doc" background="images/back_top.gif">
+	<TR>
+		<TD WIDTH=79 align=right><IMG SRC="images/back_top_1.gif" WIDTH="20" HEIGHT="99" BORDER=0></TD>
+		<TD WIDTH=1 BGCOLOR="#E7E7E7"></TD>
+		<TD WIDTH=200 align=center BGCOLOR="#FFFFFF"><A HREF="http://www.neomtech.com" target=_top><IMG SRC="images/logo_new.gif" ALT="" width="181" height="63" BORDER=0></A></TD>
+		<TD WIDTH=140 valign=top><a href="company/info.html" target="_top" onMouseOver="MM_swapImage('Image1','','images/topmenu1_01.gif',1);MM_showHideLayers('Layer1','','show','Layer2','','hide','Layer3','','hide','Layer4','','hide','Layer5','','hide')" onMouseOut="MM_swapImgRestore()"><IMG SRC="images/topmenu_01.gif" ALT="" name="Image1" WIDTH="140" HEIGHT="99" BORDER=0 id="Image1"></a></TD>
+		<TD WIDTH=140 valign=top><a href="service/bank.html" target="_top" onMouseOver="MM_swapImage('Image2','','images/topmenu1_02.gif',1);MM_showHideLayers('Layer1','','hide','Layer2','','show','Layer3','','hide','Layer4','','hide','Layer5','','hide')" onMouseOut="MM_swapImgRestore()"><IMG SRC="images/topmenu_02.gif" ALT="" name="Image2" WIDTH="140" HEIGHT="54" BORDER=0 id="Image2"></a></TD>
+		<TD WIDTH=140 valign=top><a href="solution/mts.html" target="_top" onMouseOver="MM_swapImage('Image3','','images/topmenu1_03.gif',1);MM_showHideLayers('Layer1','','hide','Layer2','','hide','Layer3','','show','Layer4','','hide','Layer5','','hide')" onMouseOut="MM_swapImgRestore()"><IMG SRC="images/topmenu_03.gif" ALT="" name="Image3" WIDTH="140" HEIGHT="54" BORDER=0 id="Image3"></a></TD>
+		<TD WIDTH=140 valign=top><a href="partner/list.html" target="_top" onMouseOver="MM_swapImage('Image4','','images/topmenu1_04.gif',1);MM_showHideLayers('Layer1','','hide','Layer2','','hide','Layer3','','hide','Layer4','','show','Layer5','','hide')" onMouseOut="MM_swapImgRestore()"><IMG SRC="images/topmenu_04.gif" ALT="" name="Image4" WIDTH="140" HEIGHT="54" BORDER=0 id="Image4"></a></TD>
+		<!--
+		<TD WIDTH=140 valign=top>
+		<a href="/news/news_list.asp?nPage=1" target="_top" onMouseOver="MM_swapImage('Image5','','images/topmenu1_05.gif',1);MM_showHideLayers('Layer1','','hide','Layer2','','hide','Layer3','','hide','Layer4','','hide','Layer5','','show')" onMouseOut="MM_swapImgRestore()"><IMG SRC="images/topmenu_05.gif" ALT="" name="Image5" WIDTH="140" HEIGHT="54" BORDER=0 id="Image5"></a></TD>
+		--> 
+
+				<TD WIDTH=140 align=right><IMG SRC="images/back_top_1.gif" WIDTH="20" HEIGHT="99" BORDER=0></TD>
+
+
+	</TR>
+</TABLE>
+
+
+
+
+
+</BODY>
+</HTML>

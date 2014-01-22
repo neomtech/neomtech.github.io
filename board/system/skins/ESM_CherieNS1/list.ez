@@ -1,0 +1,168 @@
+#---------------------------------------------------------------------
+# 이지보드 2000  낙서장 스킨
+#
+# 만 든 이 : 전북대학교 전자공학과 Cherie 채경삼(cherie@hello.to)
+#---------------------------------------------------------------------
+# 주의사항 :
+#   . 관리자 메뉴에서 게시판 제목그림을 ./system/image/blank.gif로 설
+#     정하면 보다 깔끔한 메모장이 됩니다.
+#   . 관리자 사칭금지및 메일필수입력항목을 꺼줘야 제대로 동작합니다.
+#---------------------------------------------------------------------
+[%System%]
+;EzBoardImage=./system/image/blank.gif
+;EzBoardTitle=우리나라
+;EzAutoTitle=1
+EzDateFormat=%m/%d
+SubjectSmile=1
+[%End%]
+
+[%Head%]
+<SCRIPT LANGUAGE="JavaScript">
+function CheckValue( field, value )
+{
+  if( field.value == value ||
+      field.value == "" )
+  {
+    alert( value + "을 입력해주세요." );
+    field.focus();
+    return  false;
+  }
+  return  true;
+}
+
+function OnCheckSubmit()
+{
+	var mf = document.InputForm;
+  if( !CheckValue(mf.name, "이름") )
+  {
+    mf.name.focus();
+    return  false;
+  }
+  if( !CheckValue(mf.subj, "내용") )
+  {
+    return  false;
+  }
+  if( mf.mail.value == "메일" )
+  {
+    mf.mail.value = "";
+  }
+($if cfg.MustEmail)
+  if( !CheckValue(mf.InputForm.mail, "메일") )
+  {
+    return  false;
+  }
+($endif)
+;  mf.submit();
+  return  true;
+}
+
+function OnEnter( field ) 
+{ 
+;  if( field.value == field.defaultValue )
+  if( field.value == "이름" || field.value == "메일" || field.value == "내용" ) field.value = "";
+}
+
+function OnExit( field )  { if( field.value == "" ) field.value = field.defaultValue; }
+</SCRIPT>
+
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=2 BACKGROUND='($path.skin)/bg.gif'>
+  <TR>
+    <TD>
+      <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=5>
+;      <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=($cfg.EzCellPadding)>
+        <TR ALIGN=center>
+          <TD WIDTH=100% COLSPAN=4>
+            <TABLE BORDER=0 WIDTH=100% CELLPADDING=0 CELLSPACING=0>
+              <TR>
+                <TD><A HREF='($link.admin)' ($status=관리자메뉴)><IMG SRC='($path.skin)/admin.gif' BORDER=0 ALT='관리자메뉴'></A></TD>
+                <TD WIDTH=100% ALIGN=center><FONT COLOR=($cfg.EzListHeadTxtCol)>($cfg.EzBoardTitle)</TD>
+                <TD>&nbsp;</TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+[%End%]
+
+[%Body%]
+($if cfg.CellCount=0)
+        <TR VALIGN=top>
+($endif)
+($add CellCount=1)
+;          <TD WIDTH=25% VALIGN=top >
+          <TD WIDTH=25% VALIGN=top BACKGROUND='($path.skin)/bg/bg($db.faceno).gif'>
+            <TABLE BORDER=0 WIDTH=100%>
+            <TR>
+            <TD NOWRAP>
+            <A HREF='($link.delete)' ($status=Delete)><FONT COLOR='($cfg.EzDefColor)'>($db.date.notime)</FONT></A> &nbsp;
+            </TD>
+            <TD ALIGN=right NOWRAP>
+            ($ifs db.mail)<A HREF='($link.mail)' ($status=db.mail)>($endif)<FONT COLOR='($cfg.EzDefColor)'>($db.shortname)</FONT></A>
+            ($ifs db.mail)<A HREF='($link.mail)' ($status=db.mail)><IMG SRC='($path.skin)/mail.gif' BORDER=0></A>($endif)
+;            <A HREF='($link.modify)'><FONT COLOR='($cfg.EzDefColor)'>($db.shortname)</FONT></A>
+;            ($ifs db.mail)<A HREF='($link.mail)'><IMG SRC='($path.skin)/mail.gif' BORDER=0></A>($endif)
+;            ($ifs db.home)<A HREF='($db.home)' TARGET='($cfg.EzLinkTarget)'><IMG SRC='($path.skin)/home.gif' BORDER=0></A>($endif)
+            </TD></TR>
+            <TR><TD COLSPAN=2>
+            ($db.subj)
+            <BR>
+            </TD></TR>
+            </TABLE>
+            <BR>
+          </TD>
+($if cfg.CellCount=4)
+($set CellCount=0)
+        </TR>
+($endif)
+[%End%]
+
+[%Tail%]
+;<TABLE ($color BGCOLOR=EzListHeadBkCol) WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=2>
+        <TR ALIGN=center>
+          <TD COLSPAN=4>
+($menu.page)
+          </TD>
+        </TR>
+        <TR ALIGN=center>
+          <FORM NAME=InputForm METHOD=post ACTION='($path.main)' onSubmit="return OnCheckSubmit()">
+          <INPUT TYPE=hidden NAME=action VALUE='write'>
+          <INPUT TYPE=hidden NAME=db VALUE='($par.db)'>
+          <INPUT TYPE=hidden NAME=page VALUE='($par.page)'>
+          <INPUT TYPE=hidden NAME=cont VALUE='^^'>
+          <TD COLSPAN=4 ALIGN=center NOWRAP>
+          <INPUT TYPE=text NAME=name SIZE=8 MAXLENGTH=8 VALUE='($cookie.name)' onblur="OnExit(this)" onfocus="OnEnter(this)" CLASS=editbox>
+          <INPUT TYPE=text NAME=mail SIZE=14 MAXLENGTH=40 VALUE='($cookie.mail)' onblur="OnExit(this)" onfocus="OnEnter(this)" CLASS=editbox>
+          <SELECT NAME='faceno'>
+            <OPTION VALUE='0'>배경없음</OPTION>
+            <OPTION VALUE='1'>호박</OPTION>
+            <OPTION VALUE='2'>잠자리</OPTION>
+            <OPTION VALUE='3'>바보</OPTION>
+            <OPTION VALUE='4'>하트</OPTION>
+            <OPTION VALUE='5'>입술</OPTION>
+            <OPTION VALUE='6'>개구리1</OPTION>
+            <OPTION VALUE='7'>개구리2</OPTION>
+            <OPTION VALUE='8'>꽃잎</OPTION>
+            <OPTION VALUE='9'>심슨가족</OPTION>
+          </SELECT>
+          <BR>
+          <INPUT TYPE=text NAME=subj SIZE=31 MAXLENGTH=100 VALUE='내용' onblur="OnExit(this)" onfocus="OnEnter(this)" CLASS=editbox>
+($if cfg.EzAdminProtect)
+          <INPUT TYPE=password NAME=pass SIZE=6 MAXLENGTH=8 VALUE='' CLASS=editbox>
+($endif)
+          <INPUT TYPE=submit VALUE='입력' CLASS=button>
+          </TD>
+          </FORM>
+        </TR>
+      </TBODY>
+      </TABLE>
+    </TD>
+  </TR>
+  </TBODY>
+</TABLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+  var mf = document.InputForm;
+  if( mf.name.defaulvalue == "" )   mf.name.value = "이름";
+  if( mf.mail.defaultvalue == "" )  mf.mail.value = "메일";
+  setTimeout( 'document.InputForm.name.focus()', 10 );
+</SCRIPT>
+[%End%]

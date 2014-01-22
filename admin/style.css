@@ -1,0 +1,7 @@
+TD		{font-size :9pt; font-family: Verdana, ±¼¸², µ¸¿ò; color :#666666;}
+DIV		{font-size :9pt; font-family: Verdana, ±¼¸², µ¸¿ò; color :#666666;}
+INPUT	{font-size :9pt; font-style: ±¼¸²; font-weight: normal;}
+SELECT	{font-size :9pt; font-style: ±¼¸²; color :#666666;}
+A		{text-decoration: none; color:#666666}  
+A:hover	{text-decoration: none; color:#0099CC}
+.input	{ font-size: 12px; font-family: ±¼¸², µ¸¿ò, Arial; border-left: 1px inset; border-right: 1px outset; border-top: 1px inset; border-bottom: 1px outset; }

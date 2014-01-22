@@ -1,0 +1,110 @@
+[%System%]
+DateFormat=%Y/%m/%d %a %H:%M:%S
+EzUseSmile=0
+EzAutoLink=0
+EzTableWidth=100%
+;EzBoardImage=
+EzBoardTitle=
+EzBackImage=
+;항상 배경색이 흰색이 되도록 수정하였다.
+EzBackColor=white
+[%End%]
+
+[%Body%]
+
+;</CENTER>
+;</BODY>
+;수정 유틸나라(newpds) 홈페이지 http://newpds.wo.to 전자우편 jar8205@kebi.com
+
+;인쇄창 자동 출력 스크립트
+<script language="JavaScript">
+function Print() {
+window.print();
+}
+</script>
+
+;창 좌표 자동 이동 스크립트
+<script language=javascript>
+window.moveTo( 0, 0 )
+</script>
+
+;Body안에  onload='Print()' 가 들어가야 인쇄창 자동 스크립트가 실행된다.
+;<BODY BGCOLOR='white' TEXT='black' onload='Print()'>
+
+<STYLE TYPE='text/css'>
+  p,br,body,table,td,select,input,form,textarea,option { font-family:굴림; font-size:10pt; }
+</STYLE>
+
+<DIV ALIGN=left>
+<TABLE BGCOLOR=white WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=5>
+  <TR>
+    <TD>
+<TABLE BGCOLOR=white WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=2>
+;  <TR>
+;    <TD WIDTH=2% NOWRAP><FONT FACE=굴림체><B>제&nbsp;&nbsp;&nbsp;&nbsp;목:</B></FONT>&nbsp;</TD>
+;    <TD WIDTH=98%>
+;    ($db.subj)
+;    </TD>
+;  </TR>
+;  <TR>
+;    <TD COLSPAN=2>
+;    &nbsp;
+;    </TD>
+;  </TR>
+  <TR>
+    <TD COLSPAN=2 ALIGN=center>
+    <HR COLOR=black WIDTH=100% noshade>
+;    <HR COLOR=black WIDTH=100% noshade SIZE=1>
+    <B>($db.subj)</B>
+    <HR COLOR=black WIDTH=100% noshade>
+    </TD>
+  </TR>
+  <TR>
+    <TD WIDTH=2% NOWRAP><FONT FACE=굴림체><B>작 성 자:</B></FONT>&nbsp;</TD>
+    <TD WIDTH=98%>
+    ($db.name)
+    </TD>
+  </TR>
+  <TR>
+    <TD WIDTH=2% NOWRAP><FONT FACE=굴림체><B>작 성 일:</B></FONT>&nbsp;</TD>
+    <TD WIDTH=98%>
+    ($db.date.modify)
+    </TD>
+  </TR>
+($ifs db.mail)
+  <TR>
+    <TD WIDTH=2% NOWRAP><FONT FACE=굴림체><B>전자메일:</B></FONT>&nbsp;</TD>
+    <TD WIDTH=98%>
+    ($db.mail)
+    </TD>
+  </TR>
+($endif)
+($ifs db.home)
+  <TR>
+    <TD WIDTH=2% NOWRAP><FONT FACE=굴림체><B>홈페이지:</B></FONT>&nbsp;</TD>
+    <TD WIDTH=98%>
+    ($db.home)
+    </TD>
+  </TR>
+($endif)
+  <TR>
+    <TD COLSPAN=2>
+    <HR COLOR=black WIDTH=100% noshade SIZE=1>
+;    <BR>
+    ($db.cont)
+    <HR COLOR=black WIDTH=100% noshade SIZE=1>
+    </TD>
+  </TR>
+<TR>
+<TD COLSPAN=2 ALIGN=right>
+| <A HREF='javascript:Print()'><FONT COLOR=black>인쇄</FONT></A> |
+ <A HREF='javascript:self.close()'><FONT COLOR=black>닫기</FONT></A> |
+</TD>
+</TR>
+
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+</DIV>
+[%End%]

@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE> 네오엠텍 홈페이지에 오신것을 환영합니다.</TITLE>
+<LINK HREF="../font.css" REL="StyleSheet" TYPE="text/css">
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
+
+
+<!-- 탑메뉴 시작 -->
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD background="../images/back_top.gif"><iframe name="header" scrolling="NO" frameborder="NO" noresize src="../header.html" frameborder="NO" width=980 height=99 scrolling="no"></iframe></TD>
+	</TR>
+</TABLE>
+<!-- 탑메뉴 끝 -->
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD HEIGHT=5 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD background="images/back_body.gif">
+		<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 class="doc">
+			<TR>
+				<TD WIDTH=80 background="../images/back_s_left.gif" align=center valign=bottom><IMG SRC="../images/menu_left.gif" WIDTH="60" HEIGHT="125" BORDER=0 ALT=""><br><br></TD>
+				<TD WIDTH=900><IMG SRC="images/info_visual.gif" WIDTH="900" HEIGHT="212" BORDER=0 ALT=""></TD>
+			</TR>
+		</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD HEIGHT=5 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD>
+		<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 class="doc">
+			<TR>
+				<TD WIDTH="79"></TD>
+				<TD WIDTH="1" BGCOLOR="#E7E7E7"></TD>
+				<TD WIDTH="900">
+				 
+				<TABLE WIDTH="900" BORDER=0 CELLPADDING=0 CELLSPACING=0>
+					<TR>
+						<TD HEIGHT=5></TD>
+					</TR>
+					<TR>
+						<TD HEIGHT=28 align=right> HOME > Company > General Info</TD>
+					</TR>
+					<TR>
+						<TD HEIGHT=5></TD>
+					</TR>
+				</TABLE>
+				<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=900 class="doc">
+					<TR>
+						<TD WIDTH="200" align=center valign=top>
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=200 class="doc">
+							<TR>
+								<TD WIDTH=15 valign=top><IMG SRC="images/line_01.gif" WIDTH="15" HEIGHT="200" BORDER=0 ALT=""></TD>
+								<TD WIDTH=184 valign=top>
+								<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=148 class="doc">
+									<TR>
+										<TD><IMG SRC="images/me_title_00.gif" WIDTH="148" HEIGHT="36" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="info.html"><IMG SRC="images/me_title_01_1.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="vision.html"><IMG SRC="images/me_title_02.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="history.html"><IMG SRC="images/me_title_03.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="organ.html"><IMG SRC="images/me_title_04.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+								</TABLE>
+								</TD>
+								<TD WIDTH=1 background="images/line_02.gif"></TD>
+							</TR>
+						</TABLE>
+						</TD>
+						<TD WIDTH="700" align=center valign=top>
+
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=650 class="doc">
+							<TR>
+								<TD><IMG SRC="images/stitle_01.gif" WIDTH="647" HEIGHT="53" BORDER=0 ALT=""></TD>
+							</TR>
+							<TR>
+								<TD HEIGHT="30"></TD>
+							</TR>
+						</TABLE>
+						
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=600 class="doc">
+							<TR>
+								<TD>
+								네오엠텍은 유무선 통신사업자, e비즈니스와 관련된 서비스 및 인프라를 제공하고 있는 사업자를 
+								대상으로 솔루션, 서비스, 그와 관련된 비즈니스 플랫폼을 제공해 드립니다.<br>
+								특히, 무선인터넷 비즈니스의 성공적인 전개를 위한 솔루션 및 서비스 영역에 대해서 최상의 
+								기술력과 서비스 노하우를 보유하고 있으며, 이미 무선통신사 및 비자카드 등 대규모 기업을 
+								대상으로 솔루션 및 서비스를 제공한 바 있어 솔루션의 안정성 및 기술력을 인정 받고 있습니다.
+								</TD>
+							</TR>
+							<TR>
+								<TD HEIGHT="20"></TD>
+							</TR>
+							<TR>
+								<TD>
+								<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=600 class="doc">
+									<TR>
+										<TD HEIGHT="2" bgcolor="#AAAAAA" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD WIDTH=119 align=center><B>회 사 명</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD WIDTH=480 style="padding-left:10;">주식회사 네오엠텍 ( NEOMTECH. CO )</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD align=center><B>대표이사</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">장 석 준</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD align=center><B>설립일자</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">2004 년 2월 26일</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="60">
+										<TD align=center><B>주 사업부문</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">
+										Telecom SI 및 유지보수, 소프트웨어 패키지 개발/판매, 해외 영업 <br>
+										Telecom NMS, 모바일 솔루션 개발, 모바일 컨텐츠 서비스<br>
+										소프트웨어 임대사업( ASP ), m-Business solution 개발사업 
+										</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD align=center><B>소 재 지</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">서울시 송파구 가락동 99-3 제일 빌딩 817, 818호</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD align=center><B>홈페이지</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">Http://www.neomtech.com</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD align=center><B>연 락 처</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;"><B>TEL</B>. 02-407-1903,&nbsp;&nbsp;&nbsp;<B>FAX</B>. 02-407-1904</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="350">
+										<TD align=center><B>약도</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;"><IMG SRC="images/yakdo.gif" WIDTH="479" HEIGHT="300" BORDER=0></TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="2" bgcolor="#AAAAAA" colspan=3></TD>
+									</TR>
+								</TABLE>
+								</TD>
+							</TR>
+						</TABLE>
+						
+						</TD>
+					</TR>
+				</TABLE>
+				
+				<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+					<TR>
+						<TD HEIGHT=40></TD>
+					</TR>
+				</TABLE>
+				
+				</TD>
+			</TR>
+		</TABLE>
+
+		</TD>
+	</TR>
+</TABLE>
+
+<!-- 하단메뉴 시작 -->
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD HEIGHT=1 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD><iframe name="footer" scrolling="NO" frameborder="NO" noresize src="../footer.html" frameborder="NO" width=980 height=50 scrolling="no"></iframe></TD>
+	</TR>
+</TABLE>
+<!-- 하단메뉴 끝 -->
+
+
+
+
+</BODY>
+</HTML>

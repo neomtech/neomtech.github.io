@@ -1,0 +1,45 @@
+#---------------------------------------------------------------------
+# 이지보드 2000  게시물 Forward 스킨
+#---------------------------------------------------------------------
+# Programmer  : 전북대학교 전자공학과 Cherie 채경삼
+#                 이 메 일: cherie@hello.to
+#                 홈페이지: http://hello.to/cherie
+#---------------------------------------------------------------------
+[%System%]
+[%End%]
+
+[%Body%]
+<FORM NAME=ForwardForm METHOD=post ACTION='($path.main)'>
+($hidden.info)
+;  <INPUT TYPE=hidden NAME=db      VALUE='($par.db)'>
+  <INPUT TYPE=hidden NAME=action  VALUE='fwmail'>
+  <INPUT TYPE=hidden NAME=dbf     VALUE='($par.dbf)'>
+;  <INPUT TYPE=hidden NAME=pass    VALUE='($par.pass)'>
+
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=1 CELLPADDING=2 ALIGN=center>
+  <TR>
+    <TD ALIGN=right NOWRAP>보내는 사람</TD>
+    <TD WIDTH=100%>
+      <INPUT TYPE='text' NAME='frommail' VALUE='($cookie.frommail)' SIZE='30' MAXLENGTH='50' CLASS=editbox>
+    </TD>
+  </TR>
+  <TR>
+    <TD ALIGN=right NOWRAP>받는 사람</TD>
+    <TD WIDTH=100%>
+      <INPUT TYPE='text' NAME='tomail' VALUE='($cookie.tomail)' SIZE='30' CLASS=editbox>
+;      <INPUT TYPE='text' NAME='tomail' VALUE='($cookie.tomail)' SIZE='30' MAXLENGTH='50' CLASS=editbox>
+    </TD>
+  </TR>
+  <TR ALIGN=center>
+    <TD COLSPAN=2>
+      <INPUT TYPE='submit' VALUE='   Send   ' CLASS=button>
+      <INPUT TYPE='reset'  VALUE='  Close  ' CLASS=button onClick='window.close();'>
+    </TD>
+  </TR>
+</TABLE>
+</FORM>
+
+<SCRIPT LANGUAGE="JavaScript">
+  setTimeout( 'document.ForwardForm.frommail.focus()', 10 );
+</SCRIPT>
+[%End%]

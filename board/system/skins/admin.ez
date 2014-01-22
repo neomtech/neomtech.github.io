@@ -1,0 +1,229 @@
+#--------------------------------------------------------------------
+# 이지보드 2000 관리자 메뉴 ver 1.01
+#--------------------------------------------------------------------
+# Programmer  : 전북대 전자공학과 Cherie 채경삼(cherie@hello.to)
+# Menu Design : 전북대 물리학과 cacolith 채윤철(cacolith@iam)
+# Made Date   : 2000.06.01
+#--------------------------------------------------------------------
+# Description : 
+#   이지보드 2000의 관리자는 이지보드 변수와 사용자 변수를 모두 지원
+#   한다.
+#   사용자 변수를 읽고 쓰도록 하려면 사용하고 싶은 변수명앞에 My를 붙
+#   여주면 된다.
+#   사용예) <INPUT TYPE=text NAME=MyChenie VALUE='love'>
+#--------------------------------------------------------------------
+
+[%System%]
+; 스킨버전 - if/else등 다양한 함수를 사용하기위해
+EzSkinVersion=1
+; 관리자 메뉴항목 갯수
+MaxMenu=10
+; 회원 DB/그룹 편집기
+MemberManager=ezmem.cgi
+[%End%]
+
+[%Body%]
+; 관리자 메뉴 컬러셋 로딩
+($include admin_col)
+<LINK REL=StyleSheet HREF='($path.system)/script/admin.css' TYPE='text/css' TITLE='Ez2000 Admin Menu CSS'>
+<SCRIPT LANGUAGE="JavaScript" SRC='($path.system)/script/admin.js'></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC='($path.system)/script/multi.js'></SCRIPT>
+
+; 현재 관리자 메뉴 항목 갯수 설정
+<SCRIPT LANGUAGE="JavaScript">
+var maxlayer = 10;
+
+function EditMember( file )
+{
+  var url  = '($cfg.MemberManager)?db=' + file;
+  _popwin( "_blank", url, "600", "410" );
+}
+
+function SelColor( target )
+{
+  window.open( "($path.system)/script/color.htm", target, "width=242,height=210,resizable=no,scrollbars=no,status=0" );
+}
+
+function SetPerm( name )
+{
+  var mf = document.ConfigForm;
+  target = name + '_' + mf[name].value;
+  window.open( "($path.system)/script/perm.htm", target, "width=150,height=222,resizable=no,scrollbars=no,status=0" );
+}
+</SCRIPT>
+
+<DIV ALIGN=center>
+<FORM NAME=ConfigForm METHOD=post ACTION='($path.admin)'>
+<INPUT TYPE=hidden NAME=db VALUE=($par.db)>
+<INPUT TYPE=hidden NAME=action VALUE=save>
+<INPUT TYPE=hidden NAME=page VALUE=($db.page)>
+<INPUT TYPE=hidden NAME=passtype VALUE=new>
+
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD >
+<BR>
+
+;------------------------------------
+; 관리자 메뉴 타이틀
+;------------------------------------
+($include admin_head)
+($sub AdminHead)
+
+;------------------------------------
+; 관리자 메뉴 라이브러리 로딩
+;------------------------------------
+; 관리자 환경
+($include admin_menu1)
+; 게시판 환경
+($include admin_menu2)
+; 사용자 설정
+($include admin_menu3)
+; 목록/본문
+($include admin_menu4)
+; 색상설정
+($include admin_menu5)
+; 스킨/아이콘 멀티이동메뉴
+($include admin_menu6)
+; 글 읽기/쓰기
+($include admin_menu7)
+; 관리자 사칭 금지/불량 사용자 차단
+($include admin_menu8)
+; 회원관리
+($include admin_menu9)
+; 카테고리 설정
+($include admin_menu10)
+
+
+;------------------------------------
+; 관리자 메뉴 항목 
+;------------------------------------
+<TABLE BGCOLOR=($cfg.color.Border) WIDTH=550 BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD>
+<TABLE WIDTH=100% BORDER=0 CELLSPACING='1' CELLPADDING='2'>
+  <TR>
+    <TD BGCOLOR=($cfg.color.SubMenu)>
+      |
+; 관리자
+      <A HREF='JavaScript:SwitchAllLayer("MENU1")'>($cfg.MENU1)</A> |
+; 환경
+      <A HREF='JavaScript:SwitchAllLayer("MENU2")'>($cfg.MENU2)</A> |
+; HTML설정
+      <A HREF='JavaScript:SwitchAllLayer("MENU3")'>($cfg.MENU3)</A> |
+; 목록/본문
+      <A HREF='JavaScript:SwitchAllLayer("MENU4")'>($cfg.MENU4)</A> |
+; 색상
+      <A HREF='JavaScript:SwitchAllLayer("MENU5")'>($cfg.MENU5)</A> |
+; 스킨/아이콘
+      <A HREF='JavaScript:SwitchAllLayer("MENU6")'>($cfg.MENU6)</A> |
+; 글쓰기
+      <A HREF='JavaScript:SwitchAllLayer("MENU7")'>($cfg.MENU7)</A> |
+; 기능
+      <A HREF='JavaScript:SwitchAllLayer("MENU8")'>($cfg.MENU8)</A> |
+    </TD>
+    <TD BGCOLOR=($cfg.color.SubMenu) ALIGN=center ROWSPAN=2>
+      <INPUT TYPE=button VALUE='저장' onclick='FormSubmit()' CLASS=button1>
+;      | <A HREF='JavaScript:FormSubmit()'>저장</A> |
+;      | <A HREF='JavaScript:FormReset()'>취소</A> |
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.SubMenu)>
+      |
+; 회원관리
+      <A HREF='JavaScript:SwitchAllLayer("MENU9")'>($cfg.MENU9)</A> |
+; 카테고리
+      <A HREF='JavaScript:SwitchAllLayer("MENU10")'>($cfg.MENU10)</A> |
+; 사용자 추가 메뉴(무한대 확장 가능)
+;      <A HREF='JavaScript:SwitchAllLayer("MENU11")'>사용자 추가</A> |
+;      <A HREF='JavaScript:SwitchAllLayer("MENU12")'>사용자 추가</A> |
+    </TD>
+  </TR>
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+
+;------------------------------------
+; 관리자 환경
+;------------------------------------
+;($include admin_menu1)
+($sub MENU1)
+
+;------------------------------------
+; 게시판 환경
+;------------------------------------
+;($include admin_menu2)
+($sub MENU2)
+
+;------------------------------------
+; 사용자 설정
+;------------------------------------
+;($include admin_menu3)
+($sub MENU3)
+
+;------------------------------------
+; 목록/본문
+;------------------------------------
+;($include admin_menu4)
+($sub MENU4)
+
+;------------------------------------
+; 색상설정
+;------------------------------------
+;($include admin_menu5)
+($sub MENU5)
+
+;------------------------------------
+; 스킨/아이콘 멀티이동메뉴
+;------------------------------------
+;($include admin_menu6)
+($sub MENU6)
+
+;------------------------------------
+; 글 읽기/쓰기
+;------------------------------------
+;($include admin_menu7)
+($sub MENU7)
+
+;------------------------------------
+; 관리자 사칭 금지/불량 사용자 차단
+;------------------------------------
+;($include admin_menu8)
+($sub MENU8)
+
+;------------------------------------
+; 회원관리
+;------------------------------------
+;($include admin_menu9)
+($sub MENU9)
+
+;------------------------------------
+; 카테고리 설정
+;------------------------------------
+;($include admin_menu10)
+($sub MENU10)
+
+
+;----------------------------------------------------------------------------------
+;<DIV ID='MENU20'>
+;<TABLE BORDER=0 CELLPADDING=0 WIDTH=550>
+; <TR>
+;  <TD ALIGN=center><INPUT TYPE=reset VALUE='초기값' CLASS=button></TD>
+;  <TD ALIGN=center><INPUT TYPE=submit VALUE='저장하고 나가기' CLASS=button></TD>
+; </TR>
+;</TABLE>
+;</DIV>
+;----------------------------------------------------------------------------------
+
+    </TD>
+  </TR>
+</TABLE>
+</FORM>
+
+<SCRIPT LANGUAGE="JavaScript">
+  SwitchAllLayer('MENU1');
+</SCRIPT>
+[%End%]

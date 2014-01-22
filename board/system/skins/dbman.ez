@@ -1,0 +1,321 @@
+#--------------------------------------------------------------------
+# 이지보드 2000 관리자 메뉴 ver 1.01
+#--------------------------------------------------------------------
+# Programmer  : 전북대 전자공학과 Cherie 채경삼(cherie@hello.to)
+# Menu Design : 전북대 물리학과 cacolith 채윤철(cacolith@iam)
+# Made Date   : 2000.06.01
+#--------------------------------------------------------------------
+# Description : IE와 넷스케이프에서도 똑같이 보이도록 제작
+#--------------------------------------------------------------------
+
+[%System%]
+color.Table=#87caff
+color.LeftCell=#ebf5ff
+color.RightCell=#fafdff
+color.SplitLine=#87caff
+;color.SplitLine=#c0d0ff
+EzBackColor=white
+C0=#D7D7D7
+C1=#DFDFDF
+C2=#E7E7E7
+C3=#EFEFEF
+C4=#F7F7F7
+Col.HeadBk=#3366CC
+Col.HeadTxt=#fffff
+Col.HeadBk2=#d3ebfb
+;Col.HeadBk2=#99CCFF
+Col.HeadTxt2=#000000
+Col.HeadBk3=#F4F8FA
+Col.HeadTxt3=#000000
+Col.Alert=#FF0066
+EzMemCGI=ezmem.cgi
+[%End%]
+
+[%Head%]
+<STYLE TYPE='text/css'>
+  A:link    { color:#0040b0; text-decoration:none; }
+  A:visited { color:dimgray; text-decoration:none; }
+  A:active  { text-decoration:none; }
+  A:hover   { color:orange; text-decoration:none; }
+  p,br,body,table,td,select,input,form,textarea,option,font { font-family:굴림; font-size:9pt; }
+  .button   { height:16px; border-width:1; border-style:solid; border-color:#000000; background-color:#dfdfdf;}
+  .button1  { color:#black; height:17px; border-width:1; border-style:solid; border-color:#000000; background-color:#efefef;}
+;  .button1  { color:#0060bf; height:17px; border-width:1; border-style:solid; border-color:#000000; background-color:#d3ebfb;}
+  .button2  { height:17px; border-width:1; border-style:ridge; border-color:#d0d0d0; background-color:#dfdfdf;}
+  .button3  { color:black; height:17px; border-width:1; border-style:solid; border-color:#000000; background-color:gold;}
+  .button4  { font-family:굴림체; color:#black; height:19px; border-width:1; border-style:solid; border-color:#000000; background-color:#efefef;}
+;  .button3  { color:white; height:17px; border-width:1; border-style:solid; border-color:#000000; background-color:#FF0066;}
+;  .subj { color:#0060bf; }
+;  .subj { color:#0060bf; font-weight:bold; }
+</STYLE>
+</STYLE>
+
+<SCRIPT LANGUAGE=JavaScript>
+var subwin = null;
+
+function term() {
+  return ;
+}
+document.onunload=term;
+function ConFirm( db, act, str )
+{
+  if( confirm( str ) )
+  {
+    var mf = document.forms["DBListForm"];
+    mf["action"].value = act;
+    mf["db"].value = db;
+    mf.submit();
+  }
+}
+function EzSubmit( db, act )
+{
+  var mf = document.forms["DBListForm"];
+  mf["action"].value = act;
+  mf["db"].value = db;
+;  mf["pass"].value = "";
+;  mf["pass"].type = 'hidden';
+;  mf["pass"].value = "($par.pass)";
+  mf.submit();
+}
+function OpenWin( url, db )
+{
+  var subtarget = '_blank';
+  if( subwin )
+  {
+    if( !subwin.closed )
+      subwin.close();
+    subwin = null;
+  }
+  if( db )
+    url = url + "?db=" + db;
+  window.open( url, subtarget, 'toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=yes,resizable=yes');
+;  window.open( url, subtarget, 'toolbar=yes,location=yes,directories=no,status=yes,menubar=yes,scrollbars=yes,resizable=yes');
+  if( subwin )  subwin.focus();
+  return;
+}
+function EzPageSubmit( page )
+{
+  var mf = document.forms["PageForm"];
+  mf["page"].value = page;
+;  mf["pass"].value = "($par.pass)";
+  mf.submit();
+}
+
+function MemberClick( db )
+{
+  OpenWin( "($cfg.EzMemCGI)", db );
+/*
+  var url = "($cfg.EzMemCGI)";
+  if( db )  url = url + "?db=" + db;
+*/
+}
+</SCRIPT>
+
+<DIV ALIGN=center>
+<BR>
+;<TABLE BORDER=0 WIDTH=95% CELLSPACING=0 CELLPADDING=0>
+;  <TR>
+;    <TD ALIGN=center>
+;      이지보드 2000 DB 매니저
+;    </TD>
+;  </TR>
+;  <TR>
+;    <TD ALIGN=center>&nbsp;
+;    </TD>
+;  </TR>
+;</TABLE>
+<TABLE BGCOLOR=black BORDER=0 WIDTH=95% CELLSPACING=0 CELLPADDING=0>
+;  <TR BGCOLOR=($cfg.Col.HeadBk)>
+;    <TD ALIGN=center VALIGN=bottom>
+;<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=5>
+;  <TR>
+;    <TD><FONT COLOR=white>이지보드 2000 DB 매니저<BR></FONT></TD>
+;  <TR>
+;</TABLE>
+;    </TD>
+;  </TR>
+  <TR>
+    <TD ALIGN=center>
+<TABLE BORDER=0 WIDTH=100% CELLSPACING=1 CELLPADDING=2>
+<FORM NAME=DBListForm METHOD=post ACTION='($path.ezman)'>
+<INPUT TYPE=hidden NAME=db VALUE=''>
+<INPUT TYPE=hidden NAME=action VALUE='dbdel'>
+<INPUT TYPE=hidden NAME=page VALUE='($par.page)'>
+;<INPUT TYPE=hidden NAME=pass VALUE='($par.pass)'>
+  <TR BGCOLOR=($cfg.Col.HeadBk)>
+    <TD COLSPAN=8 ALIGN=center VALIGN=bottom>
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=5>
+  <TR>
+    <TD><FONT COLOR=white>이지보드 2000 DB 매니저<BR></FONT></TD>
+  <TR>
+</TABLE>
+    </TD>
+  </TR>
+  <TR BGCOLOR=($cfg.Col.HeadBk2)>
+;    <TD WIDTH=5% ROWSPAN=2 ALIGN=center NOWRAP>
+;      <FONT COLOR=($cfg.Col.HeadTxt)>
+;      번호
+;      </FONT>
+;    </TD>
+    <TD COLSPAN=2 WIDTH=55% ROWSPAN=2 ALIGN=center NOWRAP>
+      <FONT COLOR=($cfg.Col.HeadTxt2)>
+      게시판 명<BR>
+      ( Directory )
+      </FONT>
+    </TD>
+    <TD WIDTH=25% COLSPAN=2 ALIGN=center NOWRAP>
+      <FONT COLOR=($cfg.Col.HeadTxt2)>
+      게시물 정보
+      </FONT>
+    </TD>
+    <TD WIDTH=13% ROWSPAN=2 ALIGN=center NOWRAP>
+      <FONT COLOR=($cfg.Col.HeadTxt2)>
+      세부설정
+      </FONT>
+    </TD>
+;    <TD WIDTH=5% ROWSPAN=2 ALIGN=center NOWRAP>
+;      <FONT COLOR=($cfg.Col.HeadTxt)>
+;      게시판
+;      </FONT>
+;    </TD>
+    <TD WIDTH=2% ROWSPAN=2 ALIGN=center NOWRAP>
+      <FONT COLOR=($cfg.Col.Alert)>
+      삭제
+      </FONT>
+    </TD>
+  </TR>
+  <TR BGCOLOR=($cfg.Col.HeadBk3)>
+    <TD WIDTH=9% ALIGN=center NOWRAP>
+      <FONT COLOR=($cfg.Col.HeadTxt3)>
+      게시물
+      </FONT>
+    </TD>
+    <TD WIDTH=16% ALIGN=center NOWRAP>
+      <FONT COLOR=($cfg.Col.HeadTxt3)>
+      크기
+      </FONT>
+    </TD>
+  </TR>
+[%End%]
+
+
+[%Body%]
+  <TR BGCOLOR=#ffffff>
+;  <TR>
+    <TD ALIGN=center NOWRAP BGCOLOR=#efefef>
+      ($db.no)
+    </TD>
+    <TD NOWRAP>
+      <A HREF='($path.board)?db=($par.db)' TARGET=_blank>($par.db)</A>
+    </TD>
+    <TD ALIGN=right NOWRAP>
+      &nbsp;($db.total)&nbsp;
+    </TD>
+    <TD ALIGN=right NOWRAP>
+      ($db.totalsize) KB
+      <INPUT TYPE=button VALUE='갱신' CLASS=button1 onClick='JavaScript:EzSubmit( "($par.db)", "dbsize" );'>
+    </TD>
+    <TD ALIGN=center NOWRAP>
+      <INPUT TYPE=button VALUE='설정' CLASS=button1 onClick='JavaScript:OpenWin( "($path.admin)", "($par.db)" )'>
+      <INPUT TYPE=button VALUE='정리' CLASS=button1 onClick='JavaScript:EzSubmit( "($par.db)", "dbrebuild" );'>
+      <INPUT TYPE=button VALUE='퍼미션' CLASS=button1 onClick='JavaScript:EzSubmit( "($par.db)", "dbpermit" );'>
+    </TD>
+;    <TD ALIGN=center NOWRAP>
+;      <INPUT TYPE=button VALUE='접속' CLASS=button1 onClick='JavaScript:OpenWin( "($path.main)", "($par.db)" )'>
+;;      <A HREF='($link.list)' TARGET=_blank>Go</A>
+;    </TD>
+    <TD ALIGN=center NOWRAP>
+;      <INPUT TYPE=hidden NAME=action VALUE='deldb'>
+      <INPUT TYPE=button VALUE='삭제' CLASS=button3 onClick='JavaScript:ConFirm( "($par.db)", "dbdel", "다음 게시판을 삭제하려 합니다.\n\n [ ($par.db) ] \n\n정말로 삭제하겠습니까?");'>
+    </TD>
+  </TR>
+[%End%]
+
+
+[%Tail%]
+</FORM></TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=white>
+<TABLE BGCOLOR=white BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+<FORM NAME=DBAddForm METHOD=post ACTION='($path.ezman)'>
+<INPUT TYPE=hidden NAME=action VALUE='dbadd'>
+;<INPUT TYPE=hidden NAME=pass VALUE='($par.pass)'>
+<INPUT TYPE=hidden NAME=page VALUE='($par.page)'>
+;  <TR>
+;    <TD COLSPAN=2><HR SIZE=1 COLOR=black noshade></TD>
+;  </TR>
+  <TR>
+    <TD WIDTH=3% NOWRAP>
+      <FONT COLOR=#0040b0>생성할 DB명</FONT> <INPUT TYPE=text NAME=db SIZE=10 CLASS=editbox> <INPUT TYPE=submit VALUE='생성' CLASS=button2>
+    </TD></FORM>
+    <TD WIDTH=97% ALIGN=center NOWRAP>
+      ($menu.page)
+    </TD>
+  </TR>
+;  <TR>
+;    <TD COLSPAN=2><HR SIZE=1 COLOR=black noshade></TD>
+;  </TR>
+  <TR>
+    <TD COLSPAN=2 ALIGN=right NOWRAP>
+      게시판수: ($cfg.dbcount) / 전체게시물수: ($cfg.dbtotalcount) / 전체크기 ($cfg.dbtotalsize) KB
+      &nbsp;
+    </TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2><HR SIZE=1 COLOR=black noshade></TD>
+  </TR>
+</TABLE>
+<TABLE BGCOLOR=white BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=3>
+<FORM NAME=NewPassForm METHOD=post ACTION='($path.ezman)'>
+<INPUT TYPE=hidden NAME=action VALUE='passnew'>
+<INPUT TYPE=hidden NAME=page VALUE='($par.page)'>
+  <TR>
+    <TD WIDTH=2% ALIGN=right NOWRAP>
+      <B>비밀번호 변경:</B>
+    </TD>
+    <TD WIDTH=98% ALIGN=left NOWRAP>
+      새암호 <INPUT TYPE=password NAME=pass SIZE=8 MAXLENGTH=8 CLASS=editbox>
+      재입력 <INPUT TYPE=password NAME=repass SIZE=8 MAXLENGTH=8 CLASS=editbox>
+      <INPUT TYPE=submit VALUE='변경' CLASS=button4>
+      &nbsp;
+      DB매니저 비밀번호를 변경합니다.
+    </TD>
+  </TR>
+</FORM>
+;  <TR>
+;    <TD COLSPAN=2><HR SIZE=1 COLOR=black noshade></TD>
+;  </TR>
+<FORM NAME=MemberForm>
+  <TR>
+    <TD WIDTH=2% ALIGN=right VALIGN=top NOWRAP>
+      <B>회원 관리:</B>
+    </TD>
+    <TD WIDTH=98% ALIGN=left VALIGN=top >
+      <INPUT TYPE=button NAME=MemAddButton VALUE=' 새 회원 승인 ' CLASS=button4 onclick='javascript:MemberClick();'>
+;      <BR>
+;      <IMG SRC='($path.system)/image/blank.gif' WIDTH=1 HEIGHT=4 BORDER=0><BR>
+      <INPUT TYPE=button NAME=MemAddButton VALUE='회원 정보 변경' CLASS=button4 onclick='javascript:MemberClick("member");'>
+      <BR>
+      <IMG SRC='($path.system)/image/blank.gif' WIDTH=1 HEIGHT=4 BORDER=0><BR>
+      이지보드의 회원관리는 그룹별로 권한을 달리 설정할 수 있습니다.<BR>
+      따라서 각 게시판별로 그룹을 설정하면, 게시판별로 회원들의 권한을 다르게 부여할 수 있습니다.
+;      각 게시판 관리자 메뉴에서 그룹을 생성후 필요한 회원ID를 등록해주세요.
+    </TD>
+  </TR>
+</FORM>
+  <TR>
+    <TD COLSPAN=2><HR SIZE=1 COLOR=black noshade></TD>
+  </TR>
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+
+</DIV>
+
+<SCRIPT LANGUAGE="JavaScript">
+  setTimeout( 'document.DBAddForm.db.focus()', 10 );
+</SCRIPT>
+[%End%]

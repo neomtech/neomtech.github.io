@@ -1,0 +1,156 @@
+;-------------------------------------------
+; 입력폼을 위한 파일입니다.
+; MyTACols 와 MyTARows 값을 이용하여
+; 내용칸의 TEXTAREA 크기가 조절됩니다.
+; MyLineSize 는 TEXTAREA 의 폭에 맞추어
+; INPUT 태그의 길이를 조절하기 위해 사용되었습니다.
+; FormBkCol 과 FormTxtCol 은 입력폼에서 사용되는
+; 배경색과 글자색입니다.
+; 기본으로는 본문의 배경색과 글자색을 따라갑니다.
+[%InputForm%]
+($ifnot cfg.MyTACols)
+($set MyTACols)
+($add MyTACols=58)
+($endif)
+($ifnot cfg.MyTARows)
+($set MyTARows)
+($add MyTARows=10)
+($endif)
+($ifnot cfg.FromBkCol)
+($set FromBkCol)
+($strcat FromBkCol,cfg.EzDataBkCol)
+($endif)
+($ifnot cfg.FromTxtCol)
+($set FromTxtCol)
+($strcat FromTxtCol,cfg.EzDataTxtCol)
+($endif)
+($add MyTACols=2)
+($set ACTION=par.action)
+($ifs cfg.ACTION=modify)
+($set ACTION=update)
+($else)
+($set ACTION=write)
+($endif)
+<STYLE TYPE="text/css">
+  .button   { height:19px; border-width:1; border-style:solid; border-color:#afafaf; background-color:#dfdfdf;}
+</STYLE>
+<FORM NAME="InputForm" METHOD="post" ENCTYPE="multipart/form-data" ACTION="($path.main)">
+<INPUT TYPE="hidden" NAME="db"      VALUE="($par.db)">
+($if par.dbf)
+<INPUT TYPE="hidden" NAME="dbf"     VALUE="($par.dbf)">
+($endif)
+<INPUT TYPE="hidden" NAME="action"  VALUE="($cfg.ACTION)">
+<INPUT TYPE="hidden" NAME="page"    VALUE="($par.page)">
+<INPUT TYPE="hidden" NAME="oldpass" VALUE="($par.pass)">
+<INPUT TYPE="hidden" NAME="page"    VALUE="($par.page)">
+
+<TABLE ($color BGCOLOR=FormBkCol) WIDTH="($cfg.MyFormWidth)" BORDER="0" CELLSPACING="0" CELLPADDING="($cfg.MyPad)">
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        이&nbsp;&nbsp;&nbsp;&nbsp;름&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="80%"><INPUT TYPE="text" NAME="name" VALUE="($cookie.name)" SIZE="25" MAXLENGTH="20" CLASS="editbox"></TD>
+    <TD WIDTH="70" ALIGN="center" NOWRAP>
+      <A HREF='javascript:RemoteWindow("($path.smile)/smile.htm")'>스마일</A>
+    </TD>
+  </TR>
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        이&nbsp;메&nbsp;일&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="100%" COLSPAN="2">
+      <INPUT TYPE="text"  NAME="mail" VALUE="($cookie.mail)" SIZE="25" MAXLENGTH="30" CLASS="editbox">
+      <FONT COLOR="($cfg.FormTxtCol)">
+      <INPUT TYPE="radio" NAME="html" VALUE="0">Text
+      <INPUT TYPE="radio" NAME="html" VALUE="1">Html
+      <INPUT TYPE="radio" NAME="html" VALUE="2">Html&lt;BR&gt;
+      </FONT>
+    </TD>
+  </TR>
+($if cfg.EzShowHome)
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        홈페이지&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="100%" COLSPAN="2"><INPUT TYPE="text" NAME="home" VALUE="($cookie.home)" SIZE="($cfg.MyTACols)" MAXLENGTH="50" CLASS="editbox"></TD>
+  </TR>
+($endif)
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        제&nbsp;&nbsp;&nbsp;&nbsp;목&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="100%" COLSPAN="2"><INPUT TYPE="text" NAME="subj" VALUE="($db.subj)" SIZE="($cfg.MyTACols)" MAXLENGTH="100" CLASS="editbox"></TD>
+  </TR>
+($add MyTACols=-2)
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        내&nbsp;&nbsp;&nbsp;&nbsp;용&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="100%" COLSPAN="2"><TEXTAREA NAME="cont" COLS="($cfg.MyTACols)" ROWS="($cfg.MyTARows)" CLASS="editbox" ($autohide cont)>($db.cont)</TEXTAREA></TD>
+  </TR>
+($if cfg.MyFace)
+($include face)
+($sub FaceList)
+($else)
+($add MyTACols=-10)
+($if cfg.EzFileUpload)
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        파일첨부&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="100%" COLSPAN="3" NOWRAP>
+      <INPUT TYPE="file" NAME="file" SIZE="($cfg.MyTACols)" MAXLENGTH="100" CLASS="editbox">
+    </TD>
+  </TR>
+($endif)
+($if cfg.EzImgUpload)
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        이&nbsp;미&nbsp;지&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="100%" COLSPAN="3" NOWRAP>
+      <INPUT TYPE="file" NAME="img" SIZE="($cfg.MyTACols)" MAXLENGTH="100" CLASS="editbox">
+    </TD>
+  </TR>
+($endif)
+($endif)
+  <TR>
+($ifnot cfg.EzShowPass)
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        비밀번호&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD>
+      <INPUT TYPE="password" NAME="pass" SIZE="8" MAXLENGTH="8" CLASS="editbox" VALUE="($par.pass)">
+      <FONT COLOR="red">게시물 수정/삭제시 필요합니다.</FONT>
+    </TD>
+    <TD NOWRAP>
+      <INPUT TYPE="submit" VALUE=" 전송 " CLASS="button">
+($else)
+    <TD COLSPAN="3" ALIGN="center">
+      <INPUT TYPE="submit" VALUE="       전        송       " CLASS="button">
+($endif)
+    </TD>
+  </TR>
+</FORM>
+</TABLE>
+<SCRIPT LANGUAGE="JavaScript">
+; 조해종(iou@i.am)님께서 알려주셨어요. ^^
+  setTimeout( 'document.InputForm.name.focus()', 10 );
+</SCRIPT>
+[%End%]

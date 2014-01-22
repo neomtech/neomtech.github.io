@@ -1,0 +1,72 @@
+[%System%]
+EzSkinVersion=1
+[%End%]
+
+[%Body%]
+<LINK rel="STYLESHEET" TYPE="text/css" NAME="test" HREF="($path.system)/image/newpds_msg2/pass.css">
+<BR>
+<BR>
+<BR>
+<FORM NAME=PassForm METHOD=post ACTION='($path.main)'>
+($hidden.info)
+;<INPUT TYPE=hidden NAME=db     VALUE='($par.db)'>
+<INPUT TYPE=hidden NAME=action VALUE='passnew'>
+;<INPUT TYPE=hidden NAME=page   VALUE='($par.page)'>
+<INPUT TYPE=hidden NAME=dbf    VALUE='($par.dbf)'>
+<INPUT TYPE=hidden NAME=depth  VALUE='($cfg.depth)'>
+;<INPUT TYPE=hidden NAME=cmtdbf VALUE='($par.cmtdbf)'>
+
+<TABLE WIDTH='($cfg.EzTableWidth)' BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR><TD>
+<TABLE WIDTH='300' BORDER=0 CELLPADDING=0 CELLSPACING=0 ALIGN=CENTER>
+<TR><TD HEIGHT=20>
+<IMG SRC=($path.system)/image/newpds_msg2/blank.gif border=0 width=1 height=1>
+</TD></TR>
+<TR><TD BGCOLOR=#5265A5><IMG SRC=($path.system)/image/newpds_msg2/blank.gif border=0 width=1 height=1></TD></TR>
+<TR><TD HEIGHT=30>
+<P>
+&nbsp;&nbsp;&nbsp;
+<b>이지보드2000 DB Manager 비밀번호 등록</b>
+</P>
+</TD></TR>
+<TR><TD BGCOLOR=#5265A5><IMG SRC=($path.system)/image/newpds_msg2/blank.gif border=0 width=1 height=1></TD></TR>
+<TR><TD HEIGHT=100 BGCOLOR=#E1E4F6 align=center>
+<TABLE BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD ALIGN=left NOWRAP>
+      DB Manager를 처음으로 실행시키셨습니다.<BR>
+      초기 비밀번호를 system.cgi에서 수정해주시기 바랍니다.<BR>
+      등록된 DB Manager 비밀번호는 다음과 같이 루트 권한을 갖게 되므로,<BR>
+      타인이 쉽게 알 수 없는 비밀번호로 등록해주시기 바랍니다.<BR>
+      <BR>
+      &nbsp;. 게시판 생성/삭제<BR>
+      &nbsp;. 각 게시판 관리자 메뉴 접근<BR>
+      &nbsp;. 각 게시판 게시물 수정/삭제<BR>
+    </TD>
+  </TR>
+  <TR>
+    <TD ALIGN=right NOWRAP>새로운 비밀번호</TD>
+    <TD>
+      <INPUT TYPE='password' NAME='pass' VALUE='' SIZE='20' MAXLENGTH='50' CLASS=input>
+    </TD>
+  </TR>
+  <TR>
+    <TD ALIGN=right NOWRAP>비밀번호 확인</TD>
+    <TD>
+      <INPUT TYPE='password' NAME='repass' VALUE='' SIZE='20' MAXLENGTH='50' CLASS=input>
+    </TD>
+  </TR>
+<tr><td colspan=2 align=right height=30>
+      <INPUT TYPE=image src='($path.system)/image/newpds_msg2/ok-bn.gif'>
+      <INPUT TYPE=image src='($path.system)/image/newpds_msg2/back-bn.gif' onclick='javascript:history.back()'>
+</td></tr>
+</TABLE>
+</td></tr>
+</TABLE>
+
+</FORM>
+<SCRIPT LANGUAGE="JavaScript">
+  setTimeout( 'document.PassForm.pass.focus()', 10 );
+</SCRIPT>
+</FORM>
+[%End%]

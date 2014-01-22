@@ -1,0 +1,164 @@
+[%System%]
+MENU2=환경
+[%End%]
+
+[%MENU2%]
+<DIV ID='MENU2'>
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>게시판 환경</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+      <TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>언어설정</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzLang' VALUE='($cfg.EzLang)' CLASS=editbox>
+            <SELECT NAME='LangList' onchange='javascript:OnChangeLang()'>
+              <OPTION VALUE='euc-kr'            ($ifs cfg.EzLang=euc-kr)selected($endif)            >Korean(euc-kr)</OPTION>
+              <OPTION VALUE='ksc5601'           ($ifs cfg.EzLang=ksc5601)selected($endif)           >Korean(ksc5601)</OPTION>
+              <OPTION VALUE='ks_c_5601-1987'    ($ifs cfg.EzLang=ks_c_5601-1987)selected($endif)    >Korean(ks_c_5601-1987)</OPTION>
+              <OPTION VALUE='iso-2022-kr'       ($ifs cfg.EzLang=iso-2022-kr)selected($endif)       >Korean(iso-2022-kr)</OPTION>
+              <OPTION VALUE='x-mac-korean'      ($ifs cfg.EzLang=x-mac-korean)selected($endif)      >Korean(x-mac-korean)</OPTION>
+              <OPTION VALUE='euc-cn'            ($ifs cfg.EzLang=euc-cn)selected($endif)            >Chinese(euc-cn)</OPTION>
+              <OPTION VALUE='gb2312'            ($ifs cfg.EzLang=gb2312)selected($endif)            >Chinese(gb2312)</OPTION>
+              <OPTION VALUE='hz-gb-2312'        ($ifs cfg.EzLang=hz-gb-2312)selected($endif)        >Chinese(hz-gb-2312)</OPTION>
+              <OPTION VALUE='x-mac-chinesesimp' ($ifs cfg.EzLang=x-mac-chinesesimp)selected($endif) >Chinese(x-mac-chinesesimp)</OPTION>
+              <OPTION VALUE='cp-936'            ($ifs cfg.EzLang=cp-936)selected($endif)            >Chinese(cp-936)</OPTION>
+              <OPTION VALUE='euc-tw'            ($ifs cfg.EzLang=euc-tw)selected($endif)            >Chinese(euc-tw)</OPTION>
+              <OPTION VALUE='big5'              ($ifs cfg.EzLang=big5)selected($endif)              >Chinese(big5)</OPTION>
+              <OPTION VALUE='x-mac-chinesetrad' ($ifs cfg.EzLang=x-mac-chinesetrad)selected($endif) >Chinese(x-mac-chinesetrad)</OPTION>
+              <OPTION VALUE='iso-8859-7'        ($ifs cfg.EzLang=iso-8859-7)selected($endif)        >Greek(iso-8859-7)</OPTION>
+              <OPTION VALUE='x-mac-greek'       ($ifs cfg.EzLang=x-mac-greek)selected($endif)       >Greek(x-mac-greek)</OPTION>
+              <OPTION VALUE='windows-1253'      ($ifs cfg.EzLang=windows-1253)selected($endif)      >Greek(windows-1253)</OPTION>
+              <OPTION VALUE='iso-8859-8-i'      ($ifs cfg.EzLang=iso-8859-8-i)selected($endif)      >Hebrew(iso-8859-8-i)</OPTION>
+              <OPTION VALUE='iso-8859-8*'       ($ifs cfg.EzLang=iso-8859-8*)selected($endif)       >Hebrew(iso-8859-8*)</OPTION>
+              <OPTION VALUE='x-mac-hebrew'      ($ifs cfg.EzLang=x-mac-hebrew)selected($endif)      >Hebrew(x-mac-hebrew)</OPTION>
+              <OPTION VALUE='windows-1255'      ($ifs cfg.EzLang=windows-1255)selected($endif)      >Hebrew(windows-1255)</OPTION>
+              <OPTION VALUE='euc-jp'            ($ifs cfg.EzLang=euc-jp)selected($endif)            >Japanese(euc-jp)</OPTION>
+              <OPTION VALUE='iso-2022-jp'       ($ifs cfg.EzLang=iso-2022-jp)selected($endif)       >Japanese(iso-2022-jp)</OPTION>
+              <OPTION VALUE='x-mac-japanese'    ($ifs cfg.EzLang=x-mac-japanese)selected($endif)    >Japanese(x-mac-japanese)</OPTION>
+              <OPTION VALUE='shift_jis'         ($ifs cfg.EzLang=shift_jis)selected($endif)         >Japanese(shift_jis)</OPTION>
+              <OPTION VALUE='utf-8'             ($ifs cfg.EzLang=utf-8)selected($endif)             >Unicode(utf-8)</OPTION>
+              <OPTION VALUE='utf-7'             ($ifs cfg.EzLang=utf-7)selected($endif)             >Unicode(utf-7)</OPTION>
+              <OPTION VALUE='iso-10646-ucs-2'   ($ifs cfg.EzLang=iso-10646-ucs-2)selected($endif)   >Unicode(iso-10646-ucs-2)</OPTION>
+              <OPTION VALUE='us-ascii'          ($ifs cfg.EzLang=us-ascii)selected($endif)          >Unicode(us-ascii)</OPTION>
+              <OPTION VALUE='windows-1258'      ($ifs cfg.EzLang=windows-1258)selected($endif)      >Vietnamese(windows-1258)</OPTION>
+            </SELECT>
+          </TD>
+        </TR>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>게시판 위치</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzBoardAlign' VALUE=1 ($if cfg.EzBoardAlign=1)checked($endif)>왼쪽
+            <INPUT TYPE=radio NAME='EzBoardAlign' VALUE=0 ($if cfg.EzBoardAlign=0)checked($endif)>가운데
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>브라우저 타이틀</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzBrowserTitle' VALUE='($cfg.EzBrowserTitle)' SIZE='55' CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>게시판 타이틀</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzBoardTitle' VALUE='($cfg.EzBoardTitle)' SIZE='55' CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>게시판 제목그림</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzBoardImage' VALUE='($cfg.EzBoardImage)' SIZE='55' CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>제목출력 방식</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzAutoTitle' VALUE=1 ($if cfg.EzAutoTitle=1)checked($endif)>자동
+            <INPUT TYPE=radio NAME='EzAutoTitle' VALUE=0 ($if cfg.EzAutoTitle=0)checked($endif)>출력  <FONT COLOR=blue>(자동으로 설정하면 이미지 우선으로 출력합니다)</FONT>
+          </TD>
+        </TR>
+;        <TR>
+;          <TD COLSPAN=2 BGCOLOR=#cadaff ALIGN=center>게시판 설정</TD>
+;        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>게시판 배경그림</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzBackImage' VALUE='($cfg.EzBackImage)' SIZE='55' CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>게시판 배경색상</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzBackColor' VALUE='($cfg.EzBackColor)' SIZE=15 MAXLENGTH=15 CLASS=editbox>
+            <A HREF='javascript:SelColor("EzBackColor")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>게시판 글꼴/색상</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            글꼴 <INPUT TYPE=text NAME='EzDefFont' VALUE='($cfg.EzDefFont)' SIZE=8 CLASS=editbox> / 크기 <INPUT TYPE=text NAME='EzDefFontSize' VALUE='($cfg.EzDefFontSize)' SIZE=8 CLASS=editbox> / 색상 <INPUT TYPE=text NAME='EzDefColor' VALUE='($cfg.EzDefColor)' SIZE=15 MAXLENGTH=15 CLASS=editbox>
+            <A HREF='javascript:SelColor("EzDefColor")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>게시판 너비</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzTableWidth' VALUE='($cfg.EzTableWidth)' SIZE='10' CLASS=editbox>
+            <FONT COLOR=blue>예) 픽셀: 500 / 퍼센트: 80%</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>테이블 간격</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            cellspacing <INPUT TYPE=text NAME='EzCellSpacing' VALUE='($cfg.EzCellSpacing)' SIZE='15' CLASS=editbox>／cellpadding <INPUT TYPE=text NAME='EzCellPadding' VALUE='($cfg.EzCellPadding)' SIZE='15' CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>테이블 두께</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <SELECT NAME='EzBorderStyle'>
+              <OPTION VALUE=0 ($if cfg.EzBorderStyle=0)selected($endif)>0</OPTION>
+              <OPTION VALUE=1 ($if cfg.EzBorderStyle=1)selected($endif)>1</OPTION>
+              <OPTION VALUE=2 ($if cfg.EzBorderStyle=2)selected($endif)>2</OPTION>
+              <OPTION VALUE=3 ($if cfg.EzBorderStyle=3)selected($endif)>3</OPTION>
+              <OPTION VALUE=4 ($if cfg.EzBorderStyle=4)selected($endif)>4</OPTION>
+              <OPTION VALUE=5 ($if cfg.EzBorderStyle=5)selected($endif)>5</OPTION>
+              <OPTION VALUE=6 ($if cfg.EzBorderStyle=6)selected($endif)>6</OPTION>
+            </SELECT> <FONT COLOR=blue>(0이나 1정도가 적당합니다)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>링크모양</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzLinkType' VALUE=0 ($if cfg.EzLinkType=0)checked($endif)>None
+            <INPUT TYPE=radio NAME='EzLinkType' VALUE=1 ($if cfg.EzLinkType=1)checked($endif)>UnderLine
+            <INPUT TYPE=radio NAME='EzLinkType' VALUE=2 ($if cfg.EzLinkType=2)checked($endif)>Under/OverLine
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>링크색상</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            link: <INPUT TYPE=text NAME='EzLinkColor' VALUE='($cfg.EzLinkColor)' SIZE=10 MAXLENGTH=15 CLASS=editbox>
+            <A HREF='javascript:SelColor("EzLinkColor")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            &nbsp;
+            hover: <INPUT TYPE=text NAME='EzHLinkColor' VALUE='($cfg.EzHLinkColor)' SIZE=10 MAXLENGTH=15 CLASS=editbox>
+            <A HREF='javascript:SelColor("EzHLinkColor")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            &nbsp;
+            visit: <INPUT TYPE=text NAME='EzVLinkColor' VALUE='($cfg.EzVLinkColor)' SIZE=10 MAXLENGTH=15 CLASS=editbox>
+            <A HREF='javascript:SelColor("EzVLinkColor")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+</DIV>
+[%End%]

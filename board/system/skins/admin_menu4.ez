@@ -1,0 +1,145 @@
+[%System%]
+MENU4=목록/본문
+[%End%]
+
+[%MENU4%]
+<DIV ID='MENU4'>
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>목록/본문</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+      <TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>자동 링크</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            본문내에 URL이 존재하는 경우 자동으로 링크로 보여줍니다.<BR>
+            <INPUT TYPE=checkbox NAME='EzAutoLink' VALUE=1 ($if cfg.EzAutoLink)checked($endif)>사용
+            <INPUT TYPE=text NAME='EzLinkTarget' VALUE='($cfg.EzLinkTarget)' SIZE=6 CLASS=editbox>
+            <FONT COLOR=blue>(target)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>하이라이팅</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzHighLight' VALUE=1 ($if cfg.EzHighLight=1)checked($endif)>가능
+            <INPUT TYPE=radio NAME='EzHighLight' VALUE=0 ($if cfg.EzHighLight=0)checked($endif)>금지
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR=($cfg.color.LeftCell)><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+          <TD><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>항목 보이기</TD>
+          <TD WIDTH=440 HEIGHT=20> 
+            체크박스 기능
+            <INPUT TYPE=radio NAME='EzShowCheckBox' VALUE=0 ($if cfg.EzShowCheckBox=0)checked($endif)>숨기기
+            <INPUT TYPE=radio NAME='EzShowCheckBox' VALUE=1 ($if cfg.EzShowCheckBox=1)checked($endif)>선택 보기
+            <INPUT TYPE=radio NAME='EzShowCheckBox' VALUE=2 ($if cfg.EzShowCheckBox=2)checked($endif)>선택 보기/삭제<BR>
+            <HR SIZE=1>
+            <INPUT TYPE=checkbox NAME='EzDocNum' VALUE=1 ($if cfg.EzDocNum=1)checked($endif)>문서 번호
+            <INPUT TYPE=checkbox NAME='EzFileIcon' VALUE=1 ($if cfg.EzFileIcon=1)checked($endif)>파일 형식 아이콘
+            <INPUT TYPE=checkbox NAME='EzFolderIcon' VALUE=1 ($if cfg.EzFolderIcon=1)checked($endif)>쓰레드 아이콘
+            <INPUT TYPE=checkbox NAME='EzShowName' VALUE=1 ($if cfg.EzShowName=1)checked($endif)>이름
+            <INPUT TYPE=checkbox NAME='EzShowFile' VALUE=1 ($if cfg.EzShowFile=1)checked($endif)>파일명<BR>
+            <INPUT TYPE=checkbox NAME='EzReadCount' VALUE=1 ($if cfg.EzReadCount=1)checked($endif)>조회수
+            <INPUT TYPE=checkbox NAME='EzDownCount' VALUE=1 ($if cfg.EzDownCount=1)checked($endif)>다운수
+            <INPUT TYPE=checkbox NAME='EzShowList' VALUE=1 ($if cfg.EzShowList=1)checked($endif)>본문 아래 목록
+            <INPUT TYPE=checkbox NAME='EzShowPageMenu' VALUE=1 ($if cfg.EzShowPageMenu=1)checked($endif)>페이지 이동메뉴
+            <INPUT TYPE=checkbox NAME='EzShowSearch' VALUE=1 ($if cfg.EzShowSearch=1)checked($endif)>검색 메뉴<BR>
+            <INPUT TYPE=checkbox NAME='EzShowIP' VALUE=1 ($if cfg.EzShowIP=1)checked($endif)>IP 정보
+;            <INPUT TYPE=checkbox NAME='EzShowReplyNum' VALUE=1 ($if cfg.EzShowReplyNum=1)checked($endif)>쓰레드 순서로 출력시 관련글은 번호 출력 안함<BR>
+            <INPUT TYPE=checkbox NAME='EzShowInputForm' VALUE=1 ($if cfg.EzShowInputForm=1)checked($endif)>입력폼
+            <INPUT TYPE=checkbox NAME='EzShowComment' VALUE=1 ($if cfg.EzShowComment=1)checked($endif)>의견달기 메뉴<BR>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR=($cfg.color.LeftCell)><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+          <TD><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>목록버튼위치</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzListButtonPos' VALUE=0 ($if cfg.EzListButtonPos=0)checked($endif)>상단
+            <INPUT TYPE=radio NAME='EzListButtonPos' VALUE=1 ($if cfg.EzListButtonPos=1)checked($endif)>하단
+            <INPUT TYPE=radio NAME='EzListButtonPos' VALUE=2 ($if cfg.EzListButtonPos=2)checked($endif)>상하모두
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>본문버튼위치</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzContButtonPos' VALUE=0 ($if cfg.EzContButtonPos=0)checked($endif)>상단
+            <INPUT TYPE=radio NAME='EzContButtonPos' VALUE=1 ($if cfg.EzContButtonPos=1)checked($endif)>하단
+            <INPUT TYPE=radio NAME='EzContButtonPos' VALUE=2 ($if cfg.EzContButtonPos=2)checked($endif)>상하모두
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>제목출력길이</TD>
+          <TD WIDTH=440 HEIGHT=20>
+;            <INPUT TYPE=radio NAME='EzShortSubject' VALUE=1 ($if cfg.EzShortSubject=1)checked($endif)>짧게 줄임
+;            <INPUT TYPE=radio NAME='EzShortSubject' VALUE=0 ($if cfg.EzShortSubject=0)checked($endif)>원본 그대로
+            <INPUT TYPE=text NAME='EzShortSubjectLen' VALUE='($cfg.EzShortSubjectLen)' SIZE=6 CLASS=editbox>
+            <FONT COLOR=blue>(0으로 설정하면 원본그대로 보여줍니다)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>이름출력길이</TD>
+          <TD WIDTH=440 HEIGHT=20>
+;            <INPUT TYPE=radio NAME='EzShortName' VALUE=1 ($if cfg.EzShortName=1)checked($endif)>짧게 줄임
+;            <INPUT TYPE=radio NAME='EzShortName' VALUE=0 ($if cfg.EzShortName=0)checked($endif)>원본 그대로
+            <INPUT TYPE=text NAME='EzShortNameLen' VALUE='($cfg.EzShortNameLen)' SIZE=6 CLASS=editbox>
+            <FONT COLOR=blue>(0으로 설정하면 원본그대로 보여줍니다)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>본문출력길이</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzShortCont' VALUE='($cfg.EzShortCont)' SIZE=6 CLASS=editbox>
+            <FONT COLOR=blue>(0으로 설정하면 원본그대로 보여줍니다)<BR>스킨에 따라 지원되지 않을 수 도 있습니다.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>&lt;p&gt;&lt;br&gt;처리</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzEnterType' VALUE=0 ($if cfg.EzEnterType=0)checked($endif)>원본대로
+            <INPUT TYPE=radio NAME='EzEnterType' VALUE=1 ($if cfg.EzEnterType=1)checked($endif)>공백으로
+            <FONT COLOR=blue>(본문내용을 엔터없이 한줄에 보여줍니다)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>페이지당 목록 수</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzPageLine' VALUE='($cfg.EzPageLine)' SIZE='5' CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>목록출력순서</TD>
+          <TD WIDTH=440 HEIGHT=20 NOWRAP>
+            <SELECT NAME='EzIndex'>
+              <OPTION VALUE='index' ($ifs cfg.EzIndex=index)selected($endif)>쓰레드</OPTION>
+              <OPTION VALUE='code'  ($ifs cfg.EzIndex=code)selected($endif)>번호</OPTION>
+            </SELECT>
+            <INPUT TYPE=checkbox NAME='EzOrder' VALUE='1' ($if cfg.EzOrder=1)checked($endif)>역순출력
+            <FONT COLOR=blue>역순 출력기능은 불안정하므로 당분간 사용하지 말아주세요.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>공지사항</TD>
+          <TD WIDTH=440 HEIGHT=20 NOWRAP>
+            <INPUT TYPE=textx NAME='EzNotice' SIZE=8 MAXLENGTH=8 VALUE='($cfg.EzNotice)' CLASS=editbox>
+            공지로 출력할 dbf코드를 적으세요(번호가 아님).<BR>
+            스킨에 따라서 지원되지 않을 수도 있습니다.
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+</DIV>
+[%End%]

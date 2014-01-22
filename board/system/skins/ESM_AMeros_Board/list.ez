@@ -1,0 +1,358 @@
+[%System%]
+EzSmileSubj=1
+DateFormat=%Y/%m/%d
+MyAMerosli=0
+MyAMerosVer=6
+[%End%]
+
+[%Head%]
+;($set MyAMerosNoticeColor=#ffffff)
+;($set MyAMerosNoticeTextColor=#000000)
+<SCRIPT LANGUAGE='javascript' SRC='($path.script)/multi.js'></SCRIPT>
+<SCRIPT LANGUAGE='javascript'>
+function OnGoMenuSubmit()
+{
+  if( document.dblist.db.value == '-' ) return false;
+  document.dblist.submit();
+  return true;
+}
+</SCRIPT>
+
+($sub GetCellMax)
+($sub MyAMerosHead)
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=0>
+<FORM NAME='dblist'>
+  <TR>
+    <TD ALIGN=left VALIGN=bottom NOWRAP>
+      <A HREF='($link.admin)' title='Admin Menu'><IMG SRC='($path.icon)/admin.gif' BORDER=0 ALT='Admin Menu'></A>
+      ($if cfg.EzUseMember)
+        ($if cfg.EzLoginStatus)
+          ($set cmd=logout)
+          ($set help=Logout)
+        ($else)
+          ($set cmd=login)
+          ($set help=Login)
+        ($endif)
+        <A HREF='($path.main)?db=($par.db)&action=($cfg.cmd)' TITLE='($cfg.help)'><IMG SRC="($path.skin)/image/($cfg.cmd).gif" border=0></A>
+      ($endif)
+    </TD>
+    <TD ALIGN=right VALIGN=bottom WIDTH=90%>
+      <FONT FACE=돋움>게시물:<FONT COLOR=red><B>($db.total)</B></FONT>, 쪽번호:<FONT COLOR=red><B>($count.page)</B></FONT>/<FONT COLOR=blue><B>($count.totalpage)</B></FONT> 오늘:<B>($count.today)</B></FONT>&nbsp;
+      ($menu.golist)
+    </TD>
+  </TR>
+</FORM>
+  <TR>
+    <TD COLSPAN=2><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=4 BORDER=0></TD>
+  </TR>
+</TABLE>
+
+<TABLE BORDER=0 WIDTH='($cfg.EzTableWidth)' CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD COLSPAN='($cfg.CellMax)' ($color BGCOLOR=MyAMerosTable)>
+($ifs cfg.MyAMerosCircle=1)
+      <TABLE ($color BGCOLOR=MyAMerosTable) BORDER=0 WIDTH='100%' CELLSPACING=0 CELLPADDING=0>
+      ($sub MyAMerosCircleUp)
+      </TABLE>
+($endif)
+    </TD>
+  </TR>
+  <TR>
+    ($sub MyAMerosTD)
+      <TABLE cellpadding="0" cellspacing="0" width='100%'>
+        <TR ALIGN=center ($color BGCOLOR=MyAMerosTable)>
+($if cfg.EzShowCheckBox)($hidden.selform)
+          <TD><A HREF='($link.select)' title='체크-선택보기'><IMG SRC='($path.icon)/loop.gif' BORDER=0 ALT='체크-선택보기'></A></TD>
+($endif)
+($if cfg.EzDocNum)
+          <TD NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>번호</FONT></TD>
+($endif)
+($if cfg.EzFileIcon)
+          <TD><FONT ($color COLOR=EzListHeadTxtCol)>ⓘ</FONT></TD>
+($endif)
+($if cfg.EzShowFile)
+          <TD NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>파일명</FONT></TD>
+($endif)($add CellMax=1)
+          <TD><FONT ($color COLOR=EzListHeadTxtCol)>제목</FONT></TD>
+($if cfg.EzShowName)
+          <TD NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>이름</FONT></TD>
+          <TD><FONT ($color COLOR=EzListHeadTxtCol)>&nbsp;</FONT></TD>
+($endif)
+          <TD NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>등록날짜</FONT></TD>
+($if cfg.EzReadCount)
+          <TD NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>조회</FONT></TD>
+($endif)
+($if cfg.EzDownCount)
+          <TD NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>다운</FONT></TD>
+($endif)
+        </TR>
+($sub MyAMerosNoticeNumber)
+[%End%]
+
+[%Body%]
+($ifsnot db.dbf=cfg.MyAMerosNotice1)
+($ifsnot db.dbf=cfg.MyAMerosNotice2)
+($ifsnot db.dbf=cfg.MyAMerosNotice3)
+($ifsnot db.dbf=cfg.MyAMerosNotice4)
+($ifsnot db.dbf=cfg.MyAMerosNotice5)
+($ifsnot db.dbf=cfg.MyAMerosNotice6)
+
+($if cfg.MyAMerosli=0)
+($set MyAMerosli=2)
+($else)
+        <TR ($color BGCOLOR=EzListBkCol)>
+          <TD COLSPAN=($cfg.CellMax)><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=2></TD>
+        </TR>
+($endif)
+        <TR ALIGN=center ($color BGCOLOR=EzListBkCol) ($ifs cfg.EzSelColor)onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='($cfg.EzSelColor)'"($endif)>
+($if cfg.EzShowCheckBox)
+          <TD><INPUT TYPE='checkbox' NAME=selnum VALUE='($db.code)'>&nbsp;</TD>
+($endif)
+($if cfg.EzDocNum)
+;         <TD><FONT ($color COLOR=EzListTxtCol)>($db.no)</FONT>&nbsp;</TD>
+          <TD><FONT ($color COLOR=EzListTxtCol)>($if db.thread=0)($db.code)&nbsp;($endif)</FONT>&nbsp;</TD>
+($endif)
+($if cfg.EzFileIcon)
+          <TD><A HREF='javascript:RemoteWindow("($link.remotesubj)")' title='($type.fileinfo)'><IMG SRC='($path.type)/($type.file)' BORDER=0 ALT='($type.fileinfo)'></A>&nbsp;</TD>
+($endif)
+($if cfg.EzShowFile)
+          <TD ALIGN=left NOWRAP><FONT ($color COLOR=EzListTxtCol)>($ifs db.file)<A HREF='($link.file)' title='($type.fileinfo)'>($db.shortfile)</A>($endif)&nbsp;</TD>
+($endif)
+          <TD WIDTH=100% ALIGN=left STYLE="word-break:break-all;"><A HREF='($link.subj)' ($if cfg.isAdmin)title='($db.ip)'($endif)><FONT ($color COLOR=EzListTxtCol)>($thread.depth)<A HREF='($link.subj)' ($status=db.no)>($if cfg.EzFolderIcon)<IMG SRC='($path.icon)/($thread.icon)' BORDER=0>($endif)&nbsp;($db.shortsubj)</A>($if cfg.EzShowComment)&nbsp;<FONT style=font-size:7pt;>($readcmt)($if cmt.count!=0)[<FONT ($color COLOR=EzListTxtCol)>($cmt.count)</FONT>]($endif)</FONT>($endif)</TD>
+($if cfg.EzShowName)
+          <TD ALIGN=left NOWRAP>($if db.vno)<IMG SRC='($path.skin)/image/member.gif' WIDTH=11 HEIGHT=11>($else)<IMG SRC='($path.icon)/blank.gif' WIDTH=11 HEIGHT=11>($endif)&nbsp;<FONT ($color COLOR=EzListTxtCol)>($ifs db.mail)<A HREF='($link.mail)' title='($db.mail)'>($endif)
+($if cfg.MyAMerosAdmin01=1)($ifs cfg.EzAdminName=db.name)<B>($endif)($endif)($ifs cfg.MyAMerosAdmin02)($ifs cfg.EzAdminName=db.shortname)<font ($color color=MyAMerosAdmin02)>($endif)($endif)($db.shortname)($ifs cfg.MyAMerosAdmin02)($ifs cfg.EzAdminName=db.shortname)</font>($endif)($endif)($if cfg.MyAMerosAdmin01=1)($ifs cfg.EzAdminName=db.name)</B>($endif)($endif)</A>&nbsp;</TD>
+          <TD>($ifs db.home)<A HREF='($db.home)' TARGET='($cfg.EzHomeTarget)'><IMG SRC='($path.icon)/behome.gif' BORDER=0></A>($endif)&nbsp;</TD>
+($endif)
+          <TD><FONT ($color COLOR=EzListTxtCol)>($db.date.modify)&nbsp;</TD>
+($if cfg.EzReadCount)
+          <TD><FONT ($color COLOR=EzListTxtCol)>($db.count)&nbsp;</TD>
+($endif)
+($if cfg.EzDownCount)
+          <TD><FONT ($color COLOR=EzListTxtCol)>($db.downcount)&nbsp;</TD>
+($endif)
+        </TR>
+($endif)
+($endif)
+($endif)
+($endif)
+($endif)
+($endif)
+[%End%]
+
+[%Tail%]
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    ($sub MyAMerosTD)
+      <TABLE ($color BGCOLOR=EzListBkColEven) cellpadding="0" cellspacing="0" width="100%">
+        <TR>
+($if cfg.EzShowCheckBox=2)
+          <TD ALIGN=left NOWRAP><A HREF='JavaScript:SelectAll();'>암호:</A> <INPUT TYPE=password NAME=pass SIZE=8 MAXLENGTH=8 CLASS=editbox> <INPUT TYPE=button VALUE='삭제' ONCLICK='javascript:MultiSubmit( "SelForm", "action", "multidel" )' CLASS=button></TD>
+($endif)
+</FORM>
+($if cfg.EzShowSearch)
+<FORM NAME=FindForm METHOD=post ACTION='($path.main)'>
+($hidden.info)
+          <TD ALIGN=right>
+            <INPUT TYPE=hidden NAME=action VALUE='search'>
+            <INPUT TYPE=hidden NAME=cmd VALUE='next'>
+            <INPUT TYPE=hidden NAME=findstart VALUE='($par.findstart)'>
+            <SELECT NAME='ftype'>
+              <OPTION VALUE='subj'  ($ifs par.ftype=subj)selected($endif)>제목</OPTION>
+              <OPTION VALUE='subj+cont'  ($ifs par.ftype=subj+cont)selected($endif)>제목+내용</OPTION>
+              <OPTION VALUE='name'  ($ifs par.ftype=name)selected($endif)>이름</OPTION>
+              <OPTION VALUE='cont'  ($ifs par.ftype=cont)selected($endif)>내용</OPTION>
+              <OPTION VALUE='file'  ($ifs par.ftype=file)selected($endif)>파일</OPTION>
+              <OPTION VALUE='mail'  ($ifs par.ftype=mail)selected($endif)>메일</OPTION>
+              <OPTION VALUE='home'  ($ifs par.ftype=home)selected($endif)>홈페이지</OPTION>
+              <OPTION VALUE='ip' ($ifs par.ftype=ip)selected($endif)>IP</OPTION>
+            </SELECT>
+            <INPUT TYPE=text NAME=word VALUE='($par.word)' SIZE=15 MAXLENGTH=40 CLASS=editbox><INPUT TYPE='submit' VALUE='검색' CLASS=button>&nbsp;
+          </TD>
+</FORM>
+($endif)
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD style="border-right-width:1; border-bottom-width:1; border-left-width:1; border-right-color:($cfg.MyAMerosTable); border-bottom-color:($cfg.MyAMerosTable); border-left-color:($cfg.MyAMerosTable); border-right-style:solid; border-bottom-style:solid; border-left-style:solid;" ($color BGCOLOR=EzListBkColEven) align='center' width="100%" COLSPAN=($cfg.CellMax)>
+      ($menu.page)
+    </TD>
+  </TR>
+($if cfg.MyAMerosCircle=1)
+  <TR>
+    <TD WIDTH="100%" STYLE="border-top-width:1; border-top-color:($cfg.MyAMerosTable); border-top-style:solid;" ($color BGCOLOR=MyAMerosTable) colspan="($cfg.CellMax)"><IMG SRC="($path.skin)/image/ld.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+  </TR>
+($endif)
+  <TR>
+    <TD ALIGN='right' WIDTH="60%" NOWRAP>
+      <TABLE CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+        <TR>
+          <TD width="50%" align='left'>
+($ifs cfg.EzAdminHome)
+            <A HREF='($cfg.EzAdminHome)' TARGET='($cfg.EzHomeTarget)'><IMG SRC='($path.icon)/home.gif' BORDER=0></A>
+($endif)
+          </TD>
+;          <TD WIDTH="50%" NOWRAP ALIGN='right'></TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD WIDTH="40%" ALIGN="right">
+      <TABLE ALIGN="right" VALIGN="middle" CELLPADDING="1" CELLSPACING="0">
+        <TR>
+          <TD NOWRAP>
+($ifs link.prevlist)
+            <A HREF='($link.prevlist)' ($status=Prev)><IMG SRC='($path.icon)/prev.gif' BORDER=0 ALT='Prev'></A>
+($endif)
+($ifs link.nextlist)
+            <A HREF='($link.nextlist)' ($status=Next)><IMG SRC='($path.icon)/next.gif' BORDER=0 ALT='Next'></A>
+($endif)
+            <A HREF='($link.write)' ($status=Write)><IMG SRC='($path.icon)/write.gif' BORDER=0 ALT='Write'></A>
+            <A HREF='($link.list)' ($status=Reload)><IMG SRC='($path.icon)/list.gif' BORDER=0 ALT='Reload'></A>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+    <TD ALIGN="right" VALIGN=top>
+      <TABLE CELLPADDING="0" CELLSPACING="0" WIDTH="100" ($color BGCOLOR=MyAMerosTable)>
+        <TR>
+          <TD WIDTH="200" COLSPAN="2" ALIGN="center" VALIGN="top">
+            <TABLE CELLPADDING="2" CELLSPACING="0" WIDTH="100%">
+              <TR>
+                <TD NOWRAP ALIGN="center" VALIGN="middle">
+                  <A HREF='javascript:RemoteWindow("http://ezskin.net/ezboard/ez_ameros/ezboard.cgi?db=ver&action=remote&dbf=($cfg.MyAMerosVer)&page=0&depth=1")' title='스킨 정보' ($status=스킨 정보)><B><SPAN STYLE="font-size:8pt;"><FONT COLOR="($ifs cfg.MyAMerosTable=white)black($else)($ifs cfg.MyAMerosTable=ffffff)black($else)($ifs cfg.MyAMerosTable=#ffffff)black($else)white($endif)($endif)($endif)">ESM AMeros</FONT></SPAN></B></A>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+($if cfg.MyAMerosCircle=1)
+        <TR>
+          <TD ALIGN="left" VALIGN="top"><IMG SRC="($path.skin)/image/ld.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+          <TD ALIGN="right" VALIGN="top"><IMG SRC="($path.skin)/image/rd.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+        </TR>
+($endif)
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+[%End%]
+
+[%MyAMerosNoList%]
+  <TR ($color BGCOLOR=MyAMerosNoticeColor) >
+    <TD COLSPAN=($cfg.CellMax)><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=1></TD>
+  </TR>
+  <TR ALIGN=center ($color BGCOLOR=EzListBkCol) ($ifs cfg.EzSelColor)onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='($cfg.EzSelColor)'"($endif)>
+($if cfg.EzShowCheckBox)
+    <TD ($color BGCOLOR=MyAMerosNoticeColor)><INPUT TYPE='checkbox' NAME=selnum VALUE='($db.code)'>&nbsp;</TD>
+($endif)
+($if cfg.EzDocNum)
+    <TD ($color BGCOLOR=MyAMerosNoticeColor) ALIGN='center'>
+      <B><A HREF='javascript:RemoteWindow("($link.remotesubj)&dbf=($cfg.EzNotice)")'><img src="($path.skin)/image/note.gif" border='0'></A>
+    </TD>
+($endif)
+($if cfg.EzFileIcon)
+    <TD ($color BGCOLOR=MyAMerosNoticeColor)><A HREF='javascript:RemoteWindow("($link.remotesubj)&dbf=($cfg.EzNotice)")' title='($type.fileinfo)'><IMG SRC='($path.type)/($type.file)' BORDER=0 ALT='($type.fileinfo)'></A>&nbsp;</TD>
+($endif)
+($if cfg.EzShowFile)
+    <TD ($color BGCOLOR=MyAMerosNoticeColor) ALIGN=left NOWRAP><FONT ($color COLOR=MyAMerosNoticeTextColor)>($ifs db.file)<A HREF='($link.file)' title='($type.fileinfo)'>($db.shortfile)</A>($endif)&nbsp;</TD>
+($endif)
+    <TD ($color BGCOLOR=MyAMerosNoticeColor) STYLE="word-break:break-all;" WIDTH=100% ALIGN=left><A HREF='($link.subj)&dbf=($cfg.EzNotice)' ($if cfg.isAdmin)title='($db.ip)'($endif)><FONT ($color COLOR=MyAMerosNoticeTextColor)>($thread.depth)($if cfg.EzFolderIcon)<IMG SRC='($path.icon)/($thread.icon)' BORDER=0>($endif)&nbsp;<B>($db.shortsubj)</b></A></TD>
+($if cfg.EzShowName)
+    <TD ($color BGCOLOR=MyAMerosNoticeColor) NOWRAP>($if db.vno)<IMG SRC='($path.skin)/image/member.gif' WIDTH=11 HEIGHT=11>($else)<IMG SRC='($path.icon)/blank.gif' WIDTH=11 HEIGHT=11>($endif)<FONT ($color COLOR=MyAMerosNoticeTextColor)>($ifs db.mail)<A HREF='($link.mail)' title='($db.mail)'>($endif)<B>($db.shortname)</B></A>&nbsp;</TD>
+    <TD ($color BGCOLOR=MyAMerosNoticeColor)>($ifs db.home)<A HREF='($db.home)' TARGET='($cfg.EzHomeTarget)'><IMG SRC='($path.icon)/behome.gif' BORDER=0></A>($endif)&nbsp;</TD>
+($endif)
+    <TD ($color BGCOLOR=MyAMerosNoticeColor)><FONT ($color COLOR=MyAMerosNoticeTextColor)>($db.date.modify)&nbsp;</TD>
+($if cfg.EzReadCount)
+    <TD ($color BGCOLOR=MyAMerosNoticeColor)><FONT ($color COLOR=MyAMerosNoticeTextColor)>($db.count)&nbsp;</TD>
+($endif)
+($if cfg.EzDownCount)
+    <TD ($color BGCOLOR=MyAMerosNoticeColor)><FONT ($color COLOR=MyAMerosNoticeTextColor)>($db.downcount)&nbsp;</TD>
+($endif)
+  </TR>
+  <TR ($color BGCOLOR=MyAMerosNoticeColor)>
+    <TD COLSPAN=($cfg.CellMax)><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=1></TD>
+  </TR>
+[%End%]
+
+[%GetCellMax%]
+($set CellMax=2)
+($set ColSpan=0)
+($if cfg.EzShowCheckBox)($add CellMax=1)($add ColSpan=1)($endif)
+($if cfg.EzDocNum)($add CellMax=1)($add ColSpan=1)($endif)
+($if cfg.EzFileIcon)($add CellMax=1)($add ColSpan=1)($endif)
+($if cfg.EzShowFile)($add CellMax=1)($add ColSpan=1)($endif)
+($add ColSpan=1)
+($if cfg.EzShowName)($add CellMax=2)($endif)
+($if cfg.EzReadCount)($add CellMax=2)($endif)
+($if cfg.EzDownCount)($add CellMax=2)($endif)
+[%End%]
+
+[%MyAMerosTD%]
+<TD WIDTH="100%" STYLE="border-right-width:1; border-left-width:1; border-right-color:($cfg.MyAMerosTable); border-left-color:($cfg.MyAMerosTable); border-right-style:solid; border-left-style:solid;" COLSPAN='($cfg.CellMax)')>
+[%End%]
+
+[%MyAMerosCircleUp%]
+  <TR>
+    <TD WIDTH="50%" ($color BGCOLOR=MyAMerosTable)><IMG SRC="($path.skin)/image/lu.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+    <TD COLSPAN='($cfg.CellMax)' ALIGN="right" WIDTH="50%" ($color BGCOLOR=MyAMerosTable)><IMG SRC="($path.skin)/image/ru.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+  </TR>
+[%End%]
+
+[%MyAMerosCircleDown%]
+  <TR>
+    <TD WIDTH="50%" ($color BGCOLOR=MyAMerosTable)><IMG SRC="($path.skin)/image/ld.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+    <TD COLSPAN='($cfg.CellMax)' ALIGN="right" WIDTH="50%" ($color BGCOLOR=MyAMerosTable)><IMG SRC="($path.skin)/image/rd.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+  </TR>
+[%End%]
+
+[%MyAMerosHead%]
+($ifsnot cfg.MyAMerosNoticeColor)
+($set MyAMerosNoticeColor=EzSelColor)
+($endif)
+
+($ifsnot cfg.MyAMerosNoticeTextColor)
+($set MyAMerosNoticeTextColor=EzDefFontSize)
+($endif)
+
+($ifsnot cfg.EzListHeadBkCol)
+($set EzListHeadBkCol=#ffffff)
+($endif)
+
+($ifsnot cfg.EzListHeadTxtCol)
+($set EzListHeadTxtCol=#000000)
+($endif)
+
+($ifsnot cfg.EzDataBkCol)
+($set EzDataBkCol=#ffffff)
+($endif)
+
+($ifsnot cfg.EzDataTxtCol)
+($set EzDataTxtCol=#000000)
+($endif)
+
+($ifsnot cfg.MyAMerosTable)
+($set MyAMerosTable=#d0d0d0)
+($endif)
+[%End%]
+
+[%MyAMerosNoticeNumber%]
+($set count=0)
+($loop)
+($add count=1)
+($set notice=MyAMerosNotice)
+($strcat notice,cfg.count)
+($set no=cfg.[notice])
+
+($if cfg.no)($readdbf cfg.no)
+($set EzNotice=cfg.no)
+($sub MyAMerosNoList)
+($endif)
+
+($if cfg.count=5)($loopbreak)($endif)
+($loopend)
+[%End%]

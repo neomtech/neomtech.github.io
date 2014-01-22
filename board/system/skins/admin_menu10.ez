@@ -1,0 +1,52 @@
+[%System%]
+MENU10=카테고리
+[%End%]
+
+[%MENU10%]
+<DIV ID='MENU10'>
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Table) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+  <TR>
+  <TD>
+<TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+  <TR BGCOLOR=($cfg.color.Table)>
+    <TD ALIGN=center><FONT COLOR=#f0f0ff><B>카테고리 설정</B></FONT></TD>
+    <TD ALIGN=left><FONT COLOR=#f0f0ff>단어들을 한줄씩 적어주십시요.</FONT></TD>
+  </TR>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>카테고리</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD ALIGN=center>카테고리명</TD>
+          <TD ALIGN=center>카테고리 설명</TD>
+        </TR>
+($set count=0)
+($loop)
+($if cfg.count<=9)
+($set name=EzCateName0)
+($set value=EzCateValue0)
+($else)
+($set name=EzCateName)
+($set value=EzCateValue)
+($endif)
+($strcat name,cfg.count)
+($strcat value,cfg.count)
+($set qname=cfg.[name])
+($set qvalue=cfg.[value])
+        <TR>
+          <TD><INPUT TYPE=text NAME='($cfg.name)' VALUE='($cfg.qname)' CLASS=editbox></TD>
+          <TD>&nbsp;<INPUT TYPE=text NAME='($cfg.value)' VALUE='($cfg.qvalue)' CLASS=editbox></TD>
+        </TR>
+($add count=1)
+($if cfg.count=15)($loopbreak)($endif)
+($loopend)
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+</DIV>
+[%End%]

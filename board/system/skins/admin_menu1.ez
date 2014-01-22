@@ -1,0 +1,118 @@
+[%System%]
+MENU1=관리자
+[%End%]
+
+[%MENU1%]
+<DIV ID='MENU1'>
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>관리자 환경</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+      <TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+        <TR>
+          <TD BGCOLOR=($cfg.color.LeftCell) ALIGN=right>관리자 이름</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzAdminName' VALUE='($cfg.EzAdminName)' SIZE=15 CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>전자메일</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzAdminMail' VALUE='($cfg.EzAdminMail)' SIZE=35 CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>홈페이지</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzAdminHome' VALUE='($cfg.EzAdminHome)' SIZE=35 CLASS=editbox>
+            <INPUT TYPE=text NAME='EzHomeTarget' VALUE='($cfg.EzHomeTarget)' SIZE=8 CLASS=editbox> <FONT COLOR=blue>(target)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>새 암호</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=password NAME=pass SIZE=8 MAXLENGTH=8 CLASS=editbox> <FONT COLOR=blue>(새로운 암호로 변경할때만 입력)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>암호확인</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=password NAME=repass SIZE=8 MAXLENGTH=8 CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR=($cfg.color.LeftCell)><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+          <TD><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>메일서버</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzMailServer' VALUE='($cfg.EzMailServer)' SIZE='30' CLASS=editbox> <FONT COLOR=blue>(예: 127.0.0.1, hitel.net등)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>메일형식</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzMailHtml' VALUE=1 ($if cfg.EzMailHtml=1)checked($endif)>Html
+            <INPUT TYPE=radio NAME='EzMailHtml' VALUE=0 ($if cfg.EzMailHtml=0)checked($endif)>Text
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ROWSPAN=2 ALIGN=right VALIGN=top>메일포스팅</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzPostAdmin' VALUE=1 ($if cfg.EzPostAdmin)checked($endif)>  글 작성시 관리자에게 메일 발송
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzPostReply' VALUE=1 ($if cfg.EzPostReply)checked($endif)>  답변글 작성시 원본 글작성자에게 메일 발송
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>메일 프로그램</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzUseChenieMail' VALUE=1 ($if cfg.EzUseChenieMail=1)checked($endif)>채니메일
+            <INPUT TYPE=radio NAME='EzUseChenieMail' VALUE=0 ($if cfg.EzUseChenieMail=0)checked($endif)>일반 메일프로그램
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>감사메일</FONT>
+      <FONT COLOR=($cfg.color.TopHelpTxt)>(글 작성시 자동으로 메일을 보내줍니다)</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+      <TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>메일 제목</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzMailSubj' VALUE='($cfg.EzMailSubj)' SIZE=50 CLASS=editbox>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>메일 내용</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <TEXTAREA NAME='MailCont' ROWS=5 COLS=50 CLASS=editbox>($cfg.MailCont)</TEXTAREA>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+</DIV>
+[%End%]

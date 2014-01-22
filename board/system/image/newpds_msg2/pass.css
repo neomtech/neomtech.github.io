@@ -1,0 +1,32 @@
+A:link, A:visited { font:9pt ±¼¸²; text-decoration:none; color:#203375; line-height:160%; }
+A:hover {text-decoration:none; Color:#8E9FDC; line-height:160%; }
+A:active {text-decoration:none; Color:#cc0000; line-height:160%; }
+p,br,table,td, body {font:9pt ±¼¸²;color:#203375; line-height:160%; }
+
+A:link.title, A:visited.title { font:12pt ±¼¸²; text-decoration:none; color:#450606; font-weight:bold;}
+A:hover.title {text-decoration:underline; Color:#B03401; font-weight:bold;}
+A:active.title {text-decoration:none; Color:#B03401; font-weight:bold;}
+.title {font:12pt ±¼¸²;color:#450606; font-weight:bold;}
+
+A:link.s2, A:visited.s2 { font:9pt Tahoma; text-decoration:none; color:dimgray; line-height:160%; font-weight:bold;}
+A:hover.s2 {text-decoration:underline; Color:#B03401; line-height:160%; font-weight:bold;}
+A:active.s2 {text-decoration:none; Color:#3A4182; line-height:160%; font-weight:bold;}
+.s2 {font:9pt Tahoma;color:dimgray; line-height:160%; font-weight:bold;}
+
+A:link.s3, A:visited.s3 { font:9pt µ¸¿ò; text-decoration:none; color:#450606; line-height:160%; }
+A:hover.s3 {text-decoration:underline; Color:#B03401; line-height:160%; }
+A:active.s3 {text-decoration:none; Color:#B03401; line-height:160%; }
+.s3 {font:9pt µ¸¿ò;color:#450606; line-height:160%; }
+
+A:link.s4, A:visited.s4 { font:8pt Tahoma; text-decoration:none; color:dimgray; line-height:160%;}
+A:hover.s4 { font:8pt Tahoma; text-decoration:underline; Color:#B03401; line-height:160%; }
+A:active.s4 { font:8pt Tahoma; text-decoration:none; Color:#B03401; line-height:160%; }
+.s4 {font:8pt Tahoma;color:dimgray; line-height:160%; }
+
+.head {border:solid 1 black;font-family:±¼¸²;font-size:9pt;color:black;background-color:white;height:19px}
+.textarea {border:solid 1 #5265A5; font-family:±¼¸²;font-size:9pt;color:black;background-color:white}
+.input{border:solid 1 #5265A5;font-family:±¼¸²;font-size:9pt;color:black;background-color:white;height:19px}
+.submit {border:solid 1;font-family:±¼¸²;font-size:9pt;color:white;background-color:black;height:19px}
+.thm8, a:link.thm8 {font-family:Tahoma;font-size:8pt;}
+.no { font:8pt tahoma; }
+.catno { font:6pt Tahoma; font-weight:bold; letter-spacing:-1px; }

@@ -1,0 +1,181 @@
+<HTML>
+<HEAD>
+<TITLE> 네오엠텍 홈페이지에 오신것을 환영합니다.</TITLE>
+<LINK HREF="../font.css" REL="StyleSheet" TYPE="text/css">
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
+
+
+<!-- 탑메뉴 시작 -->
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD background="../images/back_top.gif"><iframe name="header" scrolling="NO" frameborder="NO" noresize src="../header.html" frameborder="NO" width=980 height=99 scrolling="no"></iframe></TD>
+	</TR>
+</TABLE>
+<!-- 탑메뉴 끝 -->
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD HEIGHT=5 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD background="images/back_body.gif">
+		<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 class="doc">
+			<TR>
+				<TD WIDTH=80 background="../images/back_s_left.gif" align=center valign=bottom><IMG SRC="../images/menu_left.gif" WIDTH="60" HEIGHT="125" BORDER=0 ALT=""><br><br></TD>
+				<TD WIDTH=900><IMG SRC="images/partner_visual.gif" WIDTH="900" HEIGHT="212" BORDER=0 ALT=""></TD>
+			</TR>
+		</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD HEIGHT=5 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD>
+		<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 class="doc">
+			<TR>
+				<TD WIDTH="79"></TD>
+				<TD WIDTH="1" BGCOLOR="#E7E7E7"></TD>
+				<TD WIDTH="900">
+				 
+				<TABLE WIDTH="900" BORDER=0 CELLPADDING=0 CELLSPACING=0>
+					<TR>
+						<TD HEIGHT=5></TD>
+					</TR>
+					<TR>
+						<TD HEIGHT=28 align=right> HOME > Partner > Partner list</TD>
+					</TR>
+					<TR>
+						<TD HEIGHT=5></TD>
+					</TR>
+				</TABLE>
+				<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=900 class="doc">
+					<TR>
+						<TD WIDTH="200" align=center valign=top>
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=200 class="doc">
+							<TR>
+								<TD WIDTH=15 valign=top><IMG SRC="images/line_01.gif" WIDTH="15" HEIGHT="200" BORDER=0 ALT=""></TD>
+								<TD WIDTH=184 valign=top>
+								<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=148 class="doc">
+									<TR>
+										<TD><IMG SRC="images/me_title_00.gif" WIDTH="148" HEIGHT="36" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="list.html"><IMG SRC="images/me_title_01_1.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+								</TABLE>
+								</TD>
+								<TD WIDTH=1 background="images/line_02.gif"></TD>
+							</TR>
+						</TABLE>
+						</TD>
+						<TD WIDTH="700" align=center valign=top>
+
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=650 class="doc">
+							<TR>
+								<TD><IMG SRC="images/stitle_01.gif" WIDTH="647" HEIGHT="53" BORDER=0 ALT=""></TD>
+							</TR>
+							<TR>
+								<TD HEIGHT="30"></TD>
+							</TR>
+						</TABLE>
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=600 class="doc">
+							<TR>
+								<TD>
+								네오엠텍은 분야별 전략적 제휴를 통하여 상호 이익을 창출하는 최적의 네트워크를 이루고 있으며, 
+								향후 다양한 파트너쉽을 기반으로 사업 네트워크를 확장시킬 것입니다.
+								</TD>
+							</TR>
+							<TR>
+								<TD HEIGHT="30"></TD>
+							</TR>
+							<TR>
+								<TD>
+								<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=600 class="doc">
+									<TR>
+										<TD><IMG SRC="images/st_01.gif" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="10"></TD>
+									</TR>
+									<TR>
+										<TD><IMG SRC="images/img_01.gif" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="20"></TD>
+									</TR>
+									<TR>
+										<TD><IMG SRC="images/st_02.gif" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="10"></TD>
+									</TR>
+									<TR>
+										<TD><IMG SRC="images/img_02.gif" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="20"></TD>
+									</TR>
+									<TR>
+										<TD><IMG SRC="images/st_03.gif" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="10"></TD>
+									</TR>
+									<TR>
+										<TD><IMG SRC="images/img_03.gif" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="20"></TD>
+									</TR>
+									<TR>
+										<TD><IMG SRC="images/st_04.gif" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="10"></TD>
+									</TR>
+									<TR>
+										<TD><IMG SRC="images/img_04.gif" BORDER=0 ALT=""></TD>
+									</TR>
+								</TABLE>
+
+								</TD>
+							</TR>
+						</TABLE> 
+						
+						</TD>
+					</TR>
+				</TABLE>
+				
+				<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+					<TR>
+						<TD HEIGHT=40></TD>
+					</TR>
+				</TABLE>
+				
+				</TD>
+			</TR>
+		</TABLE>
+
+		</TD>
+	</TR>
+</TABLE>
+
+<!-- 하단메뉴 시작 -->
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD HEIGHT=1 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD><iframe name="footer" scrolling="NO" frameborder="NO" noresize src="../footer.html" frameborder="NO" width=980 height=50 scrolling="no"></iframe></TD>
+	</TR>
+</TABLE>
+<!-- 하단메뉴 끝 -->
+
+
+
+
+</BODY>
+</HTML>

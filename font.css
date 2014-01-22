@@ -1,0 +1,85 @@
+body,table,tr,td {font-family: "±¼¸²", "Seoul", "arial", "Verdana", "helvetica"; font-size: 9pt; line-height: 18px; color: #5b5b5b; }
+a:link { text-decoration: none; color:#5b5b5b; font-family: "±¼¸²", "Arial"; font-size: 9pt; line-height: 18px} 
+a:visited { text-decoration: none; color:#5b5b5b; font-family: "±¼¸²", "Arial"; font-size: 9pt; line-height: 18px} 
+a:hover { text-decoration: underline; color:#0099CC; font-family: "±¼¸²", "Arial"; font-size: 9pt; line-height: 18px} 
+
+.doc_c { text-align : justify; text-decoration: none; font-family: "±¼¸²", "Verdana"; color:#404040; font-family: "±¼¸²", "Verdana"; font-size: 7pt; line-height: 18px} 
+.doc { text-align : justify; text-decoration: none; font-family: "±¼¸²", "Arial"; color:#404040; font-family: "±¼¸²", "Arial"; font-size: 9pt; line-height: 18px} 
+.doc20 { text-align : justify; text-decoration: none; font-family: "±¼¸²", "Arial"; color:#404040; font-family: "±¼¸²", "Arial"; font-size: 9pt; line-height: 20px} 
+.doc22 { text-align : justify; text-decoration: none; font-family: "±¼¸²", "Arial"; color:#404040; font-family: "±¼¸²", "Arial"; font-size: 9pt; line-height: 22px} 
+.history { text-align : justify; text-decoration: none; font-family: "±¼¸²", "Arial"; color:#000000; font-size: 10pt; line-height: 18px} 
+.input { font-family: "±¼¸²"; font-size:9pt; border:solid 1 #A2A2A2; background-color:f8f8f8;} 
+.textarea { font-family: "±¼¸²"; color: Black; background-color: #FAFAFA; font-size : 9pt; border:solid 1 #A2A2A2; } 
+.select { font-family: "±¼¸²"; color: Black; background-color: #FAFAFA; font-size: 9pt; border:solid 1 #A2A2A2; color: #333333}
+
+
+
+
+/* ----- service ------ */
+
+
+#serviceShow  article { margin:0 auto; overflow:hidden;}
+
+#serviceShow .serv_img { float:left; width:50%; height:200px; overflow:hidden; }
+#serviceShow .serv_img img { width:auto; height:100%;}
+
+
+#serviceShow .serv_txt { float:left; width:40%; padding:30px 5% 0;}
+#serviceShow .serv_txt h3 { height:60px;}
+#serviceShow .serv_txt h3 img { height:90%;}
+#serviceShow .serv_txt .explain { margin:20px 0; text-align:justify;}
+#serviceShow .serv_txt .go_link { text-align:right;}
+#serviceShow .serv_txt .go_link a { display:inline-block; color:#666; margin-left:20px; padding-right:10px; background:url(../images/ico_link.png) right center no-repeat;}
+
+
+
+.copyright{
+		float:none;
+		padding:0 0 15px;
+		text-align:center;
+	}
+	.copyright:after,
+	.social-networks:after{
+		content:"";
+		display:block;
+		clear:both;
+	}
+	.social-networks li,
+	.copyright li{
+		float:none;
+		display:inline-block;
+	}
+
+
+
+
+
+
+#footer {min-width:1037px;margin-top:0px;}
+.f_top {display:none;}
+.f_con {padding:15px 0;width:;border-top:1px solid #acb3c1;background:#f7f7f7;}
+.f_con .cont {overflow:hidden;width:960px;margin:0 auto;background:#f7f7f7;}
+.f_con .cont li {float:left;height:20px;padding:5px 10px 0 10px;}
+.f_con .cont li a {padding:0 40px;background:url(/resources/kr/images/common/bg_footconline.gif) no-repeat right top;color:#1f355f;font-family:'NanumGothicBold';}
+
+.f_con .cont li.list01 {background:url(/resources/kr/images/common/bg_footcont02.gif) no-repeat 50px 2px;}
+.f_con .cont li.list01 a {padding:0 16px 0 17px;}
+.f_con .cont li.list02 {background:url(/resources/kr/images/common/bg_footcont03.gif) no-repeat 25px 2px;}
+.f_con .cont li.list03 {background:url(/resources/kr/images/common/bg_footcont06.gif) no-repeat 25px 2px;}
+.f_con .cont li.list04 {background:url(/resources/kr/images/common/bg_footcont04.gif) no-repeat 25px 2px;}
+.f_con .cont li.list05 {background:url(/resources/kr/images/common/bg_footcont05.gif) no-repeat 25px 2px;}
+.f_con .cont li.list06 {background:url(/resources/kr/images/common/bg_footcont07.gif) no-repeat 25px 2px;}
+
+.f_con .cont li.list06 a {background:none;}
+.f_bottom {background:#3b4d6f;padding:25px 0;}
+.f_bottom .bottomcon {overflow:hidden;width:910px;margin:0 auto;padding-left:50px;background:#3b4d6f;}
+.f_bottom .bottomcon .logo_foot {float:left;padding-top:15px;}
+.foot_con {float:left;margin-left:50px;font-size:11px;}
+.foot_con .foot_menu {overflow:hidden;}
+.foot_con .foot_menu li {float:left;}
+.foot_con .foot_menu li a {padding:0 10px;color:#fff;font-family:'NanumGothicBold';background:url(/resources/kr/images/common/bg_footmenu.gif) no-repeat left top;}
+.foot_con .foot_menu li:first-child a {padding-left:0;background:none;}
+.foot_con .foot_ad {padding:10px 0 10px;}
+.foot_con .foot_ad span {padding-right:20px;color:#fff;}
+.foot_con .foot_ad span em {padding-right:10px;color:#b8c4da;}
+.foot_con .foot_copy {color:#b8c4da;}

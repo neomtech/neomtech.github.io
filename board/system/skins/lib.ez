@@ -1,0 +1,10 @@
+[%System%]
+[%End%]
+
+[%CheckAdmin%]
+($if cfg.EzUseMember)
+  ($ifs mem.name=cfg.EzAdminName)($set admin=1)($endif)
+($else)
+  ($ifs cfg.EzAdminName=cookie.name)($set admin=1)($endif)
+($endif)
+[%End%]

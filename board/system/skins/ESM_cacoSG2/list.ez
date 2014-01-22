@@ -1,0 +1,195 @@
+[%System%]
+CacoBkCol1=($cfg.EzDataHeadBkCol)
+CacoBkCol2=($cfg.EzDataBkCol)
+CacoBkCol3=($cfg.EzListHeadBkCol)
+CacoTxtCol1=($cfg.EzDataHeadTxtCol)
+CacoTxtCol2=($cfg.EzDataTxtCol)
+CacoTxtCol3=($cfg.EzListHeadTxtCol)
+DName=($cfg.EzDefColor)
+DBack=($cfg.EzBackColor)
+CPad=($cfg.EzCellPadding)
+EzSkinType=1
+MyFace=1
+MyPad=1
+[%End%]
+
+[%Head%]
+<TABLE WIDTH="($cfg.EzTableWidth)" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD ALIGN="center">
+($set EzTableWidth=95%)
+<TABLE WIDTH="($cfg.EzTableWidth)" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD ALIGN="center">
+;-------------------------------------------
+; 관리자 메뉴
+<BR>
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" WIDTH="($cfg.EzTableWidth)" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol2)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="3"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol1)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="3">
+  <TR>
+    <TD WIDTH="1%" ALIGN="left"><A HREF="($link.admin)" ($status=관리자 메뉴)><IMG SRC="($path.skin)/blank.gif" BORDER="1" WIDTH="10" HEIGHT="10"></A></TD>
+    <TD ALIGN="center">($if cfg.EzListButtonPos)<B>($endif)<FONT COLOR="($cfg.CacoTxtCol1)">($ifs cfg.EzBoardTitle)($cfg.EzBoardTitle)($else)&nbsp;($endif)</FONT></TD>
+    <TD WIDTH="1%" ALIGN="right" NOWRAP>($if cfg.EzReadCount)방문: ($count.today)/($count.total)&nbsp;($endif)<A HREF="($link.write)" ($status=글쓰기)><IMG SRC="($path.skin)/blank.gif" BORDER="1" WIDTH="10" HEIGHT="10"></A></TD>
+  </TR>
+</TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE><BR>
+;-------------------------------------------
+; 입력폼 호출
+($if cfg.EzShowInputForm)
+($include lib_input)
+($set MyTARows=5)
+($set MyTACols=54)
+($set MyFormWidth=50%)
+<TABLE WIDTH="($cfg.EzTableWidth)" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD ALIGN="center">
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol2)" BORDER="0" CELLSPACING="0" CELLPADDING="3"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol1)" BORDER="0" CELLSPACING="0" CELLPADDING="3"><TR><TD>
+($sub InputForm)
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE><BR>
+($endif)
+[%End%]
+
+[%BodyHead%]
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" WIDTH="($cfg.EzTableWidth)" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol1)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="3">
+  <TR>
+    <TD>
+      <IMG SRC="($path.skin)/($if db.vno)member($else)blank($endif).gif" BORDER="0" WIDTH="11" HEIGHT="11" ALIGN="top">
+      ($db.shortsubj)
+    </TD>
+    <TD NOWRAP ALIGN="right">
+      <A HREF="($link.modify)" ($status=수정)><IMG SRC="($path.skin)/modify.gif" BORDER="0" ALT="수정">
+      <A HREF="($link.delete)" ($status=삭제)><IMG SRC="($path.skin)/delete.gif" BORDER="0" ALT="삭제">
+    </TD>
+  </TR>
+  <TR>
+    <TD COLSPAN="2">
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE ($color BGCOLOR=EzListBkCol) WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="8">
+<TR><TD COLSPAN="2">
+($if cfg.EzShowName)
+($ifs db.mail)<A HREF="($link.mail)" ($status=db.mail)>($endif)($db.shortname)</A>($ifs db.home)&nbsp;(<A HREF="($db.home)" TARGET="($cfg.EzHomeTarget)"><IMG SRC="($path.skin)/behome.gif" BORDER="0" ALIGN="top"></A>)($endif)님께서 축하해주셨어요.
+($else)
+&nbsp;
+($endif)
+</TD></TR>
+<TR><TD WIDTH="1%" VALIGN="top">
+<A HREF="($link.reply)" ($status=답장)><IMG SRC=($ifs db.img)"($path.img)" WIDTH="70" ($else)"($path.skin)/face($if db.faceno<0)00)($else)($db.faceno)($endif).gif"($endif) BORDER="0" HSPACE="5" VSPACE="5" ALT="답장"></A>
+</TD><TD WIDTH="99%" VALIGN="top">
+($db.cont)
+<BR>
+<DIV ALIGN="right">($db.date)&nbsp;&nbsp;</DIV>
+[%End%]
+
+[%Body%]
+
+
+[%End%]
+
+[%BodyTail%]
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+<BR>
+[%End%]
+
+[%InBody%]
+<BR>
+<DIV ALIGN="right">
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE ($color BGCOLOR=EzListBkCol) WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="5">
+  <TR>
+    <TD WIDTH="99%">
+      <A HREF="($link.modify)" ($status=Modify)>($if cfg.EzContButtonPos)<B>($endif)<FONT COLOR="($cfg.CacoTxtCol3)">($db.subj)</FONT></A>
+      <IMG SRC="($path.skin)/($if db.vno)member($else)blank($endif).gif" BORDER="0" WIDTH="11" HEIGHT="11" ALIGN="top">
+    </TD>
+    <TD WIDTH="1%" ALIGN="right" NOWRAP>
+($if cfg.EzShowName)
+      ($ifs db.mail)<A HREF="($link.mail)">($endif)($db.shortname)</A>($ifs db.home)&nbsp;<A HREF="($db.home)" TARGET="($cfg.HomeTarget)"><IMG SRC="($path.skin)/behome.gif" BORDER="0"></A>($endif)
+($else)
+      &nbsp;
+($endif)
+    </TD>
+  </TR>
+  <TR>
+    <TD>
+      <FONT ($color COLOR=EzListTxtCol)>
+      ($db.cont)
+      </FONT>
+    </TD>
+    <TD ALIGN="right" VALIGN="top">
+      &nbsp;<IMG SRC=($ifs db.img)"($path.img)" WIDTH="70" ($else)"($path.skin)/face($if db.faceno<0)00)($else)($db.faceno)($endif).gif"($endif) BORDER="0"><BR>
+      <A HREF="($link.modify)" ($status=Modify)><IMG SRC="($path.skin)/modify.gif" BORDER="0" ALIGN="top"></A>
+      <A HREF="($link.delete)" ($status=Delete)><IMG SRC="($path.skin)/delete.gif" BORDER="0" ALIGN="top"></A>
+    </TD>
+  </TR>
+</TABLE>
+</TD></TR></TABLE>
+</DIV>
+[%End%]
+
+[%Tail%]
+;-------------------------------------------
+; 검색폼
+($if cfg.EzShowSearch)
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" WIDTH="($cfg.EzTableWidth)" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol2)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="3"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+
+<FORM NAME=FindForm METHOD=post ACTION="($path.main)">
+($hidden.info)
+<INPUT TYPE="hidden" NAME="action"    VALUE="search">
+<INPUT TYPE="hidden" NAME="cmd"       VALUE="next">
+<INPUT TYPE="hidden" NAME="findstart" VALUE="($par.findstart)">
+<TABLE BGCOLOR="($cfg.CacoBkCol1)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="3">
+  <TR>
+    <TD>
+      <SELECT NAME="ftype">
+        <OPTION VALUE="subj+cont"  ($ifs par.ftype=subj+cont)selected($endif)>제목+내용</OPTION>
+        <OPTION VALUE="name"  ($ifs par.ftype=name)selected($endif)>이름</OPTION>
+        <OPTION VALUE="subj"  ($ifs par.ftype=subj)selected($endif)>제목</OPTION>
+        <OPTION VALUE="cont"  ($ifs par.ftype=cont)selected($endif)>내용</OPTION>
+        <OPTION VALUE="file"  ($ifs par.ftype=file)selected($endif)>파일</OPTION>
+        <OPTION VALUE="mail"  ($ifs par.ftype=mail)selected($endif)>메일</OPTION>
+        <OPTION VALUE="ip" ($ifs par.ftype=ip)selected($endif)>IP</OPTION>
+      </SELECT>
+      <INPUT TYPE="text" NAME="word" VALUE="($par.word)" SIZE="15" MAXLENGTH="40" CLASS="editbox"><INPUT TYPE="submit" VALUE="검색" CLASS="button">
+    </TD>
+  </TR></FORM>
+</TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE><BR>
+($endif)
+;-------------------------------------------
+
+;-------------------------------------------
+; 페이지 메뉴/스킨 제작자
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" WIDTH="($cfg.EzTableWidth)" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol2)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="3"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.DBack)" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="3">
+  <TR>
+    <TD ALIGN="left" WIDTH="100%">
+($include lib_page)
+($sub PageMenu)
+    </TD>
+    <TD ALIGN="right" NOWRAP>
+      <A HREF="http://ezskin.net" TARGET="_blank"><FONT COLOR="($cfg.DName)" CLASS="small">ESM</FONT></A>&nbsp;-
+      <A HREF="http://cacolith.i.am" TARGET="_blank"><FONT COLOR="($cfg.DName)" CLASS="small">Cacolith</FONT></A>&nbsp;&nbsp;
+    </TD>
+  </TR>
+</TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+;-------------------------------------------
+</TD></TR></TABLE><BR>
+</TD></TR></TABLE>
+[%End%]

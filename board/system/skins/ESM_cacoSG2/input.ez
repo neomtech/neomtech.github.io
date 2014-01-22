@@ -1,0 +1,36 @@
+[%System%]
+CacoBkCol1=($cfg.EzDataHeadBkCol)
+CacoBkCol2=($cfg.EzDataBkCol)
+CacoBkCol3=($cfg.EzListHeadBkCol)
+CacoTxtCol1=($cfg.EzDataHeadTxtCol)
+CacoTxtCol2=($cfg.EzDataTxtCol)
+CacoTxtCol3=($cfg.EzListHeadTxtCol)
+DName=($cfg.EzDefColor)
+DBack=($cfg.EzBackColor)
+CPad=($cfg.EzCellPadding)
+EzSkinType=1
+MyFace=1
+MyPad=1
+[%End%]
+
+[%Head%]
+[%End%]
+
+[%Body%]
+($include lib_input)
+($set MyFormWidth=50%)
+<TABLE WIDTH="($cfg.EzTableWidth)" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD ALIGN="center">
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol2)" BORDER="0" CELLSPACING="0" CELLPADDING="3"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol3)" BORDER="0" CELLSPACING="0" CELLPADDING="1"><TR><TD>
+<TABLE BGCOLOR="($cfg.CacoBkCol1)" BORDER="0" CELLSPACING="0" CELLPADDING="3"><TR><TD>
+($sub InputForm)
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE>
+</TD></TR></TABLE><BR>
+[%End%]
+
+[%Tail%]
+[%End%]

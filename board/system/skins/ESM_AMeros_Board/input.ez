@@ -1,0 +1,128 @@
+#---------------------------------------------------------------------
+# 이지보드 2000  입력폼 스킨
+#---------------------------------------------------------------------
+# Programmer  : 전북대학교 전자공학과 Cherie 채경삼
+#                 이 메 일: cherie@hello.to
+#                 홈페이지: http://hello.to/cherie
+#---------------------------------------------------------------------
+# 현재 기본값은 글작성후 원래 읽던 페이지로 돌아가도록 되어있다.
+# 만일 첫 페이지로 가도록 하려면 ($par.page)대신 0을 적어주면 된다.
+#---------------------------------------------------------------------
+[%System%]
+Depth=($par.depth)
+aaa=($par.action)
+[%End%]
+
+[%Body%]
+<STYLE TYPE='text/css'>
+  .button   { height:19px; border-width:1; border-style:solid; border-color:#afafaf; background-color:#dfdfdf;}
+</STYLE>
+
+($add Depth=1)
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=0><TR><TD ALIGN=center>
+<FORM NAME=InputForm METHOD=post ENCTYPE='multipart/form-data' ACTION='($path.main)'>
+  <INPUT TYPE=hidden NAME=db        VALUE='($par.db)'>
+  <INPUT TYPE=hidden NAME=action    VALUE='($par.action)'>
+  <INPUT TYPE=hidden NAME=dbf       VALUE='($par.dbf)'>
+  <INPUT TYPE=hidden NAME=oldpass   VALUE='($par.pass)'>
+  <INPUT TYPE=hidden NAME=page      VALUE='($par.page)'>
+  <INPUT TYPE=hidden NAME=skin      VALUE='($par.skin)'>
+<TABLE ($color BGCOLOR=EzListHeadBkCol) BORDER=0 CELLSPACING=0 CELLPADDING=0>
+($ifs cfg.MyAMerosCircle=1)
+  <TR>
+    <TD STYLE="border-bottom-width:1; border-bottom-color:($cfg.MyAMerosTable); border-bottom-style:solid;" ALIGN="left" VALIGN="top" COLSPAN="2" BGCOLOR="($cfg.MyAMerosTable)">
+      <IMG SRC="($path.skin)/image/lu.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+    <TD STYLE="border-bottom-width:1; border-bottom-color:($cfg.MyAMerosTable); border-bottom-style:solid;" ALIGN="right" VALIGN="top" BGCOLOR="($cfg.MyAMerosTable)">
+      <IMG SRC="($path.skin)/image/ru.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+  </TR>
+($endif)
+  <TR>
+    <TD ($color bgcolor=MyAMerosTable) COLSPAN=3><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+  </TR>
+  <TR>
+    <TD ($color bgcolor=MyAMerosTable) COLSPAN=3 ALIGN=center><FONT ($color COLOR=EzListHeadTxtCol)><B>($cfg.Title)</B></FONT></TD>
+  </TR>
+  <TR>
+    <TD ($color bgcolor=MyAMerosTable) COLSPAN=3><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+  </TR>
+  <TR>
+    <TD COLSPAN='3' style="border-top-width:1; border-right-width:1; border-bottom-width:1; border-left-width:1; border-color:($cfg.MyAMerosTable); border-style:solid;">
+      <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD NOWRAP ($color BGCOLOR=EzDataBkCol) ALIGN=right><FONT ($color COLOR=EzDataTxtCol)>이    름</FONT>&nbsp;</TD>
+          <TD ($color BGCOLOR=EzDataBkCol) COLSPAN=2><INPUT TYPE=text NAME=name VALUE='($db.name)' SIZE=25 MAXLENGTH=20 CLASS=editbox></TD>
+        </TR>
+        <TR>
+          <TD NOWRAP ($color BGCOLOR=EzDataBkCol) ALIGN=right><FONT ($color COLOR=EzDataTxtCol)>($if cfg.EzMustMail)<B>($endif)전자메일</B></FONT>&nbsp;</TD>
+          <TD ($color BGCOLOR=EzDataBkCol) COLSPAN=2><INPUT TYPE=text NAME=mail VALUE='($db.mail)' SIZE=25 MAXLENGTH=50 CLASS=editbox>
+            <INPUT TYPE=radio NAME=html VALUE=0 ($if db.html=0)checked($endif)>Text
+            <INPUT TYPE=radio NAME=html VALUE=1 ($if db.html=1)checked($endif)>Html
+            <INPUT TYPE=radio NAME=html VALUE=2 ($if db.html=2)checked($endif)>Html&lt;BR&gt;
+          </TD>
+        </TR>
+($if cfg.EzShowHome)
+        <TR>
+          <TD NOWRAP ($color BGCOLOR=EzDataBkCol) ALIGN=right><FONT ($color COLOR=EzDataTxtCol)>($if cfg.EzMustHome)<B>($endif)홈페이지</B></FONT>&nbsp;</TD>
+          <TD ($color BGCOLOR=EzDataBkCol) COLSPAN=2><INPUT TYPE=text NAME=home VALUE='($db.home)' SIZE=56 MAXLENGTH=100 CLASS=editbox></TD>
+        </TR>
+($endif)
+        <TR>
+          <TD NOWRAP ($color BGCOLOR=EzDataBkCol) ALIGN=right><FONT ($color COLOR=EzDataTxtCol)>제    목</FONT>&nbsp;</TD>
+          <TD ($color BGCOLOR=EzDataBkCol) COLSPAN=2><INPUT TYPE=text NAME=subj VALUE='($db.subj)' SIZE=56 MAXLENGTH=100 CLASS=editbox></TD>
+        </TR>
+        <TR>
+          <TD ($color BGCOLOR=EzDataBkCol) ALIGN=center COLSPAN=3><TEXTAREA NAME=cont ROWS=12 COLS=64 CLASS=editbox ($autohide cont)>($db.cont)</TEXTAREA></TD>
+        </TR>
+($if cfg.EzFileUpload)
+        <TR>
+          <TD NOWRAP ($color BGCOLOR=EzDataBkCol) ALIGN=right><FONT ($color COLOR=EzDataTxtCol)>($if cfg.EzMustFileUpload)<B>($endif)파일첨부</B></FONT>&nbsp;</TD>
+          <TD ($color BGCOLOR=EzDataBkCol) COLSPAN=2><INPUT TYPE=file NAME=file SIZE=30 MAXLENGTH=120 CLASS=editbox> ($ifs db.file)<INPUT TYPE=checkbox NAME=delfile VALUE=1> 삭제($endif)</TD>
+        </TR>
+($endif)
+($if cfg.EzImgUpload)
+        <TR>
+          <TD NOWRAP ($color BGCOLOR=EzDataBkCol) ALIGN=right><FONT ($color COLOR=EzDataTxtCol)>미리보기</FONT>&nbsp;</TD>
+          <TD ($color BGCOLOR=EzDataBkCol) COLSPAN=2><INPUT TYPE=file NAME=img SIZE=30 MAXLENGTH=120 CLASS=editbox> ($ifs db.img)<INPUT TYPE=checkbox NAME=delimg VALUE=1> 삭제($endif)</TD>
+        </TR>
+($endif)
+        <TR>
+          <TD NOWRAP ($color BGCOLOR=EzDataBkCol) ALIGN=right><FONT ($color COLOR=EzDataTxtCol)>비밀번호&nbsp;</TD>
+          <TD ($color BGCOLOR=EzDataBkCol) COLSPAN=2>
+            <INPUT TYPE=password NAME=pass SIZE=8 MAXLENGTH=8 CLASS=editbox VALUE='($par.pass)'>
+            <FONT COLOR=red>게시물 수정/삭제시 필요합니다.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD COLSPAN=3><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+        </TR>
+        <TR>
+          <TD ($color BGCOLOR=EzDataBkCol) ALIGN=right>【<A HREF='javascript:RemoteWindow("($path.smile)/smile.htm")'>스마일</A>】</TD>
+          <TD ($color BGCOLOR=EzDataBkCol) ALIGN=center><INPUT TYPE=submit VALUE='            전  송            ' CLASS=button></TD>
+          <TD ($color BGCOLOR=EzDataBkCol) ALIGN=right>
+            <A HREF='javascript:history.go(-($cfg.Depth))' ($status=List)><IMG SRC='($path.icon)/list.gif' BORDER=0 alt='List' ONMOUSEOVER="window.status=('List'); return true;" ONMOUSEOUT="window.status=(''); return true;"></img></A>
+            &nbsp;&nbsp;&nbsp;
+          </TD>
+        </TR>
+        <TR>
+          <TD COLSPAN=3><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+($if cfg.MyAMerosCircle=1)
+  <TR>
+    <TD WIDTH="50%" STYLE="border-top-width:1; border-top-color:($cfg.MyAMerosTable); border-top-style:solid;" COLSPAN="2" BGCOLOR="($cfg.MyAMerosTable)">
+      <IMG SRC="($path.skin)/image/ld.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+    <TD ALIGN="right" WIDTH="50%" STYLE="border-top-width:1; border-top-color:($cfg.MyAMerosTable); border-top-style:solid;" BGCOLOR="($cfg.MyAMerosTable)">
+      <IMG SRC="($path.skin)/image/rd.gif" WIDTH="6" HEIGHT="6" BORDER="0"></TD>
+  </TR>
+($endif)
+</TABLE>
+</TD></TR></TABLE>
+</FORM>
+
+<SCRIPT LANGUAGE="JavaScript">
+; 조해종(iou@i.am)님께서 알려주셨어요. ^^
+  setTimeout( 'document.InputForm.name.focus()', 10 );
+</SCRIPT>
+[%End%]

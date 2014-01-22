@@ -1,0 +1,73 @@
+;-----------------------------------------------------------
+; 사용자(?) 페이지메뉴를 위한 파일입니다.
+[%PageMenu%]
+; TotalPage 는 총 페이지 수입니다.
+($set TotalPage=count.totalpage)
+($set PPage)
+($if cfg.TotalPage)
+($ifsnot par.word)
+; EzMaxPageMenu 는 한 번에 보여줄 페이지 수입니다.
+  ($ifnot cfg.EzMaxPageMenu)
+; 기본값은 10입니다.
+    ($set EzMaxPageMenu=10)
+  ($endif)
+; 페이지 메뉴의 시작 페이지를 찾습니다.
+  ($set temp=par.page)
+  ($set CurrentPage)
+  ($div CurrentPage,cfg.temp,cfg.EzMaxPageMenu)
+  ($mul temp,cfg.CurrentPage,cfg.EzMaxPageMenu)
+  ($set CurrentPage=cfg.temp)
+
+;-----------------------------------------------------------
+; 첫 페이지
+; 페이지 메뉴의 시작이 1페이지(내부적으로는 0페이지)보다 큰 경우
+; 1 과 ◀ 를 만들어줍니다.
+[
+($if cfg.CurrentPage>=2)
+  ($set PPage=cfg.CurrentPage)
+  ($minus PPage=cfg.EzMaxPageMenu)
+  <A HREF="($link.list)&page=0&skin=($par.skin)">&nbsp;1&nbsp;</A>
+  <A HREF="($link.list)&page=($cfg.PPage)&skin=($par.skin)">◀</A>
+($endif)
+
+;-----------------------------------------------------------
+; 중간 페이지
+($set COUNT=0)
+($set temp=cfg.CurrentPage)
+($loop)
+  ($add COUNT=1)
+  ($add temp=1)
+  ($if cfg.CurrentPage!=par.page)
+    <A HREF="($link.list)&page=($cfg.CurrentPage)&skin=($par.skin)">&nbsp;($cfg.temp)</A>
+  ($else)
+; 현재 페이지는 링크를 걸지 않습니다.
+    =($cfg.temp)=
+  ($endif)
+  ($add CurrentPage=1)
+  ($if cfg.COUNT=cfg.EzMaxPageMenu)
+    ($loopbreak)
+  ($endif)
+; 마지막 페이지에 도착하면 루프를 강제로 벗어납니다.
+  ($if cfg.CurrentPage=cfg.TotalPage)
+    ($loopbreak)
+  ($endif)
+($loopend)
+
+;-----------------------------------------------------------
+; 끝 페이지
+($add temp=1)
+($if cfg.temp<=cfg.TotalPage)
+  ($add PPage=cfg.EzMaxPageMenu)
+  ($add PPage=cfg.EzMaxPageMenu)
+  ($if cfg.PPage>=cfg.TotalPage)
+    ($minus PPage=cfg.EzMaxPageMenu)
+  ($endif)
+  ($set temp=cfg.TotalPage)
+  ($add TotalPage=-1)
+  <A HREF="($link.list)&page=($cfg.PPage)&skin=($par.skin)">&nbsp;▶</A>
+  <A HREF="($link.list)&page=($cfg.TotalPage)&skin=($par.skin)">&nbsp;($cfg.temp)</A>
+($endif)
+&nbsp;]
+($endif)
+($endif)
+[%End%]

@@ -1,0 +1,52 @@
+[%System%]
+MENU3=HTML설정
+[%End%]
+
+[%MENU3%]
+<DIV ID='MENU3'>
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>사용자 설정</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+      <TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>사용자 Body설정</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            &lt;body BACKGROUND=배경그림 BGCOLOR=배경색 ...<BR>
+            <INPUT TYPE=text NAME='EzUserBody' VALUE='($cfg.EzUserBody)' SIZE='70' CLASS=editbox><BR>
+            ... &gt; <FONT COLOR=blue>(굳이 설정할 필요는 없습니다)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR=($cfg.color.LeftCell)><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+          <TD><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>Html Head</TD>
+          <TD>
+            &lt;html&gt;<BR>&lt;body&gt;<BR>
+            <TEXTAREA NAME='HtmlHead' ROWS=8 COLS=69 CLASS=editbox WRAP=off>($cfg.HtmlHead)</TEXTAREA>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>Html Tail</TD>
+          <TD>
+            <BR>
+            ** 게시판이 들어가는 곳 ** <BR>
+            <BR>
+            <TEXTAREA NAME='HtmlTail' ROWS=8 COLS=69 CLASS=editbox WRAP=off>($cfg.HtmlTail)</TEXTAREA><BR>
+            &lt;/body&gt;<BR>&lt;/html&gt;
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+</DIV>
+[%End%]

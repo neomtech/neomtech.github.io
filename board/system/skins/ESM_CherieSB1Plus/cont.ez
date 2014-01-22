@@ -1,0 +1,510 @@
+[%System%]
+DateFormat=%Y/%m/%d
+MyTextButton=0
+;EzListHeadBkCol=#efefef
+EzDataHeadBkCol=#EFEFEF
+[%End%]
+
+[%Head%]
+<STYLE TYPE='text/css'>
+  .lined  { border:1 solid ($cfg.EzDataTxtCol); background-color:($cfg.EzDataBkCol); color:($cfg.EzDataTxtCol); }
+  .noline { border:1 solid ($cfg.EzDataBkCol);  background-color:($cfg.EzDataBkCol); color:($cfg.EzDataTxtCol); }
+  .text { LINE-HEIGHT: 140%; }
+</STYLE>
+[%End%]
+
+[%Body%]
+<SCRIPT LANGUAGE="JavaScript">
+function ForwardWindow( url )
+ {
+  window.open( url, 'PreviewWin','width=300,height=100,resizable=no,scrollbars=no,status=0');
+}
+</SCRIPT>
+
+<SCRIPT LANGUAGE='javascript' SRC='($path.script)/multi.js'></SCRIPT>
+
+($ifnot cfg.EzContButtonPos=1)
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+($if cfg.MyTextButton)
+    <TD NOWRAP>
+      | <A HREF='($link.modify)' title='Modify'>수정</A>
+      | <A HREF='($link.delete)' title='Delete'>삭제</A>
+      | <A HREF='($link.write)' title='Write'>쓰기</A>
+      | <A HREF='($link.reply)' title='Reply'>답변</A> | 
+    </TD>
+    <TD NOWRAP ALIGN=right>
+      ($if db.prev)| <A HREF='($link.prev)' title='Prev'>이전</A>($endif)
+      ($if db.next)| <A HREF='($link.next)' title='Next'>다음</A>($endif)
+      | <A HREF='($link.list)' title='List'>목록</A> |
+    </TD>
+($else)
+    <TD NOWRAP>
+      <A HREF='($link.modify)' ($status=Modify)><IMG SRC='($path.icon)/modify.gif' BORDER=0 ALT='Modify'></A>
+      <A HREF='($link.delete)' ($status=Delete)><IMG SRC='($path.icon)/delete.gif' BORDER=0 ALT='Delete'></A>
+      <A HREF='($link.write)' ($status=Write)><IMG SRC='($path.icon)/write.gif' BORDER=0 ALT='Write'></A>
+      <A HREF='($link.reply)' ($status=Reply)><IMG SRC='($path.icon)/reply.gif' BORDER=0 ALT='Reply'></A>
+    </TD>
+    <TD NOWRAP ALIGN=right>
+      ($if db.prev)<A HREF='($link.prev)' ($status=Prev)><IMG SRC='($path.icon)/prev.gif' BORDER=0 ALT='Prev'></A>($endif)
+      ($if db.next)<A HREF='($link.next)' ($status=Next)><IMG SRC='($path.icon)/next.gif' BORDER=0 ALT='Next'></A>($endif)
+      <A HREF='($link.list)' ($status=List)><IMG SRC='($path.icon)/list.gif' BORDER=0 ALT='List'></A>
+    </TD>
+($endif)
+  </TR>
+</TABLE>
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD><HR SIZE=1 noshade></TD>
+  </TR>
+</TABLE>
+($endif)
+
+;<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=0>
+;  <TR>
+;    <TD ALIGN=left><A HREF='($link.admin)'><IMG SRC='($path.icon)/admin.gif' BORDER=0></A></TD>
+;    <TD ALIGN=right>
+;      <FONT FACE=돋움>게시물:<FONT COLOR=red><B>($db.total)</B></FONT>, 쪽번호:<FONT COLOR=red><B>($count.page)</B></FONT>/<FONT COLOR=blue><B>($count.totalpage)</B></FONT> 오늘:<B>($count.today)</B></FONT>&nbsp;&nbsp;
+;    </TD>
+;  </TR>
+;  <TR>
+;    <TD COLSPAN=2><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=4 BORDER=0></TD>
+;  </TR>
+;</TABLE>
+;
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD>
+<TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR HEIGHT=26>
+    <TD HEIGHT=26 BACKGROUND='($path.skin)/bg_t.gif' ALIGN=left>&nbsp;&nbsp;<FONT COLOR=($cfg.EzListHeadTxtCol)><B>($db.shortsubj)</B></FONT></TD>
+    <TD HEIGHT=26 BACKGROUND='($path.skin)/bg_t.gif' ALIGN=right NOWRAP>
+      <A HREF='JavaScript:ForwardWindow("($link.forward)")'><IMG SRC='($path.icon)/forward.gif' BORDER=0 ALT='게시물 포워드'></A>
+      <A HREF='($link.print)' TARGET='_blank'><IMG SRC='($path.skin)/cuteprn.gif' BORDER=0 ALT='프린트 형식'></A>&nbsp;
+    </TD>
+  </TR>
+  <TR ($color BGCOLOR=EzDataBkCol)>
+    <TD><FONT ($color COLOR=EzDataHeadTxtCol)>
+;      게시물번호: ($db.no) &nbsp;&nbsp;
+      작성일: <FONT FACE=돋움>($set DateFormat=%Y/%m/%d %H:%M:%S)($db.date)($set DateFormat=%Y/%m/%d)</FONT><BR>
+($ifs db.date.modify!=db.date)
+      수정일: <FONT FACE=돋움>($db.date.modify)</FONT><BR>
+($endif)
+($if cfg.EzShowName)
+      작성자: ($ifs db.mail)<A HREF='($link.mail)' title='($db.mail)'>($endif)($db.name)</A> ($ifs db.home)(<A HREF='($db.home)' TARGET='($cfg.EzLinkTarget)'><IMG SRC='($path.icon)/cutehome.gif' BORDER=0></A>)($endif)<BR>
+($endif)
+    </TD>
+    <TD NOWRAP VALIGN=bottom ALIGN=right>
+      ($if cfg.EzVoteCount)<FONT COLOR=($cfg.EzDataTxtCol)>[ <A HREF='($link.vote)' ($status=Vote)><IMG SRC='($path.skin)/vote.gif' BORDER=0 ALT=추천하기></A> : <FONT COLOR=red>($db.vok)</FONT> ]</FONT>($endif)&nbsp;
+    </TD>
+  </TR>
+  <TR ($color BGCOLOR=EzDataBkCol)>
+    <TD COLSPAN=2><FONT ($color COLOR=EzDataTxtCol) class=text>
+      <BR>
+      ($db.cont)
+($if cfg.EzReadCount)
+      <BR><DIV ALIGN=right>($db.date.modify) &nbsp;<B>($db.count)</B>번 읽음&nbsp;&nbsp;<BR>
+($endif)
+($if cfg.EzShowIP)($ifs db.name!=cfg.EzAdminName)IP from: ($db.ip)&nbsp;&nbsp;($endif)($endif)
+      </DIV></FONT>
+    </TD>
+  </TR>
+($if cfg.EzShowComment)
+  <TR ($color BGCOLOR=EzDataHeadBkCol)>
+    <TD COLSPAN=2><FONT ($color COLOR=EzDataHeadTxtCol)>
+;<DIV ALIGN=right>
+<TABLE ($color BGCOLOR=EzListHeadBkCol) WIDTH='100%' BORDER='0' CELLSPACING='0' CELLPADDING='1'><TR><TD>
+<TABLE WIDTH='100%' BORDER='0' CELLSPACING='0' CELLPADDING='3'>
+  <TR ($color BGCOLOR=EzDataHeadBkCol)>
+    <TD ALIGN=center><FONT ($color COLOR=EzDataHeadTxtCol)>이&nbsp;&nbsp;&nbsp;&nbsp;름</FONT></TD>
+    <TD ALIGN=center><FONT ($color COLOR=EzDataHeadTxtCol)>메&nbsp;&nbsp;&nbsp;&nbsp;일</FONT></TD>
+    <TD WIDTH='100%' ALIGN=center><FONT ($color COLOR=EzDataHeadTxtCol)>내&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;용</FONT></TD>
+    <TD ALIGN=center><FONT ($color COLOR=EzDataHeadTxtCol)>작성일</FONT></TD>
+  </TR>
+<FORM NAME=CommentForm METHOD=post ACTION='($path.main)'>
+  <TR ($color BGCOLOR=EzDataBkCol)>
+  <INPUT TYPE=hidden NAME=db VALUE='($par.db)'>
+  <INPUT TYPE=hidden NAME=dbf VALUE='($par.dbf)'>
+  <INPUT TYPE=hidden NAME=action VALUE='cmtsave'>
+  <INPUT TYPE=hidden NAME=cmd VALUE='($par.action)'>
+    <TD><INPUT TYPE=text NAME=name VALUE='($cookie.name)' SIZE='8' CLASS=lined></TD>
+    <TD><INPUT TYPE=text NAME=mail VALUE='($cookie.mail)' SIZE='16' CLASS=lined></TD>
+    <TD><INPUT TYPE=text NAME=cont VALUE='' SIZE='45' CLASS=lined>
+($ifs cookie.name=cfg.EzAdminName)
+    <INPUT TYPE=password NAME=pass VALUE='' SIZE='8' CLASS=lined>
+($endif)
+    </TD>
+    <TD ALIGN=center><INPUT TYPE=submit VALUE='덧달기' CLASS=lined></TD>
+  </TR>
+</FORM>
+($call Comment)
+</TABLE>
+</TD></TR></TABLE>
+    </TD>
+  </TR>
+($endif)
+  <TR ($color BGCOLOR=EzDataHeadBkCol)>
+;  <TR ($color BGCOLOR=#E4E4E4>
+    <TD COLSPAN=2><FONT ($color COLOR=EzDataHeadTxtCol)>
+($ifs db.file)
+      파일: [<A HREF='($link.file)' title='DownLoad'><IMG SRC='($path.type)/($type.file)' BORDER=0 ALT='($type.fileinfo)'> ($type.fileinfo)</A>]<BR><BR>
+      ($if cfg.EzFilePreview)
+        ($ifs db.fileimg)<IMG SRC="($path.file)" BORDER=0 ALT="($db.subj)">($endif)
+        ($ifs db.filesnd)<EMBED SRC="($path.file)" WIDTH=100 HEIGHT=45 AUTOSTART=true LOOP=false>($endif)
+        ($ifs db.filemov)<EMBED SRC="($path.file)" width=340 HEIGHT=300 AUTOSTART=true LOOP=false>($endif)
+;        ($ifs db.fileimg)<IMG SRC="($path.file)" BORDER=0 ALT="($db.subj)"><BR><BR>($endif)
+;        ($ifs db.filesnd)<EMBED SRC="($path.file)" WIDTH=100 HEIGHT=45 AUTOSTART=true LOOP=false><BR><BR>($endif)
+;        ($ifs db.filemov)<EMBED SRC="($path.file)" width=340 HEIGHT=300 AUTOSTART=true LOOP=false><BR><BR>($endif)
+      ($endif)
+($endif)
+      ($ifs db.img)<BR><BR><IMG SRC="($path.img)" BORDER=0 ALT="($db.subj)">($endif)
+;      ($ifs db.img)<IMG SRC="($path.img)" BORDER=0 ALT="($db.subj)"><BR><BR>($endif)
+    </TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2 BGCOLOR=black><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=1></TD>
+  </TR>
+($ifs par.action!=multiread)
+($ifs par.action=remote)
+  <TR>
+    <TD COLSPAN=2 ALIGN=center>
+      [<A HREF='javascript:self.close()' title='Close'><IMG SRC='($path.icon)/closewin.gif' BORDER=0 ALT='Close'> 창닫기</A>]
+    </TD>
+  </TR>
+($else)  
+($if db.prev)
+  <TR>
+    <TD COLSPAN=2><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2><A HREF='($link.prev)' title='Prev Article'>▲ ($db.prevsubj)</A></TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2 BGCOLOR=black><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=1></TD>
+  </TR>
+($endif)
+($if db.next)
+  <TR>
+    <TD COLSPAN=2><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2><A HREF='($link.next)' title='Next Article'>▼ ($db.nextsubj)</A></TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2 BGCOLOR=black><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=1></TD>
+  </TR>
+($endif)
+($endif)
+($endif)
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+
+($ifs par.action!=remote)
+<BR>
+($if cfg.EzContButtonPos)
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+($if cfg.MyTextButton)
+    <TD NOWRAP>
+    <TD NOWRAP>
+      | <A HREF='($link.modify)' title='Modify'>수정</A>
+      | <A HREF='($link.delete)' title='Delete'>삭제</A>
+      | <A HREF='($link.write)' title='Write'>쓰기</A>
+      | <A HREF='($link.reply)' title='Reply'>답변</A> | 
+    </TD>
+    <TD NOWRAP ALIGN=right>
+      ($if db.prev)| <A HREF='($link.prev)' title='Prev'>이전</A>($endif)
+      ($if db.next)| <A HREF='($link.next)' title='Next'>다음</A>($endif)
+      | <A HREF='($link.list)' title='List'>목록</A> |
+    </TD>
+    </TD>
+($else)
+    <TD NOWRAP>
+      <A HREF='($link.modify)' ($status=Modify)><IMG SRC='($path.icon)/modify.gif' BORDER=0 ALT='Modify'></A>
+      <A HREF='($link.delete)' ($status=Delete)><IMG SRC='($path.icon)/delete.gif' BORDER=0 ALT='Delete'></A>
+      <A HREF='($link.write)' ($status=Write)><IMG SRC='($path.icon)/write.gif' BORDER=0 ALT='Write'></A>
+      <A HREF='($link.reply)' ($status=Reply)><IMG SRC='($path.icon)/reply.gif' BORDER=0 ALT='Reply'></A>
+    </TD>
+    <TD NOWRAP ALIGN=right>
+      ($if db.prev)<A HREF='($link.prev)' ($status=Prev)><IMG SRC='($path.icon)/prev.gif' BORDER=0 ALT='Prev'></A>($endif)
+      ($if db.next)<A HREF='($link.next)' ($status=Next)><IMG SRC='($path.icon)/next.gif' BORDER=0 ALT='Next'></A>($endif)
+      <A HREF='($link.list)' ($status=List)><IMG SRC='($path.icon)/list.gif' BORDER=0 ALT='List'></A>
+    </TD>
+($endif)
+  </TR>
+</TABLE>
+($endif)
+($endif)
+[%End%]
+
+
+[%InBodyHead%]
+<BR>
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <FORM NAME='dblist'>
+  <TR>
+    <TD ALIGN=left><A HREF='($link.admin)' title='Admin Menu'><IMG SRC='($path.icon)/admin.gif' BORDER=0 ALT='Admin Menu'></A></TD>
+    <TD ALIGN=right>
+      <FONT FACE=돋움>게시물:<FONT COLOR=red><B>($db.total)</B></FONT>, 쪽번호:<FONT COLOR=red><B>($count.page)</B></FONT>/<FONT COLOR=blue><B>($count.totalpage)</B></FONT> 오늘:<B>($count.today)</B></FONT>&nbsp;
+($menu.golist)
+    </TD></FORM>
+  </TR>
+  <TR>
+    <TD COLSPAN=2><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=4 BORDER=0></TD>
+  </TR>
+</TABLE>
+
+($sub GetCellMax)
+
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=0>
+;<TABLE ($color BGCOLOR=EzListHeadBkCol) WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=0>
+;  <TR>
+;    <TD COLSPAN=($cfg.CellMax) BGCOLOR=black><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=1></TD>
+;  </TR>
+;  <TR>
+;    <TD COLSPAN=($cfg.CellMax)><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+;  </TR>
+  <TR ALIGN=center HEIGHT=27>
+($if cfg.EzShowCheckBox)($hidden.selform)
+    <TD BACKGROUND='($path.skin)/bg_t.gif'><A HREF='($link.select)' title='체크-선택보기'><IMG SRC='($path.icon)/loop.gif' BORDER=0 ALT='체크-선택보기'></A></TD>
+($endif)
+($if cfg.EzDocNum)
+    <TD BACKGROUND='($path.skin)/bg_t.gif' NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>번호</FONT></TD>
+($endif)
+($if cfg.EzFileIcon)
+    <TD BACKGROUND='($path.skin)/bg_t.gif'><FONT ($color COLOR=EzListHeadTxtCol)>ⓘ</FONT></TD>
+($endif)
+($if cfg.EzShowFile)
+    <TD BACKGROUND='($path.skin)/bg_t.gif' NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>파일명</FONT></TD>
+($endif)($add CellMax=1)
+    <TD BACKGROUND='($path.skin)/bg_t.gif'><FONT ($color COLOR=EzListHeadTxtCol)>제목</FONT></TD>
+($if cfg.EzShowName)
+    <TD BACKGROUND='($path.skin)/bg_t.gif' NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>이름</FONT></TD>
+    <TD BACKGROUND='($path.skin)/bg_t.gif'><FONT ($color COLOR=EzListHeadTxtCol)>&nbsp;</FONT></TD>
+($endif)
+    <TD BACKGROUND='($path.skin)/bg_t.gif' NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>등록날짜</FONT></TD>
+($if cfg.EzReadCount)
+    <TD BACKGROUND='($path.skin)/bg_t.gif' NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>조회&nbsp;</FONT></TD>
+($endif)
+($if cfg.EzDownCount)
+    <TD BACKGROUND='($path.skin)/bg_t.gif' NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)>다운&nbsp;</FONT></TD>
+($endif)
+($if cfg.EzVoteCount)
+    <TD BACKGROUND='($path.skin)/bg_t.gif' ALIGN=center NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)><B>추천</B></TD>
+($endif) 
+  </TR>
+;  <TR>
+;    <TD COLSPAN=($cfg.CellMax)><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=($cfg.EzCellPadding)></TD>
+;  </TR>
+;  <TR>
+;    <TD COLSPAN=($cfg.CellMax) BGCOLOR=black><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=1></TD>
+;  </TR>
+;--------------------------
+; 공지사항 출력
+;--------------------------
+($if cfg.EzNotice)($sub Notice)($endif)
+[%End%]
+
+
+[%Notice%]
+($readdbf cfg.EzNotice)
+  <TR ($color BGCOLOR=EzListBkCol) >
+    <TD COLSPAN=($cfg.CellMax)><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=3></TD>
+  </TR>
+  <TR ALIGN=center ($color BGCOLOR=EzListBkCol)>
+    <TD COLSPAN=($cfg.ColSpan) ALIGN=left>
+      <A HREF='javascript:RemoteWindow("($link.remotesubj)&dbf=($cfg.EzNotice)")'><IMG SRC='($path.skin)/notice.gif' BORDER=0></A>
+      <FONT ($color COLOR=EzListTxtCol)><A HREF='($link.subj)&dbf=($cfg.EzNotice)'><b>($db.shortsubj)</b></A>
+    </TD>
+($if cfg.EzShowName)
+    <TD ALIGN=left NOWRAP>($if cfg.EzUseMember)($if db.vno)<IMG SRC='($path.skin)/member.gif' WIDTH=11 HEIGHT=11>($else)<IMG SRC='($path.icon)/blank.gif' WIDTH=11 HEIGHT=11>($endif)&nbsp;($endif)<FONT ($color COLOR=EzListTxtCol)>($ifs db.mail)<A HREF='($link.mail)' title='($db.mail)'>($endif)($db.shortname)</A>&nbsp;</TD>
+    <TD>&nbsp;</TD>
+($endif)
+    <TD><FONT ($color COLOR=EzListTxtCol)>($db.date.modify)&nbsp;</TD>
+($if cfg.EzReadCount)
+    <TD><FONT ($color COLOR=EzListTxtCol)>($db.count)&nbsp;</TD>
+($endif)
+($if cfg.EzDownCount)
+    <TD><FONT ($color COLOR=EzListTxtCol)>($db.downcount)&nbsp;</TD>
+($endif)
+($if cfg.EzVoteCount)
+    <TD><FONT ($color COLOR=EzListTxtCol)>($db.vok)&nbsp;</TD>
+($endif) 
+  </TR>
+  <TR ($color BGCOLOR=EzListBkCol)>
+    <TD BACKGROUND='($path.skin)/dot_cross.gif' COLSPAN='($cfg.CellMax)'><IMG SRC='($path.skin)/_cl.gif' WIDTH='1' HEIGHT='1' BORDER='0'></TD>
+  </TR>
+[%End%]
+
+
+[%InBody%]
+  <TR ($color BGCOLOR=EzListBkCol) >
+    <TD COLSPAN=($cfg.CellMax)><IMG SRC='($path.icon)/blank.gif' WIDTH=1 HEIGHT=1></TD>
+  </TR>
+  <TR ALIGN=center ($color BGCOLOR=EzListBkCol) ($ifs cfg.EzSelColor)onmouseout="this.style.backgroundColor=''" onmouseover="this.style.backgroundColor='($cfg.EzSelColor)'"($endif)>
+($if cfg.EzShowCheckBox)
+    <TD><INPUT TYPE='checkbox' NAME=selnum VALUE='($db.code)'>&nbsp;</TD>
+($endif)
+($if cfg.EzDocNum)
+    <TD><FONT ($color COLOR=EzListTxtCol)>($if db.thread=0)($db.code)&nbsp;($endif)</FONT>&nbsp;</TD>
+;    <TD><FONT ($color COLOR=EzListTxtCol)>($db.no)</FONT>&nbsp;</TD>
+($endif)
+($if cfg.EzFileIcon)
+    <TD><A HREF='javascript:RemoteWindow("($link.remotesubj)")' title='($type.fileinfo)'><IMG SRC='($path.type)/($type.file)' BORDER=0 ALT='($type.fileinfo)'></A>&nbsp;</TD>
+($endif)
+($if cfg.EzShowFile)
+    <TD ALIGN=left NOWRAP><FONT ($color COLOR=EzListTxtCol)>($ifs db.file)<A HREF='($link.file)' title='($type.fileinfo)'>($db.shortfile)</A>($endif)&nbsp;</TD>
+($endif)
+    <TD WIDTH=100% ALIGN=left>($thread.depth)
+;    <FONT ($color COLOR=EzListTxtCol)><A HREF='($link.subj)'  title='($db.no)'>($if cfg.EzFolderIcon)<IMG SRC='($path.icon)/($thread.icon)' BORDER=0>($endif)&nbsp;($db.shortsubj)</A>
+    <FONT ($color COLOR=EzListTxtCol)>($ifs par.dbf=db.dbf)($if cfg.EzFolderIcon)<IMG SRC='($path.icon)/this.gif' BORDER=0>($endif)($else)<A HREF='($link.subj)'>($if cfg.EzFolderIcon)<IMG SRC='($path.icon)/($thread.icon)' BORDER=0>($endif)($endif)&nbsp;($db.shortsubj)</A>($if cfg.EzShowComment)($readcmt)($if cmt.count)&nbsp;<FONT style=font-size:7pt;>[<FONT COLOR=red>($cmt.count)</FONT>]</FONT>($endif)($endif)</FONT>
+    </TD>
+($if cfg.EzShowName)
+    <TD ALIGN=left NOWRAP>($if cfg.EzUseMember)($if db.vno)<IMG SRC='($path.skin)/member.gif' WIDTH=11 HEIGHT=11>($else)<IMG SRC='($path.icon)/blank.gif' WIDTH=11 HEIGHT=11>($endif)&nbsp;($endif)<FONT ($color COLOR=EzListTxtCol)>($ifs db.mail)<A HREF='($link.mail)' title='($db.mail)'>($endif)($db.shortname)</A>&nbsp;</TD>
+    <TD>($ifs db.home)<A HREF='($db.home)' TARGET='($cfg.EzHomeTarget)'><IMG SRC='($path.icon)/behome.gif' BORDER=0></A>($endif)&nbsp;</TD>
+($endif)
+    <TD><FONT ($color COLOR=EzListTxtCol)>($db.date.modify)&nbsp;</TD>
+($if cfg.EzReadCount)
+    <TD><FONT ($color COLOR=EzListTxtCol)>($db.count)&nbsp;</TD>
+($endif)
+($if cfg.EzDownCount)
+    <TD><FONT ($color COLOR=EzListTxtCol)>($db.downcount)&nbsp;</TD>
+($endif)
+($if cfg.EzVoteCount)
+    <TD><FONT ($color COLOR=EzListTxtCol)>($db.vok)&nbsp;</TD>
+($endif) 
+  </TR>
+  <TR ($color BGCOLOR=EzListBkCol)>
+    <TD BACKGROUND='($path.skin)/dot_cross.gif' COLSPAN='($cfg.CellMax)'><IMG SRC='($path.skin)/_cl.gif' WIDTH='1' HEIGHT='1' border='0'></TD>
+  </TR>
+[%End%]
+
+[%InBodyTail%]
+</TABLE>
+
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=2>
+  <TR>
+($if cfg.EzShowCheckBox=2)
+    <TD ALIGN=left NOWRAP><A HREF='JavaScript:SelectAll();'>암호:</A> <INPUT TYPE=password NAME=pass SIZE=8 MAXLENGTH=8 CLASS=editbox> <INPUT TYPE=button VALUE='삭제' ONCLICK='javascript:MultiSubmit( "SelForm", "action", "multidel" )' CLASS=button></TD>
+($endif)
+    <TD WIDTH=100% ALIGN=center NOWRAP>
+($menu.page)
+    </TD>
+  </TR></FORM>
+</TABLE>
+
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD><HR SIZE=1 COLOR=black noshade></TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD>($ifs cfg.EzAdminHome)<A HREF='($cfg.EzAdminHome)' TARGET='($cfg.EzHomeTarget)'><IMG SRC='($path.icon)/home.gif' BORDER=0></A>($endif)&nbsp;</TD>
+;    <TD><A HREF='javascript:RemoteWindow("($path.help)/help.htm")' title='Help'><IMG SRC='($path.icon)/help.gif' BORDER=0></A>&nbsp;&nbsp;</TD>
+;--------------------------
+; 검색 메뉴 시작
+;--------------------------
+($if cfg.EzShowSearch)
+    <TD NOWRAP ALIGN=left>
+<TABLE BORDER=0>
+<FORM NAME=FindForm METHOD=post ACTION='($path.main)'>
+($hidden.info)
+<INPUT TYPE=hidden NAME=action VALUE='search'>
+<INPUT TYPE=hidden NAME=cmd    VALUE='next'>
+<INPUT TYPE=hidden NAME=findstart VALUE='($par.findstart)'>
+  <TR>
+    <TD NOWRAP>
+      <SELECT NAME='ftype'>
+        <OPTION VALUE='subj'  ($ifs par.ftype=subj)selected($endif)>제목</OPTION>
+        <OPTION VALUE='subj+cont'  ($ifs par.ftype=subj+cont)selected($endif)>제목+내용</OPTION>
+        <OPTION VALUE='name'  ($ifs par.ftype=name)selected($endif)>이름</OPTION>
+        <OPTION VALUE='cont'  ($ifs par.ftype=cont)selected($endif)>내용</OPTION>
+        <OPTION VALUE='file'  ($ifs par.ftype=file)selected($endif)>파일</OPTION>
+        <OPTION VALUE='mail'  ($ifs par.ftype=mail)selected($endif)>메일</OPTION>
+        <OPTION VALUE='home'  ($ifs par.ftype=home)selected($endif)>홈페이지</OPTION>
+        <OPTION VALUE='mail'  ($ifs par.ftype=no)selected($endif)>번호</OPTION>
+        <OPTION VALUE='mail'  ($ifs par.ftype=code)selected($endif)>코드</OPTION>
+;        <OPTION VALUE='ip' ($ifs par.ftype=ip)selected($endif)>IP</OPTION>
+      </SELECT>
+      <INPUT TYPE=text NAME=word VALUE='($par.word)' SIZE=15 MAXLENGTH=40 CLASS=editbox><INPUT TYPE='submit' VALUE='검색' CLASS=button>
+    </TD>
+  </TR>
+</TABLE>
+($else)&nbsp;($endif)
+    </TD></FORM>
+;--------------------------
+; 검색 메뉴 끝
+;--------------------------
+    <TD ALIGN=right NOWRAP>
+($if cfg.MyTextButton)
+      ($ifs link.prevlist)| <A HREF='($link.prevlist)' title='Prev'>이전</A>($endif)
+      ($ifs link.nextlist)| <A HREF='($link.nextlist)' title='Next'>다음</A>($endif)
+      | <A HREF='($link.write)' title='Write'>쓰기</A>
+      | <A HREF='($link.list)' title='Reload'>목록</A> |
+($else)
+      ($ifs link.prevlist)<A HREF='($link.prevlist)' ($status=Prev)><IMG SRC='($path.icon)/prev.gif' BORDER=0 ALT='Prev'></A>($endif)
+      ($ifs link.nextlist)<A HREF='($link.nextlist)' ($status=Next)><IMG SRC='($path.icon)/next.gif' BORDER=0 ALT='Next'></A>($endif)
+      <A HREF='($link.write)' ($status=Write)><IMG SRC='($path.icon)/write.gif' BORDER=0 ALT='Write'></A>
+      <A HREF='($link.list)' ($status=Reload)><IMG SRC='($path.icon)/list.gif' BORDER=0 ALT='Reload'></A>
+($endif)
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD><HR SIZE=1 COLOR=black noshade></TD>
+  </TR>
+</TABLE>
+[%End%]
+
+
+[%GetCellMax%]
+($set CellMax=0)
+($set ColSpan=0)
+($if cfg.EzShowCheckBox)($add CellMax=1)($add ColSpan=1)($endif)
+($if cfg.EzDocNum)($add CellMax=1)($add ColSpan=1)($endif)
+($if cfg.EzFileIcon)($add CellMax=1)($add ColSpan=1)($endif)
+($if cfg.EzShowFile)($add CellMax=1)($add ColSpan=1)($endif)
+($add ColSpan=1)
+($if cfg.EzShowName)($add CellMax=2)($endif)
+($if cfg.EzReadCount)($add CellMax=2)($endif)
+($if cfg.EzDownCount)($add CellMax=2)($endif)
+($if cfg.EzVoteCount)($add CellMax=1)($endif)
+
+;($set CellMax=0)
+;($set ColSpan=0)
+;($if cfg.EzShowCheckBox)($add CellMax=1)($add ColSpan=1)($endif)
+;($if cfg.EzDocNum)($add CellMax=1)($add ColSpan=1)($endif)
+;($if cfg.EzFileIcon)($add CellMax=1)($add ColSpan=1)($endif)
+;($if cfg.EzShowFile)($add CellMax=1)($add ColSpan=1)($endif)
+;($add CellMax=1)
+;($add ColSpan=1)
+;($if cfg.EzShowName)($add CellMax=2)($endif)
+;($add CellMax=1)
+;;($add ColSpan=1)
+;($if cfg.EzReadCount)($add CellMax=1)($endif)
+;($if cfg.EzDownCount)($add CellMax=1)($endif)
+;($if cfg.EzVoteCount)($add CellMax=1)($add ColSpan=1)($endif)
+;;($add ColSpan=1)
+[%End%]
+
+
+[%Comment%]
+  <TR ($color BGCOLOR=EzDataBkCol)>
+    <TD>($ifs cmt.mail)<A HREF='mailto:($cmt.name) <($cmt.mail)>'>($endif)<FONT ($color COLOR=EzDataTxtCol)>($cmt.name)</FONT></A></TD>
+    <TD COLSPAN=2><FONT ($color COLOR=EzDataTxtCol)>($cmt.cont)</FONT></TD>
+    <TD><A HREF='($link.cmtdel)'><FONT ($color COLOR=EzDataTxtCol)>($cmt.date)</FONT></A></TD>
+  </TR>
+[%End%]

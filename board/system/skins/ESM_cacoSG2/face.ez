@@ -1,0 +1,27 @@
+;-------------------------------------------
+; 얼굴 선택을 위한 파일입니다.
+[%FaceList%]
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        얼굴선택&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="100%" COLSPAN="2" NOWRAP>
+      <INPUT TYPE="radio" NAME="faceno" VALUE="0"($if db.faceno=0) checked($endif)><IMG SRC="($path.skin)/face00.gif" BORDER="0">
+      <INPUT TYPE="radio" NAME="faceno" VALUE="1"($if db.faceno=1) checked($endif)><IMG SRC="($path.skin)/face01.gif" BORDER="0">
+      <INPUT TYPE="radio" NAME="faceno" VALUE="2"($if db.faceno=2) checked($endif)><IMG SRC="($path.skin)/face02.gif" BORDER="0">
+      <INPUT TYPE="radio" NAME="faceno" VALUE="3"($if db.faceno=3) checked($endif)><IMG SRC="($path.skin)/face03.gif" BORDER="0">
+      <INPUT TYPE="radio" NAME="faceno" VALUE="4"($if db.faceno=4) checked($endif)><IMG SRC="($path.skin)/face04.gif" BORDER="0">
+      <INPUT TYPE="radio" NAME="faceno" VALUE="5"($if db.faceno=5) checked($endif)><IMG SRC="($path.skin)/face05.gif" BORDER="0">
+      <BR>
+($if cfg.EzImgUpload)
+($add MyTACols=-22)
+      <FONT COLOR="($cfg.FormTxtCol)">
+        직접올리기&nbsp;&nbsp;
+      </FONT>
+      <INPUT TYPE="file" NAME="img" SIZE="($cfg.MyTACols)" MAXLENGTH="100" CLASS="editbox">
+($endif)
+    </TD>
+  </TR>
+[%End%]

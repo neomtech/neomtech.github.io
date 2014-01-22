@@ -1,0 +1,95 @@
+[%Body%]
+<FORM NAME=InputForm METHOD=post ENCTYPE=multipart/form-data ACTION='($path.main)'>
+;<FORM NAME=InputForm METHOD=post ACTION='($path.main)'>
+  <INPUT TYPE=hidden NAME=db        VALUE='($par.db)'>
+  <INPUT TYPE=hidden NAME=action    VALUE='($par.action)'>
+  <INPUT TYPE=hidden NAME=dbf       VALUE='($par.dbf)'>
+  <INPUT TYPE=hidden NAME=oldpass   VALUE='($par.pass)'>
+  <INPUT TYPE=hidden NAME=page      VALUE='($par.page)'>
+;  <INPUT TYPE=hidden NAME=oldpass   VALUE=''>
+;  <INPUT TYPE=hidden NAME=depth     VALUE=''>
+<TABLE BORDER=0 CELLPADDING=1 CELLSPACING=0 BGCOLOR=black>
+  <TR><TD>
+<TABLE WIDTH=100% BGCOLOR=white CELLPADDING=0 CELLSPACING=1>
+  <TR>
+    <TD COLSPAN=3 HEIGHT=20 BGCOLOR=#6061BE ALIGN=center><FONT COLOR=white><B>글 쓰기</B></FONT></TD>
+  </TR>
+  <TR>
+    <TD ALIGN=center><FONT COLOR=#000000>&nbsp;이    름</FONT></TD>
+    <TD COLSPAN=2><INPUT TYPE=text NAME=name VALUE='($db.name)' SIZE=25 MAXLENGTH=20 CLASS=editbox></TD>
+  </TR>
+  <TR>
+    <TD ALIGN=center><FONT COLOR=#000000>&nbsp;전자메일</FONT></TD>
+    <TD COLSPAN=2><FONT COLOR=#000000><INPUT TYPE=text NAME=mail VALUE='($db.mail)' SIZE=25 MAXLENGTH=30 CLASS=editbox>
+      <INPUT TYPE=radio NAME=html VALUE=0 ($if db.html=0)checked($endif)>Text
+      <INPUT TYPE=radio NAME=html VALUE=1 ($if db.html=1)checked($endif)>Html
+      <INPUT TYPE=radio NAME=html VALUE=2 ($if db.html=2)checked($endif)>Html&lt;BR&gt;
+  </TR>
+($if cfg.EzShowHome)
+  <TR>
+    <TD ALIGN=center><FONT COLOR=#000000>&nbsp;홈페이지</FONT></TD>
+    <TD COLSPAN=2><INPUT TYPE=text NAME=home VALUE='($db.home)' SIZE=45 MAXLENGTH=50 CLASS=editbox></TD>
+;      <INPUT TYPE=checkbox NAME=html VALUE=1 ($db.html)>HTML</TD>
+  </TR>
+($endif)
+  <TR>
+    <TD ALIGN=center><FONT COLOR=#000000>&nbsp;제    목</FONT></TD>
+    <TD COLSPAN=2><INPUT TYPE=text NAME=subj VALUE='($db.subj)' SIZE=56 MAXLENGTH=100 CLASS=editbox></TD>
+  </TR>
+  <TR>
+    <TD ALIGN=center COLSPAN=3><TEXTAREA NAME=cont ROWS=12 COLS=64 CLASS=editbox>($db.cont)</TEXTAREA></TD>
+  </TR>
+($if cfg.EzFileUpload)
+  <TR>
+    <TD ALIGN=center><FONT COLOR=#000000>&nbsp;&nbsp;파일첨부</FONT></TD>
+    <TD COLSPAN=2><INPUT TYPE=file NAME=file SIZE=30 MAXLENGTH=100 CLASS=editbox></TD>
+;    <TD COLSPAN=2><INPUT TYPE=text NAME=file.name SIZE=30 MAXLENGTH=100 CLASS=editbox> <FONT COLOR=red>(링크 파일만 지원)</FONT></TD>
+  </TR>
+($endif)
+($if cfg.EzImgUpload)
+  <TR>
+    <TD ALIGN=center><FONT COLOR=#000000>&nbsp;&nbsp;미리보기</FONT></TD>
+    <TD COLSPAN=2><INPUT TYPE=file NAME=img SIZE=30 MAXLENGTH=100 CLASS=editbox></TD>
+;    <TD COLSPAN=2><INPUT TYPE=file NAME=img.name SIZE=30 MAXLENGTH=100 CLASS=editbox> <FONT COLOR=red>(링크 파일만 지원)</FONT></TD>
+  </TR>
+($endif)
+;<%else%>
+;  <TR>
+;    <TD ALIGN=center><FONT COLOR=#000000>&nbsp;&nbsp;파일첨부</FONT></TD>
+;    <TD><INPUT TYPE=file NAME=file SIZE=30 CLASS=editbox></TD>
+;    <TD>&nbsp;</TD>
+;  </TR>
+;<%end%>
+  <TR>
+    <TD><FONT COLOR=#000000>&nbsp;&nbsp;비밀번호</TD>
+    <TD COLSPAN=2>
+      <INPUT TYPE=password NAME=pass SIZE=8 MAXLENGTH=8 CLASS=editbox VALUE='($par.pass)'>
+      <FONT COLOR=red>게시물 수정/삭제시 필요합니다.</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD ALIGN=right>
+;      <TABLE BORDER=0 BGCOLOR=black CELLPADDING=1 CELLSPACING=0><TR><TD>
+;        <TABLE BORDER=0 BGCOLOR=white CELLPADDING=1 CELLSPACING=0><TR><TD ALIGN=center>
+          <A HREF='javascript:RemoteWindow("($path.smile)/smile.htm")'>스마일<BR>입  력</A>
+;        </TD></TR></TABLE>
+;      </TD></TR></TABLE>
+    </TD>
+    <TD ALIGN=center><P>
+      <INPUT TYPE=submit VALUE='                   전  송                   ' CLASS=button>
+    </TD>
+    <TD ALIGN=right>
+      <A HREF='javascript:history.back()'><IMG SRC='($path.icon)/list.gif' BORDER=0 alt='List' ONMOUSEOVER="window.status=('List'); return true;" ONMOUSEOUT="window.status=(''); return true;"></img></A>
+    &nbsp;&nbsp;&nbsp;</TD>
+  </TR>
+</TABLE>
+  </TD>
+</TR>
+</TABLE></DIV>
+<P>
+</FORM>
+<SCRIPT LANGUAGE="JavaScript">
+;  document.InputForm.name.focus();
+  setTimeout( 'document.InputForm.name.focus()', 10 );
+</SCRIPT>
+[%End%]

@@ -1,0 +1,248 @@
+[%System%]
+[%End%]
+
+[%Body%]
+($if cfg.EzContButtonPos!=1)
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD NOWRAP>
+      <A HREF='($link.modify)'><IMG SRC='($path.icon)/modify.gif' BORDER=0></A>
+      <A HREF='($link.delete)'><IMG SRC='($path.icon)/delete.gif' BORDER=0></A>
+      <A HREF='($link.write)'><IMG SRC='($path.icon)/write.gif' BORDER=0></A>
+      <A HREF='($link.reply)'><IMG SRC='($path.icon)/reply.gif' BORDER=0></A>
+    </TD>
+    <TD NOWRAP ALIGN=right>
+      <A HREF='($link.prev)'><IMG SRC='($path.icon)/prev.gif' BORDER=0></A>
+      <A HREF='($link.next)'><IMG SRC='($path.icon)/next.gif' BORDER=0></A>
+      <A HREF='($link.list)'><IMG SRC='($path.icon)/list.gif' BORDER=0></A>
+      &nbsp;
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD><HR SIZE=1 noshade></TD>
+  </TR>
+</TABLE>
+($endif)
+
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD ALIGN=left>
+      <A HREF='($link.admin)'><IMG SRC='($path.icon)/admin.gif' BORDER=0></A>
+      ($if cfg.EzUseMember)
+        ($if cfg.EzLoginStatus)
+          ($set cmd=logout)
+          ($set help=Logout)
+        ($else)
+          ($set cmd=login)
+          ($set help=Login)
+        ($endif)
+        <A HREF='($path.main)?db=($par.db)&action=($cfg.cmd)' TITLE='($cfg.help)'><IMG SRC="($path.system)/image/($cfg.cmd).gif" border=0></A>
+      ($endif)
+    </TD>
+    <TD ALIGN=right>
+      <FONT FACE=돋움>게시물:<FONT COLOR=red><B>($db.total)</B></FONT>, 쪽번호:<FONT COLOR=red><B>($count.page)</B></FONT>/<FONT COLOR=blue><B>($count.totalpage)</B></FONT> 오늘:<B>($count.today)</B></FONT>&nbsp;&nbsp;
+    </TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2><IMG SRC='($path.skin)/blank.gif' WIDTH=1 HEIGHT=4 BORDER=0></TD>
+  </TR>
+</TABLE>
+
+<TABLE BGCOLOR=($cfg.EzListHeadBkCol) WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=1 CELLPADDING=($cfg.EzCellPadding)>
+;<TABLE BGCOLOR=($cfg.EzListHeadBkCol) WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=($cfg.EzCellSpacing) CELLPADDING=($cfg.EzCellPadding)>
+  <TR BORDER=1>
+    <TD COLSPAN=2 WIDTH=100%><IMG SRC='($path.icon)/lens.gif'>&nbsp;<FONT ($color COLOR=EzListHeadTxtCol)><B>($db.subj)</B></FONT></TD>
+    <TD ALIGN=right><A HREF='($link.delete)'><IMG SRC='($path.icon)/bedel.gif' BORDER=0></A></TD>
+  </TR>
+  <TR ALIGN=left>
+    <TD COLSPAN=3 BGCOLOR=($cfg.EzDataBkCol)>
+      <TABLE WIDTH=100% HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=5>
+        <TR>
+          <TD ALIGN=right>
+            <FONT ($color COLOR=EzDataTxtCol)>작성 날짜: <FONT COLOR=deeppink>($db.date.notime)</FONT><BR>
+            <FONT ($color COLOR=EzDataTxtCol)>작성자 : ($ifs db.mail)<A HREF='($link.mail)' ($status=db.mail)>($endif)($db.name)</A>($ifs db.home)(<A HREF='($db.home)' TARGET='($cfg.EzLinkTarget)'><IMG SRC='($path.icon)/behome.gif' BORDER=0></A>)($endif)
+          </TD>
+        </TR>
+;        <TR>
+;          <TD ALIGN=right><FONT ($color COLOR=EzDataTxtCol)>작성자 : ($ifs db.mail)<A HREF='($link.mail)' ($status=db.mail)>($endif)($db.name)</A>($ifs db.mail)(<A HREF='($link.mail)'><IMG SRC='($path.icon)/bemail.gif' BORDER=0></A>)($endif)</TD>
+;          <TD ALIGN=right><FONT ($color COLOR=EzDataTxtCol)>작성자 : ($ifs db.mail)<A HREF='($link.mail)' ($status=db.mail)>($endif)($db.name)</A>($ifs db.home)(<A HREF='($db.home)' TARGET='($cfg.EzLinkTarget)'><IMG SRC='($path.icon)/behome.gif' BORDER=0></A>)($endif)</TD>
+;        </TR>
+        <TR VALIGN=top><TD><BR><FONT COLOR=($cfg.EzDataTxtCol)>
+($ifs db.file)
+            파일: [<A HREF='($link.file)' ($status=DownLoad)><IMG SRC='($path.type)/($type.file)' BORDER=0 ALT='($type.fileinfo)'> ($type.fileinfo)</A>]<BR><BR>
+            ($if cfg.EzFilePreview)
+              ($ifs db.fileimg)<IMG SRC="($path.file)" BORDER=0 ALT="($db.subj)"><BR><BR>($endif)
+              ($ifs db.filesnd)<EMBED SRC="($path.file)" WIDTH=100 HEIGHT=45 AUTOSTART=true LOOP=false><BR><BR>($endif)
+              ($ifs db.filemov)<EMBED SRC="($path.file)" width=340 HEIGHT=300 AUTOSTART=true LOOP=false><BR><BR>($endif)
+            ($endif)
+($endif)
+            ($ifs db.img)<IMG SRC="($path.img)" BORDER=0 ALT="($db.subj)"><BR><BR>($endif)
+($db.cont)
+        </TD></TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0>
+  <TR>
+    <TD ALIGN=left>
+      ($ifs db.prev)<A HREF='($link.prev)'>▲ ($db.prevsubj)</A><BR>($endif)
+      ($ifs db.next)<A HREF='($link.next)'>▼ ($db.nextsubj)</A><BR>($endif)
+    </TD>
+
+    <TD ALIGN=right>
+      <FONT FACE=돋움>최종수정일: ($db.date.modify)</FONT><BR>
+    </TD>
+  </TR>
+</TABLE>
+
+($if cfg.EzListButtonPos)
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD><HR SIZE=1 noshade></TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD>
+;      <A HREF='javascript:RemoteWindow("($path.help)/help.htm")'><IMG SRC='($path.icon)/help.gif' BORDER=0></A>&nbsp;&nbsp;
+      <A HREF='($link.modify)' ($status=Modify)><IMG SRC='($path.icon)/modify.gif' BORDER=0 ALT='Modify'></A>
+      <A HREF='($link.delete)' ($status=Delete)><IMG SRC='($path.icon)/delete.gif' BORDER=0 ALT='Delete'></A>
+      <A HREF='($link.write)' ($status=Write)><IMG SRC='($path.icon)/write.gif' BORDER=0 ALT='Write'></A>
+      <A HREF='($link.reply)' ($status=Reply)><IMG SRC='($path.icon)/reply.gif' BORDER=0 ALT='Reply'></A>&nbsp;
+    </TD>
+    <TD NOWRAP ALIGN=center VALIGN=bottom>
+($if cfg.EzShowSearch)
+<TABLE BORDER=0>
+<FORM NAME=FindForm METHOD=post ACTION='($path.main)'>
+($hidden.info)
+<INPUT TYPE=hidden NAME=action VALUE='search'>
+<INPUT TYPE=hidden NAME=cmd    VALUE='next'>
+<INPUT TYPE=hidden NAME=findstart VALUE='($par.findstart)'>
+<TR><TD>
+  <FONT COLOR=black>
+  <SELECT NAME='ftype'>
+    <OPTION VALUE='subj+cont' ($ifs par.ftype=subj+cont)selected($endif)>제목+내용</OPTION>
+    <OPTION VALUE='name' ($ifs par.ftype=name)selected($endif)>이름</OPTION>
+    <OPTION VALUE='subj' ($ifs par.ftype=subj)selected($endif)>제목</OPTION>
+    <OPTION VALUE='cont' ($ifs par.ftype=cont)selected($endif)>내용</OPTION>
+    <OPTION VALUE='file' ($ifs par.ftype=file)selected($endif)>파일</OPTION>
+    <OPTION VALUE='mail' ($ifs par.ftype=mail)selected($endif)>메일</OPTION>
+    <OPTION VALUE='ip' ($ifs par.ftype=ip)selected($endif)>IP</OPTION>
+  </SELECT>
+  <INPUT TYPE=text     NAME=word   VALUE='($par.word)' SIZE=15 MAXLENGTH=40 STYLE="height:20px;background-color:white;border:1 black solid"><INPUT TYPE='submit' VALUE='검색' CLASS=button STYLE="height:20px;">
+</TD></TR></TABLE>
+($endif)&nbsp;
+    </TD></FORM>
+    <TD ALIGN=right NOWRAP>
+      ($if db.prev)<A HREF='($link.prev)' ($status=Prev)><IMG SRC='($path.icon)/prev.gif' BORDER=0 ALT='Prev'></A>($endif)
+      ($if db.next)<A HREF='($link.next)' ($status=Next)><IMG SRC='($path.icon)/next.gif' BORDER=0 ALT='Next'></A>($endif)
+      <A HREF='($link.list)' ($status=List)><IMG SRC='($path.icon)/list.gif' BORDER=0 ALT='List'></A>
+    </TD>
+    </TD>
+  </TR>
+</TABLE>
+($endif)
+[%End%]
+
+
+[%InBodyHead%]
+<BR>
+($ifnot cfg.EzListButtonPos=1)
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD><A HREF='javascript:RemoteWindow("($path.help)/help.htm")'><IMG SRC='($path.icon)/help.gif' BORDER=0></A>&nbsp;&nbsp;</TD>
+    <TD ALIGN=right NOWRAP>
+      ($ifs link.prevlist)<A HREF='($link.prevlist)'><IMG SRC='($path.icon)/prev.gif' BORDER=0></A>($endif)
+      ($ifs link.nextlist)<A HREF='($link.nextlist)'><IMG SRC='($path.icon)/next.gif' BORDER=0></A>($endif)
+      <A HREF='($link.write)'><IMG SRC='($path.icon)/write.gif' BORDER=0></A>
+      <A HREF='($link.list)'><IMG SRC='($path.icon)/list.gif' BORDER=0></A>
+      &nbsp;
+    </TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD><HR SIZE=1 noshade></TD>
+  </TR>
+</TABLE>
+($endif)
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLSPACING=($cfg.EzCellSpacing) CELLPADDING=($cfg.EzCellPadding)>
+  <TR ALIGN=center BGCOLOR=($cfg.EzListHeadBkCol)>
+    <TD NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)><B>번호</B></FONT></TD>
+    <TD><FONT ($color COLOR=EzListHeadTxtCol)><B>ⓘ</B></FONT></TD>
+    <TD><FONT ($color COLOR=EzListHeadTxtCol)><B>제목</B></FONT></TD>
+    <TD><FONT ($color COLOR=EzListHeadTxtCol)><B>이름</B></FONT></TD>
+    <TD><FONT ($color COLOR=EzListHeadTxtCol)><B>&nbsp;</B></FONT></TD>
+    <TD NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)><B>등록날짜</B></FONT></TD>
+    <TD NOWRAP><FONT ($color COLOR=EzListHeadTxtCol)><B>조회</B></FONT></TD>
+  </TR>
+[%End%]
+
+[%InBody%]
+  <TR ALIGN=center ($color BGCOLOR=EzListBkCol)>
+    <TD NOWRAP><FONT ($color COLOR=EzListTxtCol)>($db.no)</FONT></TD>
+    <TD>($link.filetype)</TD>
+;    <TD ALIGN=left NOWRAP>($thread.depth)<IMG SRC='($path.icon)/($thread.icon)' BORDER=0><FONT ($color COLOR=EzListTxtCol)><A HREF='($link.subj)'>($db.subj)</FONT></A></TD>
+;    <TD ALIGN=left NOWRAP>($thread.depth)($ifs par.dbf=db.dbf)<FONT COLOR=red>($else)<FONT ($color COLOR=EzListTxtCol)><A HREF='($link.subj)'>($endif)($if cfg.EzFolderIcon)<IMG SRC='($path.icon)/($thread.icon)' BORDER=0>($endif)&nbsp;($db.shortsubj)</A></FONT></TD>
+    <TD WIDTH=100% ALIGN=left NOWRAP>($thread.depth)<FONT ($color COLOR=EzListTxtCol)>($ifs par.dbf=db.dbf)($if cfg.EzFolderIcon)<IMG SRC='($path.icon)/this.gif' BORDER=0>($endif)($else)<A HREF='($link.subj)' ($status=db.no)>($if cfg.EzFolderIcon)<IMG SRC='($path.icon)/($thread.icon)' BORDER=0>($endif)($endif)&nbsp;($db.shortsubj)</A></FONT></TD>
+;    <TD ALIGN=left NOWRAP><FONT ($color COLOR=EzListTxtCol)>($thread.depth)($ifs par.dbf=db.dbf)<FONT COLOR=($cfg.EzHLinkColor)><B>($else)<A HREF='($link.subj)'>($endif)($if cfg.EzFolderIcon)<IMG SRC='($path.icon)/($thread.icon)' BORDER=0>($endif)&nbsp;($db.shortsubj)</A></FONT></TD>
+    <TD NOWRAP>($if cfg.EzUseMember)($if db.vno)<IMG SRC='($path.system)/image/member.gif' WIDTH=11 HEIGHT=11>($else)<IMG SRC='($path.icon)/blank.gif' WIDTH=11 HEIGHT=11>($endif)&nbsp;($endif)<FONT ($color COLOR=EzListTxtCol)>($ifs db.mail)<A HREF='mailto:($db.name) <($db.mail)>'>($endif)($db.shortname)</A></FONT></TD>
+    <TD>($ifs db.home)<A HREF='($db.home)' TARGET='($cfg.EzLinkTarget)'><IMG SRC='($path.icon)/cutehome.gif' BORDER=0></A>($endif)&nbsp;</TD>
+    <TD NOWRAP><FONT ($color COLOR=EzListTxtCol)>($db.date.notime)</FONT></TD>
+    <TD NOWRAP><FONT ($color COLOR=EzListTxtCol)>($db.count)</FONT></TD>
+  </TR>
+[%End%]
+
+[%InBodyTail%]
+</TABLE>
+($menu.page)
+($if cfg.EzListButtonPos)
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD><HR SIZE=1 noshade></TD>
+  </TR>
+</TABLE>
+<TABLE BORDER=0 WIDTH=($cfg.EzTableWidth) CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD><A HREF='javascript:RemoteWindow("($path.help)/help.htm")'><IMG SRC='($path.icon)/help.gif' BORDER=0></A>&nbsp;&nbsp;</TD>
+    <TD NOWRAP ALIGN=center VALIGN=bottom>
+($if cfg.EzShowSearch)
+<TABLE BORDER=0>
+<FORM NAME=FindForm METHOD=post ACTION='($path.main)'>
+($hidden.info)
+<INPUT TYPE=hidden NAME=action VALUE='search'>
+<INPUT TYPE=hidden NAME=cmd    VALUE='next'>
+<INPUT TYPE=hidden NAME=findstart VALUE='($par.findstart)'>
+  <TR>
+    <TD NOWRAP>
+      <SELECT NAME='ftype'>
+        <OPTION VALUE='subj+cont'  ($ifs par.ftype=subj+cont)selected($endif)>제목+내용</OPTION>
+        <OPTION VALUE='name'  ($ifs par.ftype=name)selected($endif)>이름</OPTION>
+        <OPTION VALUE='subj'  ($ifs par.ftype=subj)selected($endif)>제목</OPTION>
+        <OPTION VALUE='cont'  ($ifs par.ftype=cont)selected($endif)>내용</OPTION>
+        <OPTION VALUE='file'  ($ifs par.ftype=file)selected($endif)>파일</OPTION>
+        <OPTION VALUE='mail'  ($ifs par.ftype=mail)selected($endif)>메일</OPTION>
+        <OPTION VALUE='ip' ($ifs par.ftype=ip)selected($endif)>IP</OPTION>
+      </SELECT>
+      <INPUT TYPE=text NAME=word VALUE='($par.word)' SIZE=15 MAXLENGTH=40 CLASS=editbox><INPUT TYPE='submit' VALUE='검색' CLASS=button>
+    </TD>
+  </TR>
+</TABLE>
+($else)&nbsp;($endif)
+    </TD></FORM>
+    <TD ALIGN=right NOWRAP>
+      ($ifs link.prevlist)<A HREF='($link.prevlist)'><IMG SRC='($path.icon)/prev.gif' BORDER=0></A>($endif)
+      ($ifs link.nextlist)<A HREF='($link.nextlist)'><IMG SRC='($path.icon)/next.gif' BORDER=0></A>($endif)
+      <A HREF='($link.write)'><IMG SRC='($path.icon)/write.gif' BORDER=0></A>
+      <A HREF='($link.list)'><IMG SRC='($path.icon)/list.gif' BORDER=0></A>
+      &nbsp;
+    </TD>
+  </TR>
+</TABLE>
+($endif)
+[%End%]

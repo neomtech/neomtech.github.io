@@ -1,0 +1,41 @@
+#--------------------------------
+# 이지보드 2000 관리자 메뉴 색상
+#--------------------------------
+[%SetAdminColor%]
+; 관리자 메뉴 색상
+($set color.Border=black)
+($set color.Back=white)
+($set color.TopMenu=#3366cc)
+($set color.SubMenu=#d3ebfb)
+($set color.Table=#3366cc)
+($set color.TopTxt=white)
+($set color.TopHelpTxt=white)
+($set color.LeftCell=#f4f4f4)
+($set color.RightCell=#fafdff)
+($set color.SplitLine=black)
+($set C0=#D7D7D7)
+($set C1=#DFDFDF)
+($set C2=#E7E7E7)
+($set C3=#EFEFEF)
+($set C4=#F7F7F7)
+[%End%]
+
+[%System%]
+; 관리자 메뉴 색상
+color.Border=black
+color.Back=white
+color.TopMenu=#3366cc
+color.SubMenu=#d3ebfb
+color.Table=#3366cc
+color.TopTxt=white
+color.TopHelpTxt=white
+color.LeftCell=#f4f4f4
+color.RightCell=#fafdff
+color.SplitLine=black
+C0=#D7D7D7
+C1=#DFDFDF
+C2=#E7E7E7
+C3=#EFEFEF
+C4=#F7F7F7
+[%End%]
+#--------------------------------

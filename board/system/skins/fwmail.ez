@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<STYLE TYPE="text/css">
+a:link    { color: #004bbb; font-size: 12px; text-decoration: underline }
+a:active  { color: #004bbb; font-size: 12px; text-decoration: underline }
+a:visited  { color: #004bbb; font-size: 12px; text-decoration: underline }
+a:hover    { color: orange;  font-size: 12px; text-decoration: underline }
+.big  { font-size:12pt; }
+.submit  { border:1 solid gold; background-color:#886644; }
+input  { font-height:20px; border-width:1; border-style:solid; border-color:black; background-color:white;}
+textarea{ background-color:white;}
+select  { background-color:white;}
+p,br,body,table,td,select,form,textarea,option { font-family:굴림, gulim, arial, ms sans serif; font-size:10pt;}
+</STYLE>
+</HEAD>
+<BODY BGCOLOR=#336699><CENTER>
+<TABLE BGCOLOR=white BORDER=1 CELLSPACING=0 CELLPADDING=1 WIDTH=600 borderCOLOR=black>
+<TR>
+  <TD><CENTER>
+  <TABLE BGCOLOR=white BORDER=0 WIDTH=95% CELLSPACING=0 CELLPADDING=0>
+  <TR>
+    <TD COLSPAN=2><BR>
+      <TABLE BGCOLOR=black BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0 HEIGHT=2>
+      <TR><TD></TD></TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR HEIGHT=20>
+    <TD ALIGN=left>&nbsp;[($par.db)] 게시판에서 포워딩된 글입니다.</TD>
+    <TD ALIGN=right><FONT FACE=돋움>($par.date) ($par.fromname)(<A HREF='mailto:($par.frommail)'>($par.frommail)</A>)&nbsp;</TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2>
+      <TABLE BGCOLOR=black BORDER=0 WIDTH=100%% CELLSPACING=0 CELLPADDING=0 HEIGHT=2>
+      <TR><TD></TD></TR>
+      </TABLE>
+    </TD>
+  <TR>
+  </TR>
+    <TD COLSPAN=2><BR>
+<IMG SRC='http://ezboard.new21.org/cherie/cgi/ez2000/system/image/icon/default/close.gif' BORDER=0>
+<FONT COLOR=#004bbb><B>($par.subj)</B></FONT><BR><BR>
+($par.cont)<BR>
+<HR SIZE=1 noshade> 
+작성자: ($db.name)<BR>
+작성일: ($db.date)<BR>
+게시물 홈페이지: ($par.home)
+<HR SIZE=1 noshade> 
+
+이지보드가 여러분의 홈페이지에 조그마한 보탬이 되기를 기원합니다.<BR><BR>
+
+- 채리와 채니의 사랑이야기 -<BR>
+    </TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2 ALIGN=right>
+<FONT CLASS=small>Copyright ⓒ 2000 <A HREF='http://hello.to/cherie'><B>채리와 채니의 사랑이야기</B></A> (<A HREF='http://hello.to/cherie'><IMG SRC='http://ezboard.new21.org/cherie/image/home.gif' BORDER=0></A>). All rights reserved. &nbsp;</FONT>
+    <HR COLOR=black noshade SIZE=2>
+    </TD>
+  </TR>
+  </TABLE>
+  </TD>
+</TR>
+</TABLE>
+&nbsp;
+</BODY>
+</HTML>

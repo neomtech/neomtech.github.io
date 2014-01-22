@@ -1,0 +1,302 @@
+[%System%]
+MENU8=기능
+[%End%]
+
+[%MENU8%]
+<DIV ID='MENU8'>
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>관리자 사칭금지</FONT>
+      <FONT COLOR=($cfg.color.TopHelpTxt)>(단어들을 한줄씩 적어주십시오)</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+      <TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+;        <TR BGCOLOR=($cfg.color.Table)>
+;          <TD ALIGN=center><FONT COLOR=($cfg.color.TopTxt)>관리자 사칭 금지</FONT></TD>
+;          <TD ALIGN=left><FONT COLOR=($cfg.color.TopTxt)>단어들을 한줄씩 적어주십시오.</FONT></TD>
+;        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>관리자 사칭 금지</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+              <TR>
+                <TD VALIGN=top><INPUT TYPE=checkbox NAME='EzAdminProtect' VALUE=1 ($if cfg.EzAdminProtect=1)checked($endif)>사용</TD>
+                <TD VALIGN=top>
+                  등록된 이름으로 글 작성시 관리자 암호를 입력하도록 합니다.<BR>
+                  관리자 이름이나 이메일/홈페이지를 다음 목록에 적어주십시오.<BR>
+                  <TEXTAREA NAME='adminlst' ROWS=3 COLS=50 CLASS=editbox>($cfg.adminlst)</TEXTAREA>
+                </TD>
+              </TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>사용자 차단</FONT>
+      <FONT COLOR=($cfg.color.TopHelpTxt)>(단어들을 한줄씩 적어주십시오)</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+<TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+;  <TR BGCOLOR=($cfg.color.Table)>
+;    <TD ALIGN=center><FONT COLOR=($cfg.color.TopTxt)>사용자 차단</FONT></TD>
+;    <TD ALIGN=left><FONT COLOR=($cfg.color.TopTxt)>단어들을 한줄씩 적어주십시오.</FONT></TD>
+;  </TR>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>&nbsp;</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD COLSPAN=5>
+            IP/이름/이메일/홈페이지 목록입력란에 등록하면 해당 정보를 가진 사용자는 게시판에 접근하지 못하게 됩니다.
+          </TD>
+        </TR>
+        <TR>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzBadIP' VALUE=1 ($if cfg.EzBadIP=1)checked($endif)>IP 차단</TD>
+          <TD VALIGN=top>
+            <TEXTAREA NAME='badip' ROWS=6 COLS=20 CLASS=editbox NOWRAP WRAP=off>($cfg.badip)</TEXTAREA>
+          </TD>
+          <TD>&nbsp;</TD>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzBadName' VALUE=1 ($if cfg.EzBadName=1)checked($endif)>이름차단</TD>
+          <TD VALIGN=top>
+            <TEXTAREA NAME='badname' ROWS=6 COLS=20 CLASS=editbox WRAP=off>($cfg.badname)</TEXTAREA>
+          </TD>
+        </TR>
+        <TR>
+          <TD COLSPAN=5><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+        </TR>
+        <TR>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzBadMail' VALUE=1 ($if cfg.EzBadMail=1)checked($endif)>이메일 차단</TD>
+          <TD VALIGN=top>
+            <TEXTAREA NAME='badmail' ROWS=6 COLS=20 CLASS=editbox WRAP=off>($cfg.badmail)</TEXTAREA>
+          </TD>
+          <TD>&nbsp;</TD>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzBadHome' VALUE=1 ($if cfg.EzBadHome=1)checked($endif)>홈페이지 차단</TD>
+          <TD VALIGN=top>
+            <TEXTAREA NAME='badhome' ROWS=6 COLS=20 CLASS=editbox WRAP=off>($cfg.badhome)</TEXTAREA>
+          </TD>
+        </TR>
+        <TR>
+          <TD COLSPAN=5><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+        </TR>
+        <TR>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzBadWord' VALUE=1 ($if cfg.EzBadWord=1)checked($endif)>음란어 차단</TD>
+          <TD VALIGN=top>
+            <TEXTAREA NAME='badword' ROWS=6 COLS=20 CLASS=editbox WRAP=off>($cfg.badword)</TEXTAREA>
+          </TD>
+          <TD>&nbsp;</TD>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzBadBanner' VALUE=1 ($if cfg.EzBadBanner=1)checked($endif)>광고글 차단</TD>
+          <TD VALIGN=top>
+            <TEXTAREA NAME='badad' ROWS=6 COLS=20 CLASS=editbox WRAP=off>($cfg.badad)</TEXTAREA>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.LeftCell)><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+    <TD><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+  </TR>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>도배글 차단</TD>
+    <TD WIDTH=440 HEIGHT=20><INPUT TYPE=text NAME='EzDobaeText' SIZE=3 MAXLENGTH=3 VALUE='($cfg.EzDobaeText)' CLASS=editbox>개까지 이전글 검사<BR>
+    (글 작성시 설정한 수만큼 이전 게시물들을 비교하여 내용이 같은 경우 글 작성을 취소합니다)</TD>
+  </TR>
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>IP 허용</FONT>
+      <FONT COLOR=($cfg.color.TopHelpTxt)>(허용할 IP를 한줄씩 적어주십시오)</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+<TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>허용 IP 목록</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzAllowIP' VALUE=1 ($if cfg.EzAllowIP=1)checked($endif)>사용</TD>
+          <TD VALIGN=top><FONT COLOR=blue>
+            등록된 IP만 접근 허용합니다.<BR>
+            줄의 첫글자가 ';'이면 주석으로 인식되며,<BR>
+            '*'인 경우 등록된 IP주소로 시작되는 모든 IP를 허용합니다.<BR>
+            <TEXTAREA NAME='allowip' ROWS=3 COLS=50 CLASS=editbox>($cfg.allowip)</TEXTAREA>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>무단링크 금지</FONT>
+      <FONT COLOR=($cfg.color.TopHelpTxt)>(게시판을 호출하는 HTML문서 주소를 한줄씩 적어주십시오)</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+<TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>링크 허용 목록</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzLinkAllow' VALUE=1 ($if cfg.EzLinkAllow=1)checked($endif)>사용</TD>
+          <TD VALIGN=top><FONT COLOR=blue>
+            등록된 단어가 포함된 주소에서 게시판을 호출하는 경우에만 동작합니다.<BR>
+            그외의 주소에서 호출하는 경우 모두 차단됩니다.<BR>
+            <TEXTAREA NAME='linkallow' ROWS=3 COLS=50 CLASS=editbox>($cfg.linkallow)</TEXTAREA>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>링크 차단 목록</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzLinkDeny' VALUE=1 ($if cfg.EzLinkDeny=1)checked($endif)>사용</TD>
+          <TD VALIGN=top><FONT COLOR=blue>
+            등록된 단어가 포함된 주소에서 게시판을 호출하는 경우 차단합니다.<BR>
+            <TEXTAREA NAME='linkdeny' ROWS=3 COLS=50 CLASS=editbox>($cfg.linkdeny)</TEXTAREA>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>자&nbsp;&nbsp;&nbsp;&nbsp;료<BR>무단링크 금지</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD VALIGN=top COLSPAN=2><INPUT TYPE=checkbox NAME='EzAntiLinkFile' VALUE=1 ($if cfg.EzAntiLinkFile=1)checked($endif)>사용
+            (무단으로 게시판의 자료를 링크시킨경우 다운을 받지 못하도록 차단)
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>접속 차단 시간</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+<TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>차단 시간 설정</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD VALIGN=top><INPUT TYPE=text NAME='EzAntiTime' VALUE='($cfg.EzAntiTime)' SIZE=4 MAXLENGTH=8 CLASS=editbox>시간동안 차단<BR>
+            불량 사용자 목록에 등록된 사용자및 광고/음란어가 포함된 게시물을 작성한 자가 접속하는 경우 지정된 시간동안 접속을 차단합니다.<BR>
+            0으로 설정하면 동작하지 않습니다.<BR>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>스크립트/태그 차단</FONT>
+      <FONT COLOR=($cfg.color.TopHelpTxt)>(원하지 않는 태그들을 한줄씩 적어주십시오)</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+<TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>HTML 태그 차단</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzBadTag' VALUE=1 ($if cfg.EzBadTag=1)checked($endif)>사용</TD>
+          <TD VALIGN=top><FONT COLOR=blue>
+            HTML형식으로 글 작성시 다음 등록된 태그들을 사용하지 못하도록 차단합니다.<BR>
+            <TEXTAREA NAME='badtag' ROWS=3 COLS=50 CLASS=editbox>($cfg.badtag)</TEXTAREA>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>스크립트 차단</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD VALIGN=top NOWRAP><INPUT TYPE=checkbox NAME='EzBadScript' VALUE=1 ($if cfg.EzBadScript=1)checked($endif)>사용</TD>
+          <TD VALIGN=top><FONT COLOR=blue>
+            HTML형식으로 글 작성시 다음 등록된 스크립트들을 사용하지 못하도록 차단합니다.<BR>
+            <TEXTAREA NAME='badscript' ROWS=3 COLS=50 CLASS=editbox>($cfg.badscript)</TEXTAREA>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+  <TR>
+    <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top>자&nbsp;&nbsp;&nbsp;&nbsp;료<BR>무단링크 금지</TD>
+    <TD WIDTH=440 HEIGHT=20>
+      <TABLE BORDER=0 WIDTH=100% CELLSPACING=0 CELLPADDING=0>
+        <TR>
+          <TD VALIGN=top COLSPAN=2><INPUT TYPE=checkbox NAME='EzAntiLinkFile' VALUE=1 ($if cfg.EzAntiLinkFile=1)checked($endif)>사용
+            (무단으로 게시판의 자료를 링크시킨경우 다운을 받지 못하도록 차단)
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+
+</DIV>
+[%End%]

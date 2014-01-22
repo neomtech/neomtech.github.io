@@ -1,0 +1,247 @@
+<HTML>
+<HEAD>
+<TITLE> 네오엠텍 홈페이지에 오신것을 환영합니다.</TITLE>
+<LINK HREF="../font.css" REL="StyleSheet" TYPE="text/css">
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
+
+
+<!-- 탑메뉴 시작 -->
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD background="../images/back_top.gif"><iframe name="header" scrolling="NO" frameborder="NO" noresize src="../header.html" frameborder="NO" width=980 height=99 scrolling="no"></iframe></TD>
+	</TR>
+</TABLE>
+<!-- 탑메뉴 끝 -->
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD HEIGHT=5 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD background="images/back_body.gif">
+		<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 class="doc">
+			<TR>
+				<TD WIDTH=80 background="../images/back_s_left.gif" align=center valign=bottom><IMG SRC="../images/menu_left.gif" WIDTH="60" HEIGHT="125" BORDER=0 ALT=""><br><br></TD>
+				<TD WIDTH=900><IMG SRC="images/info_visual.gif" WIDTH="900" HEIGHT="212" BORDER=0 ALT=""></TD>
+			</TR>
+		</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD HEIGHT=5 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD>
+		<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 class="doc">
+			<TR>
+				<TD WIDTH="79"></TD>
+				<TD WIDTH="1" BGCOLOR="#E7E7E7"></TD>
+				<TD WIDTH="900">
+				 
+				<TABLE WIDTH="900" BORDER=0 CELLPADDING=0 CELLSPACING=0>
+					<TR>
+						<TD HEIGHT=5></TD>
+					</TR>
+					<TR>
+						<TD HEIGHT=28 align=right> HOME > Company > History</TD>
+					</TR>
+					<TR>
+						<TD HEIGHT=5></TD>
+					</TR>
+				</TABLE>
+				<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=900 class="doc">
+					<TR>
+						<TD WIDTH="200" align=center valign=top>
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=200 class="doc">
+							<TR>
+								<TD WIDTH=15 valign=top><IMG SRC="images/line_01.gif" WIDTH="15" HEIGHT="200" BORDER=0 ALT=""></TD>
+								<TD WIDTH=184 valign=top>
+								<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=148 class="doc">
+									<TR>
+										<TD><IMG SRC="images/me_title_00.gif" WIDTH="148" HEIGHT="36" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="info.html"><IMG SRC="images/me_title_01.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="vision.html"><IMG SRC="images/me_title_02.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="history.html"><IMG SRC="images/me_title_03_1.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="organ.html"><IMG SRC="images/me_title_04.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+								</TABLE>
+								</TD>
+								<TD WIDTH=1 background="images/line_02.gif"></TD>
+							</TR>
+						</TABLE>
+						</TD>
+						<TD WIDTH="700" align=center valign=top>
+
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=650 class="doc">
+							<TR>
+								<TD><IMG SRC="images/stitle_03.gif" WIDTH="647" HEIGHT="53" BORDER=0 ALT=""></TD>
+							</TR>
+							<TR>
+								<TD HEIGHT="30"></TD>
+							</TR>
+						</TABLE>
+						
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=600 class="doc">
+							<TR>
+								<TD>
+								간단한 발문을 넣어주세요.
+
+								</TD>
+							</TR>
+							<TR>
+								<TD HEIGHT="30"></TD>
+							</TR>
+							<TR>
+								<TD align=center>
+								<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=600 class="doc">
+									<TR>
+										<TD colspan=3><IMG SRC="images/2004.gif" HEIGHT="30" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR HEIGHT="64">
+										<TD WIDTH=79 style="padding-right:15;" align=right><B>02월</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD WIDTH=520 style="padding-left:10;">네오엠텍㈜ 설립 (와이즈임베드㈜ 모바일 사업 팀 및 LCTech㈜ SI 
+										   팀 흡수)<br>
+										   SKT NATE 해외판매용 Platform 프로젝트 개발 (UI 부문)<br>
+										   ㈜와치텍 제품 판매 대행 및 Customizing MOU 체결</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD style="padding-right:15;" align=right><B>03월</B></TD>
+										<TD valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">LG Telecom 지능형 OA&M 프로젝트 개발 참여 (HP)</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="45">
+										<TD style="padding-right:15;" align=right><B>06월</B></TD>
+										<TD valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">하나로통신 VoIP 장비 유지보수 계약 체결<br>
+										비자카드 모바일 쿠폰 뱅크 유지 보수 및 업그레이드 계약 체결 </TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD style="padding-right:15;" align=right><B>08월</B></TD>
+										<TD valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">SKT NATE 해외판매용 Platform TA Orange (태국) 프로젝트 개발 계약 체결</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD style="padding-right:15;" align=right><B>09월</B></TD>
+										<TD valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">모바일 지로 서비스 MOU 체결 (새연인터랙티브 ? 우리은행, 국민은행)</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="2" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="30" colspan=3></TD>
+									</TR>
+									<TR>
+										<TD colspan=3><IMG SRC="images/2003.gif" HEIGHT="30" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR HEIGHT="45">
+										<TD WIDTH=79 style="padding-right:15;" align=right><B>02월</B></TD>
+										<TD WIDTH=1 valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD WIDTH=520 style="padding-left:10;">와이즈임베드㈜ 모바일 사업 팀<br>
+										   모바일 광고 솔루션 (Wise AD) 개발</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD style="padding-right:15;" align=right><B>05월</B></TD>
+										<TD valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">LG 카드 모바일 PDA 서비스 구축</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD style="padding-right:15;" align=right><B>06월</B></TD>
+										<TD valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">코카콜라 모바일 AD 시스템 개발</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD style="padding-right:15;" align=right><B>07월</B></TD>
+										<TD valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">JTL 모바일 프로모션 시스템 개발</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="28">
+										<TD style="padding-right:15;" align=right><B>09월</B></TD>
+										<TD valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">비자카드 모바일 쿠폰 시스템 개발 및 서비스 운영 - LCTech㈜ SI 사업팀</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="1" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+									<TR HEIGHT="45">
+										<TD style="padding-right:15;" align=right><B>09월</B></TD>
+										<TD valign=bottom><IMG SRC="images/point.gif" WIDTH="1" HEIGHT="10" BORDER=0 ALT=""></TD>
+										<TD style="padding-left:10;">LG Telecom 통합통계 시스템 개발 참여 (HP)<br>
+										한국통신 ADSL 통합 망 관리 시스템 개발(2002년)</TD>
+									</TR>
+									<TR>
+										<TD HEIGHT="2" bgcolor="#E6E6E6" colspan=3></TD>
+									</TR>
+								</TABLE>
+								</TD>
+							</TR>
+						</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+				
+				<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+					<TR>
+						<TD HEIGHT=40></TD>
+					</TR>
+				</TABLE>
+				
+				</TD>
+			</TR>
+		</TABLE>
+
+		</TD>
+	</TR>
+</TABLE>
+
+<!-- 하단메뉴 시작 -->
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD HEIGHT=1 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD><iframe name="footer" scrolling="NO" frameborder="NO" noresize src="../footer.html" frameborder="NO" width=980 height=50 scrolling="no"></iframe></TD>
+	</TR>
+</TABLE>
+<!-- 하단메뉴 끝 -->
+
+
+
+
+</BODY>
+</HTML>

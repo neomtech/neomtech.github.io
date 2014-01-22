@@ -1,0 +1,68 @@
+[%System%]
+;EzSkinVersion=1
+;; 게시판 왼쪽 정렬시 관리자 모드($EzTableWidth) 와 패스워드 모드($cfg.EzTableWidth) 사이의 호환성을 위해 스킨버젼 선언
+
+Depth=($par.depth)
+[%End%]
+
+[%Body%]
+($add Depth=1)
+<LINK rel="STYLESHEET" TYPE="text/css" NAME="test" HREF="($path.system)/image/newpds_msg2/pass.css">
+
+<FORM NAME=PassForm METHOD=post ACTION='($path.main)'>
+($hidden.info)
+;<INPUT TYPE=hidden NAME=db     VALUE='($par.db)'>
+<INPUT TYPE=hidden NAME=action VALUE='($par.action)'>
+;<INPUT TYPE=hidden NAME=page   VALUE='($par.page)'>
+<INPUT TYPE=hidden NAME=dbf    VALUE='($par.dbf)'>
+<INPUT TYPE=hidden NAME=depth  VALUE='($cfg.depth)'>
+;<INPUT TYPE=hidden NAME=cmtdbf VALUE='($par.cmtdbf)'>
+
+; 게시판 왼쪽 정렬시 관리자 모드($EzTableWidth) 와 패스워드 모드($cfg.EzTableWidth) 사이의 호환성을 위해 if 문 사용.
+
+($if cfg.EzTableWidth)
+<TABLE WIDTH=($cfg.EzTableWidth) BORDER=0 CELLPADDING=0 CELLSPACING=0>
+($else)
+<TABLE WIDTH=($EzTableWidth) BORDER=0 CELLPADDING=0 CELLSPACING=0>
+($endif)
+
+<TR><TD>
+<TABLE WIDTH='300' BORDER=0 CELLPADDING=0 CELLSPACING=0 ALIGN=CENTER>
+<TR><TD HEIGHT=20>
+<IMG SRC=($path.system)/image/newpds_msg2/blank.gif border=0 width=1 height=1>
+</TD></TR>
+<TR><TD BGCOLOR=#5265A5><IMG SRC=($path.system)/image/newpds_msg2/blank.gif border=0 width=1 height=1></TD></TR>
+<TR><TD HEIGHT=30>
+<P>
+&nbsp;&nbsp;&nbsp;
+<b>($cfg.Title)</b>
+</P>
+</TD></TR>
+<TR><TD BGCOLOR=#5265A5><IMG SRC=($path.system)/image/newpds_msg2/blank.gif border=0 width=1 height=1></TD></TR>
+<TR><TD HEIGHT=100 BGCOLOR=#E1E4F6 align=center>
+<TABLE BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD ALIGN=right height=10 NOWRAP>비밀번호</TD>
+    <TD height=10>
+      <INPUT TYPE='password' NAME='pass' VALUE='' SIZE='20' MAXLENGTH='50' CLASS=input>
+    </TD>
+  </TR>
+  <TR>
+    <TD ALIGN=right height=10 NOWRAP></TD>
+  </TR>
+<tr><td colspan=2 align=right height=30>
+      <INPUT TYPE=image src='($path.system)/image/newpds_msg2/ok-bn.gif'>
+      <INPUT TYPE=image src='($path.system)/image/newpds_msg2/back-bn.gif' onclick='javascript:history.back()'>
+</td></tr>
+</TABLE>
+</td></tr>
+</TABLE>
+
+</FORM>
+
+<SCRIPT LANGUAGE="JavaScript">
+  setTimeout( 'document.PassForm.pass.focus()', 10 );
+</SCRIPT>
+
+[%End%]
+

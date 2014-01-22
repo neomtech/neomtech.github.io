@@ -1,0 +1,213 @@
+[%System%]
+EzSkinVersion=1
+[%End%]
+
+[%Body%]
+<LINK rel="STYLESHEET" TYPE="text/css" NAME="test" HREF="($path.system)/image/newpds_msg2/pass.css">
+
+<SCRIPT LANGUAGE='JavaScript'>
+($if cfg.EzLoginStatus=0)
+($if cookie.AutoLogin)
+($ifs cookie.mem_name)
+($ifs cookie.mem_pass)
+($if cookie.LogOut=0)
+  setTimeout( 'javascript:LogIn()', 100 );
+($endif)
+($endif)
+($endif)
+($endif)
+($endif)
+</SCRIPT>
+
+<SCRIPT LANGUAGE='JavaScript'>
+function SetCookie( name, value, expire )
+{
+  var exp = new Date();
+  var exptime = "";
+
+  if( expire == null )
+    expire = 0;
+
+  if( expire <= 0 )
+  {
+    if( expire < 0 )
+      value = "";
+    exptime = "";
+  }
+  else
+  {
+    exp.setTime( exp.getTime() + (1000 * expire) );
+    exptime = "expires=" + exp.toGMTString() + ";";
+  }
+
+  document.cookie = name + '=' + value + "; path=/; " + exptime;
+}
+//---------------------------------------------------------
+function DelCookie( name )
+{
+  document.cookie = name + "=; path=/; expires=Thu, 01-Jan-70 00:00:01 GMT;";
+}
+//---------------------------------------------------------
+</SCRIPT>
+
+<SCRIPT LANGUAGE='JavaScript'>
+function _pop( url, width, height, opt )
+{
+  if( !width )  width = 670;
+  if( !height ) height = 500;
+  if( !opt )
+  {
+    fopt = "resizable=yes,scrollbars=yes,status=1";
+    target = "PreviewWin";
+  }
+  else
+  {
+    fopt = "resizable=no,scrollbars=no,status=0";
+    target = "JoinWin";
+  }
+  window.open( url, target,'width=' + width + ',height=' + height + ',' + fopt );
+}
+
+
+//---------------------------------------------------------
+function LogIn()
+{
+  var mf = document.LoginForm;
+  var exp = 3600*24*31; 
+($ifs cfg.Msg)
+{
+    DelCookie( "mem_name" );
+    DelCookie( "mem_pass" );
+    DelCookie( "AutoLogin" );
+}
+($else)
+  if( mf.AutoLogin.checked )
+  {
+    SetCookie( "mem_name", mf.name.value, exp );
+    SetCookie( "mem_pass", mf.pass.value, exp );
+    SetCookie( "AutoLogin", "1", exp );
+  }
+  else
+  {
+    DelCookie( "mem_name" );
+    DelCookie( "mem_pass" );
+    DelCookie( "AutoLogin" );
+  }
+
+($endif)
+
+  mf.submit();
+  return  true;
+}
+//---------------------------------------------------------
+function LogOut()
+{
+  var mf = document.LoginForm;
+  var exp = 3600*24*31;
+
+  if( mf.AutoLogin.checked )
+  {
+    SetCookie( "mem_name", "($cookie.mem_name)", exp );
+    SetCookie( "mem_pass", "($cookie.mem_pass)", exp );
+    SetCookie( "AutoLogin", "1", exp );
+    SetCookie( "LogOut", "1", 3 );
+  }
+  else
+  {
+    DelCookie( "mem_name" );
+    DelCookie( "mem_pass" );
+    DelCookie( "AutoLogin" );
+  }
+
+  mf.submit();
+  return  true;
+}
+</SCRIPT>
+
+<BR>
+<BR>
+<BR>
+
+($if cfg.EzLoginStatus)
+<FORM NAME=LoginForm METHOD=post ACTION='($path.main)' onsubmit="LogOut()">
+<INPUT TYPE=hidden NAME=action VALUE='logout'>
+($else)
+<FORM NAME=LoginForm METHOD=post ACTION='($path.main)' onsubmit="LogIn()">
+<INPUT TYPE=hidden NAME=action VALUE='login_check'>
+($endif)
+
+<INPUT TYPE=hidden NAME=page   VALUE='($par.page)'>
+<INPUT TYPE=hidden NAME=depth  VALUE='($cfg.depth)'>
+<INPUT TYPE=hidden NAME=db     VALUE='($par.db)'>
+
+<TABLE WIDTH='($cfg.EzTableWidth)' BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR><TD>
+<TABLE WIDTH='300' BORDER=0 CELLPADDING=0 CELLSPACING=0 ALIGN=CENTER>
+<TR><TD HEIGHT=20>
+<IMG SRC=($path.system)/image/newpds_msg2/blank.gif border=0 width=1 height=1>
+</TD></TR>
+<TR><TD BGCOLOR=#5265A5><IMG SRC=($path.system)/image/newpds_msg2/blank.gif border=0 width=1 height=1></TD></TR>
+<TR><TD HEIGHT=30>
+<P>
+&nbsp;&nbsp;&nbsp;
+
+($ifs cfg.Msg)
+<b>회원인증</b> - ($cfg.Msg)
+($else)
+<b>회원인증</b>
+($endif)
+
+</P>
+</TD></TR>
+<TR><TD BGCOLOR=#5265A5><IMG SRC=($path.system)/image/newpds_msg2/blank.gif border=0 width=1 height=1></TD></TR>
+<TR><TD HEIGHT=100 BGCOLOR=#E1E4F6 align=center>
+<TABLE BORDER=0 CELLSPACING=1 CELLPADDING=2>
+
+($if cfg.EzLoginStatus)
+  <TR>
+    <TD ALIGN=center height=10 NOWRAP>($mem.name)님 안녕하세요?</TD>
+  </TR>
+  <TR>
+    <TD ALIGN=right height=10 NOWRAP></TD>
+  </TR>
+<tr><td colspan=2 align=right height=30>
+<INPUT TYPE=checkbox NAME=AutoLogin VALUE=1 ($if cookie.AutoLogin)checked($endif)>자동접속
+<INPUT TYPE=image src='($path.system)/image/newpds_msg2/logout-bn.gif'>
+<INPUT TYPE=image src='($path.system)/image/newpds_msg2/back-bn.gif' onclick='javascript:history.back()'>
+</td></tr>
+($else)
+  <TR>
+    <TD ALIGN=right NOWRAP>아이디</TD>
+    <TD>
+      <INPUT TYPE='text' NAME='name' ($if cookie.AutoLogin)VALUE='($cookie.mem_name)'($endif) SIZE='20' MAXLENGTH='50' CLASS=input>
+    </TD>
+  </TR>
+  <TR>
+    <TD ALIGN=right NOWRAP>비밀번호</TD>
+    <TD>
+      <INPUT TYPE='password' NAME='pass' ($if cookie.AutoLogin)VALUE='($cookie.mem_pass)'($endif) SIZE='20' MAXLENGTH='50' CLASS=input>
+    </TD>
+  </TR>
+<tr><td colspan=2 align=right height=30>
+
+($ifs cfg.Msg)
+;자동접속
+($else)
+<INPUT TYPE=checkbox NAME=AutoLogin VALUE=1 ($if cookie.AutoLogin)checked($endif)>자동접속
+($endif)
+
+<INPUT TYPE=image src='($path.system)/image/newpds_msg2/login-bn.gif'>
+<INPUT TYPE=image src='($path.system)/image/newpds_msg2/back-bn.gif' onclick='javascript:history.back()'>
+</td></tr>
+
+<SCRIPT LANGUAGE="JavaScript">
+  setTimeout( 'document.LoginForm.name.focus()', 10 );
+</SCRIPT>
+($endif)
+
+</TABLE>
+</td></tr>
+</TABLE>
+</FORM>
+[%End%]
+

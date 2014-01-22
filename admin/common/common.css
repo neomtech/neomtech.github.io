@@ -1,0 +1,110 @@
+<!--
+
+
+	BODY, TABLE, TR, TD, INPUT, SELECT {
+		font-family: Tahoma, Tahoma, Verdana, ±¼¸², Seoul, Gulim;
+		font-size: 9pt;
+		letter-spacing:0px;
+		word-break:break-all;
+		scrollbar-3dlight-color:595959;
+		scrollbar-arrow-color:ffffff;
+		scrollbar-base-color:CFCFCF;
+		scrollbar-darkshadow-color:FFFFFF;
+		scrollbar-face-color:CFCFCF;
+		scrollbar-highlight-color:FFFFF;
+		scrollbar-shadow-color:595959;
+	}
+
+	TEXTAREA {
+		font-family: Tahoma, ±¼¸², Seoul, Gulim;
+		font-size: 9pt;
+		line-height: 15pt;
+	}
+
+	A:link, A:active, A:visited {
+		color: #1139CF;
+		text-decoration: none;
+	}
+
+	A:hover {
+		color: #FF0000;
+		text-decoration: none;
+	}
+
+	A:link.link, A:active.link, A:visited.link {
+		color: #000000;
+		text-decoration: none;
+	}
+
+	A:hover.link {
+		color: #4169FF;
+		text-decoration: none;
+	}
+
+	A:link.blink, A:active.blink, A:visited.blink {
+		color: #4169FF;
+		text-decoration: none;
+	}
+
+	A:hover.blink {
+		color: #1139CF;
+		text-decoration: none;
+	}
+
+	.tahoma {
+		font-family: Tahoma, ±¼¸², Seoul, Gulim;
+		line-height: 15pt;
+		font-size: 9pt;
+	}
+
+	.small {
+		font-family: Verdana, ±¼¸², Seoul, Gulim;
+		font-size: 7pt;
+		letter-spacing:-1px;
+	}
+
+	.num {
+		font-family: Verdana, ±¼¸², Seoul, Gulim;
+		font-size: 8pt;
+		letter-spacing:-1px;
+	}
+
+	.content {
+		line-height: 14pt;
+		text-align: justify;
+	}
+
+	.ublack {
+		color: #000000;
+		background: url('/common/css/dot_black.gif') repeat-x bottom left;
+	}
+
+	.ublue {
+		color: #4169FF;
+		background: url('/common/css/dot_blue.gif') repeat-x bottom left;
+	}
+
+	.ured {
+		color: #FF3010;
+		background: url('/common/css/dot_red.gif') repeat-x bottom left;
+	}
+
+	.menu {
+		color: #000000;
+		font-family: Verdana, ±¼¸², Seoul, Gulim;
+		letter-spacing:-1px;
+	}
+
+	A:link.menu, A:active.menu, A:visited.menu {
+		color: #000000;
+		text-decoration: none;
+	}
+
+	A:hover.menu {
+		color: #000000;
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+
+-->

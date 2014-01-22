@@ -1,0 +1,155 @@
+<HTML>
+<HEAD>
+<TITLE> 네오엠텍 홈페이지에 오신것을 환영합니다.</TITLE>
+<LINK HREF="../font.css" REL="StyleSheet" TYPE="text/css">
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
+
+
+<!-- 탑메뉴 시작 -->
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD background="../images/back_top.gif"><iframe name="header" scrolling="NO" frameborder="NO" noresize src="../header.html" frameborder="NO" width=980 height=99 scrolling="no"></iframe></TD>
+	</TR>
+</TABLE>
+<!-- 탑메뉴 끝 -->
+
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD HEIGHT=5 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD background="images/back_body.gif">
+		<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 class="doc">
+			<TR>
+				<TD WIDTH=80 background="../images/back_s_left.gif" align=center valign=bottom><IMG SRC="../images/menu_left.gif" WIDTH="60" HEIGHT="125" BORDER=0 ALT=""><br><br></TD>
+				<TD WIDTH=900><IMG SRC="images/solution_visual.gif" WIDTH="900" HEIGHT="212" BORDER=0 ALT=""></TD>
+			</TR>
+		</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD HEIGHT=5 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD>
+		<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 class="doc">
+			<TR>
+				<TD WIDTH="79"></TD>
+				<TD WIDTH="1" BGCOLOR="#E7E7E7"></TD>
+				<TD WIDTH="900">
+				 
+				<TABLE WIDTH="900" BORDER=0 CELLPADDING=0 CELLSPACING=0>
+					<TR>
+						<TD HEIGHT=5></TD>
+					</TR>
+					<TR>
+						<TD HEIGHT=28 align=right> HOME > Solution > MTS</TD>
+					</TR>
+					<TR>
+						<TD HEIGHT=5></TD>
+					</TR>
+				</TABLE>
+				<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=900 class="doc">
+					<TR>
+						<TD WIDTH="200" align=center valign=top>
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=200 class="doc">
+							<TR>
+								<TD WIDTH=15 valign=top><IMG SRC="images/line_01.gif" WIDTH="15" HEIGHT="200" BORDER=0 ALT=""></TD>
+								<TD WIDTH=184 valign=top>
+								<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=148 class="doc">
+									<TR>
+										<TD><IMG SRC="images/me_title_00.gif" WIDTH="148" HEIGHT="36" BORDER=0 ALT=""></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="mts.html"><IMG SRC="images/me_title_01_1.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="player.html"><IMG SRC="images/me_title_02.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="study.html"><IMG SRC="images/me_title_03.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+									<TR>
+										<TD><A HREF="sfa.html"><IMG SRC="images/me_title_04.gif" BORDER=0 ALT=""></A></TD>
+									</TR>
+								</TABLE>
+								</TD>
+								<TD WIDTH=1 background="images/line_02.gif"></TD>
+							</TR>
+						</TABLE>
+						</TD>
+						<TD WIDTH="700" align=center valign=top>
+
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=650 class="doc">
+							<TR>
+								<TD><IMG SRC="images/stitle_01.gif" WIDTH="647" HEIGHT="53" BORDER=0 ALT=""></TD>
+							</TR>
+							<TR>
+								<TD HEIGHT="30"></TD>
+							</TR>
+						</TABLE>
+						<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=600 class="doc">
+							<TR>
+								<TD>
+								<FONT SIZE="1" COLOR="#9933CC">▶</FONT> <FONT COLOR="#663399"><B>MTS</B></FONT> <br>
+								MTS 솔루션은 3-Tier 형태의 웹 서비스와 디바이스 전용 어플리케이션(APP)의 장점을 혼용해 서비스
+								하는 모바일 통합 플랫폼으로 통신비용 절감, 서비스품질 향상 및 시스템 확장, 서비스 업데이트, 이벤트
+								등을 위한 다양한 부가 서비스 연계가 가능한 솔루션입니다.
+
+
+								</TD>
+							</TR>
+							<TR>
+								<TD HEIGHT="15"></TD>
+							</TR>
+							<TR>
+								<TD HEIGHT="30"><FONT SIZE="1" COLOR="#9933CC">▶</FONT> <FONT COLOR="#663399"><B>MTS 특징 및 구성</B></FONT> 
+								<B>[모바일 통합 플랫폼]</B>
+								
+								<ul><li> 본 시스템은 금융을 비롯하여 다양한 모바일 포털, 카드사, 모바일 컨텐츠 서비스를 위한 모바일 통합플랫폼을 제공
+								<li> PDA, 휴대폰, VM 어플리케이션에 이르는 다양한 모바일 단말기를 대상으로 경제적인 서비스 구축을 지원 
+								<li> 비즈니스 로직과 각 단말기를 위한 프리젠테이션이 이원화되어 관리되므로, 로직변경에 따르는 시스템의 유지보수 비용을 최소화
+
+								</ul>
+
+								</TD>
+							</TR>
+							<TR>
+								<TD align=center><IMG SRC="images/img_01.gif" BORDER=0 ALT=""></TD>
+							</TR>
+						</TABLE> 
+					</TR>
+				</TABLE>
+				
+				<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0>
+					<TR>
+						<TD HEIGHT=40></TD>
+					</TR>
+				</TABLE>
+				
+				</TD>
+			</TR>
+		</TABLE>
+
+		</TD>
+	</TR>
+</TABLE>
+
+<!-- 하단메뉴 시작 -->
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100% class="doc">
+	<TR>
+		<TD HEIGHT=1 BGCOLOR="#E7E7E7"></TD>
+	</TR>
+	<TR>
+		<TD><iframe name="footer" scrolling="NO" frameborder="NO" noresize src="../footer.html" frameborder="NO" width=980 height=50 scrolling="no"></iframe></TD>
+	</TR>
+</TABLE>
+<!-- 하단메뉴 끝 -->
+
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,36 @@
+;-------------------------------------------
+; 얼굴 선택을 위한 파일입니다.
+; face.cgi 와는 달리, SELECT 태그를 사용한 것입니다.
+; 이미지 파일이 많은 경우 유리합니다.
+[%FaceList%]
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+      <FONT COLOR="($cfg.FormTxtCol)">
+        얼굴선택&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="100%" COLSPAN="2" NOWRAP>
+      <SELECT NAME="faceno">
+        <OPTION VALUE="0"($if db.faceno=0) checked($endif)>아기얼굴0
+        <OPTION VALUE="1"($if db.faceno=1) checked($endif)>아기얼굴1
+        <OPTION VALUE="2"($if db.faceno=2) checked($endif)>아기얼굴2
+        <OPTION VALUE="3"($if db.faceno=3) checked($endif)>아기얼굴3
+        <OPTION VALUE="4"($if db.faceno=4) checked($endif)>아기얼굴4
+        <OPTION VALUE="5"($if db.faceno=5) checked($endif)>아기얼굴5
+      </SELECT>
+    </TD>
+  </TR>
+  <TR>
+    <TD WIDTH="70" ALIGN="right" NOWRAP>
+($if cfg.EzImgUpload)
+($add MyTACols=-10)
+      <FONT COLOR="($cfg.FormTxtCol)">
+        내&nbsp;사&nbsp;진&nbsp;&nbsp;
+      </FONT>
+    </TD>
+    <TD WIDTH="100%" COLSPAN="2" NOWRAP>
+      <INPUT TYPE="file" NAME="img" SIZE="($cfg.MyTACols)" MAXLENGTH="100" CLASS="editbox">
+($endif)
+    </TD>
+  </TR>
+[%End%]

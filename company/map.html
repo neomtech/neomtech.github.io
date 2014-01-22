@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="UTF" xml:lang="UTF">
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF">
+		<title>OpenAPI 2.0 - 지도 생성</title>
+		<!-- prevent IE6 flickering -->
+		<script type="text/javascript">
+			try {document.execCommand('BackgroundImageCache', false, true);} catch(e) {}
+		</script>
+
+<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=43b37559fe51dc4de5ce3df61aa56274"></script>
+</head>
+
+<body>
+<div id = "testMap" style="border:1px solid #000; width:515px; height:539px; margin:20px;"></div>
+ 
+
+		<script type="text/javascript">
+			var oPoint = new nhn.api.map.LatLng(37.4874558,126.8939565);
+			nhn.api.map.setDefaultPoint('LatLng');
+			oMap = new nhn.api.map.Map('testMap' ,{
+						point : oPoint,
+						zoom : 12,
+						enableWheelZoom : true,
+						enableDragPan : true,
+						enableDblClickZoom : false,
+						mapMode : 0,
+						activateTrafficMap : false,
+						activateBicycleMap : false,
+						minMaxLevel : [ 1, 14 ],
+						size : new nhn.api.map.Size(515, 539)
+					});
+
+					var oSize = new nhn.api.map.Size(28, 37);
+var oOffset = new nhn.api.map.Size(14, 37);
+var oIcon = new nhn.api.map.Icon('http://static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
+   
+var oMarker = new nhn.api.map.Marker(oIcon, { title : '네오엠텍 주식회사' });  //마커를 생성한다 
+oMarker.setPoint(oPoint); //마커의 좌표를 oPoint 에 저장된 좌표로 지정한다
+oMap.addOverlay(oMarker); //마커를 네이버 지도위에 표시한다
+ 
+var oLabel = new nhn.api.map.MarkerLabel(); // 마커 라벨를 선언한다. 
+oMap.addOverlay(oLabel); // - 마커의 라벨을 지도에 추가한다. 
+oLabel.setVisible(true, oMarker); // 마커의 라벨을 보이게 설정한다.
+		</script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+			

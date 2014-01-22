@@ -1,0 +1,106 @@
+[%System%]
+MENU5=색상
+[%End%]
+
+[%MENU5%]
+<DIV ID='MENU5'>
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>색상설정</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+      <TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>본문색상</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            제목배경 <INPUT TYPE=text NAME='EzDataHeadBkCol' VALUE='($cfg.EzDataHeadBkCol)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzDataHeadBkCol")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            제목글자 <INPUT TYPE=text NAME='EzDataHeadTxtCol' VALUE='($cfg.EzDataHeadTxtCol)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzDataHeadTxtCol")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            <BR>
+            본문배경 <INPUT TYPE=text NAME='EzDataBkCol' VALUE='($cfg.EzDataBkCol)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzDataBkCol")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            본문글자 <INPUT TYPE=text NAME='EzDataTxtCol' VALUE='($cfg.EzDataTxtCol)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzDataTxtCol")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            <BR>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>관리자 아이디 색상</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            게시판 색상 <INPUT TYPE=text NAME='MyAMerosAdmin02' VALUE='($cfg.MyAMerosAdmin02)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("MyAMerosAdmin02")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            게시판 굵게 <INPUT TYPE=checkbox NAME='MyAMerosAdmin01' VALUE=1 ($if cfg.MyAMerosAdmin01=1)checked($endif)><BR>
+            덧달기 색상 <INPUT TYPE=text NAME='MyAMerosAdmin12' VALUE='($cfg.MyAMerosAdmin12)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("MyAMerosAdmin12")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            덧달기 굵게 <INPUT TYPE=checkbox NAME='MyAMerosAdmin11' VALUE=1 ($if cfg.MyAMerosAdmin11=1)checked($endif)><BR><BR>
+          </TD>
+    		</TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top><BR>목록색상</TD>
+          <TD WIDTH=440 HEIGHT=20>
+      			테이블색상 <INPUT TYPE=text NAME='MyAMerosTable' VALUE='($cfg.MyAMerosTable)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("MyAMerosTable")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            타이틀글자 <INPUT TYPE=text NAME='EzListHeadTxtCol' VALUE='($cfg.EzListHeadTxtCol)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzListHeadTxtCol")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            <BR>
+            테이블 곡선처리 <INPUT TYPE=checkbox NAME='MyAMerosCircle' VALUE=1 ($if cfg.MyAMerosCircle=1)checked($endif)>
+			      (테이블 테두리에 곡선을 놓어주는 기능 입니다.)<BR><BR>
+
+      			공지배경 <INPUT TYPE=text NAME='MyAMerosNoticeColor' VALUE='($cfg.MyAMerosNoticeColor)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("MyAMerosNoticeColor")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            공지글자 <INPUT TYPE=text NAME='MyAMerosNoticeTextColor' VALUE='($cfg.MyAMerosNoticeTextColor)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("MyAMerosNoticeTextColor")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            <BR>
+
+;            제목배경 <INPUT TYPE=text NAME='EzListHeadBkCol' VALUE='($cfg.EzListHeadBkCol)' SIZE='15' CLASS=editbox>
+;            <A HREF='javascript:SelColor("EzListHeadBkCol")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+;            제목글자 <INPUT TYPE=text NAME='EzListHeadTxtCol' VALUE='($cfg.EzListHeadTxtCol)' SIZE='15' CLASS=editbox>
+;            <A HREF='javascript:SelColor("EzListHeadTxtCol")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+;            <BR>
+            홀수배경 <INPUT TYPE=text NAME='EzListBkColOdd' VALUE='($cfg.EzListBkColOdd)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzListBkColOdd")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            홀수글자 <INPUT TYPE=text NAME='EzListTxtColOdd' VALUE='($cfg.EzListTxtColOdd)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzListTxtColOdd")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            <BR>
+            짝수배경 <INPUT TYPE=text NAME='EzListBkColEven' VALUE='($cfg.EzListBkColEven)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzListBkColEven")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            짝수글자 <INPUT TYPE=text NAME='EzListTxtColEven' VALUE='($cfg.EzListTxtColEven)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzListTxtColEven")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            <BR>
+            선택배경 <INPUT TYPE=text NAME='EzSelColor' VALUE='($cfg.EzSelColor)' SIZE='15' CLASS=editbox>
+            <A HREF='javascript:SelColor("EzSelColor")'><IMG SRC='($path.system)/image/color.gif' BORDER=0></A>
+            <BR>
+            <INPUT TYPE=checkbox NAME='EzUseGrad' VALUE=1 ($if cfg.EzUseGrad=1)checked($endif)>그라데이션 기능 사용<BR>
+            그라데이션 색상을 사용하려면 홀수배경에 시작색, 짝수배경에 끝색을 설정하세요.<BR>
+            <FONT COLOR=red>* 주의: 그라데이션 기능을 사용하는 경우엔 색상을 white가 아닌 #ffffff형식으로 적어야 합니다.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top><BR>검색단어색상</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzColFindBeg' VALUE='($cfg.EzColFindBeg)' SIZE='25' CLASS=editbox> <B>검색된 단어</B>
+            <INPUT TYPE=text NAME='EzColFindEnd' VALUE='($cfg.EzColFindEnd)' SIZE='25' CLASS=editbox><BR>
+            <FONT COLOR=blue>예) &lt;B&gt; <B>검색된 단어</B> &lt;/B&gt;</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right VALIGN=top><BR>조회/다운수 색상</TD>
+          <TD WIDTH=440 HEIGHT=20><FONT FACE=굴림체>
+            [ 100이상] <INPUT TYPE=text NAME='EzColCnt10' VALUE='($cfg.EzColCnt10)' SIZE='25' CLASS=editbox> <FONT COLOR=green>&nbsp;100</FONT> <INPUT TYPE=text NAME='EzColCnt11' VALUE='($cfg.EzColCnt11)' SIZE='25' CLASS=editbox><BR>
+            [ 500이상] <INPUT TYPE=text NAME='EzColCnt20' VALUE='($cfg.EzColCnt20)' SIZE='25' CLASS=editbox> <FONT COLOR=blue>&nbsp;500</FONT> <INPUT TYPE=text NAME='EzColCnt21' VALUE='($cfg.EzColCnt21)' SIZE='25' CLASS=editbox><BR>
+            [1000이상] <INPUT TYPE=text NAME='EzColCnt30' VALUE='($cfg.EzColCnt30)' SIZE='25' CLASS=editbox> <FONT COLOR=red>1000</FONT> <INPUT TYPE=text NAME='EzColCnt31' VALUE='($cfg.EzColCnt31)' SIZE='25' CLASS=editbox><BR>
+            <FONT COLOR=blue>예) &lt;FONT COLOR=red&gt; <FONT COLOR=red>1000</FONT> &lt;/FONT&gt;</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+</DIV>
+[%End%]

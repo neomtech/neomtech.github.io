@@ -1,0 +1,184 @@
+<HTML>
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=euc-kr">
+<!--------------------------------------------------------------------->
+<!-- SetPerm for EasyBoard 2000                                      -->
+<!--                                                                 -->
+<!--        Official distribution site : http://ezne.net             -->
+<!--                 Technical contact : cherie@hello.to             -->
+<!--                 Programmer : ChonBuk Univ. Electronics          -->
+<!--                              Cherie 채경삼 (cherie@hello.to)    -->
+<!--------------------------------------------------------------------->
+<!--        Description: Select Group Permission                     -->
+<!--------------------------------------------------------------------->
+<TITLE>Select Group Permission</TITLE>
+
+<!-- Define Link Shape None/Under/Over-->
+<STYLE TYPE='text/css'>
+  A:link    { color: black; text-decoration:none;     }
+  A:visited { color: dimgray; text-decoration:none;     }
+  A:active  { text-decoration:none;     }
+  A:hover   { color: #0040b0; text-decoration:underline;}
+  .small    { font-family:돋움; font-size:8pt  }
+  .norm     { font-family:굴림; font-size:9pt  }
+  .big      { font-family:굴림; font-size:14pt  }
+  .button   { height:19px; border-width:1; border-style:ridge; border-color:#d0d0d0; background-color:#dfdfdf;}
+  .editbox  { border:1 solid black; background-color:white; }
+  .admin    { border:1 solid black; background-color:white; }
+  select    { background-color:white;}
+  p,br,body,table,td,select,input,form,textarea,option { font-family:굴림; font-size:9pt; }
+  .text1     { color:#000000; }
+  .text2     { color:#000000; }
+</STYLE>
+
+<BODY BGCOLOR=white TEXT=black MARGINWIDTH=0 MARGINHEIGHT=0 LEFTMARGIN=0 TOPMARGIN=0>
+
+<STYLE TYPE='text/css'>
+  .button   { font-size:9pt; color:white; height:19px; border-width:1; border-style:solid; border-color:#000000; background-color:#000000;}
+</STYLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+//--------------------------------------------------------------------
+function _SetPerm( str, perm )
+{
+  temp = str + perm;
+
+  if( temp.indexOf('x') >= 0 )
+    temp = temp + "lrwpud";
+  else  if( temp.indexOf('a') >= 0 )
+    temp = temp + "xlrwpud";
+
+  str = "";
+  len = temp.length;
+  for( i = 0; i < len; i++ )
+  {
+    if( str.indexOf(temp.charAt(i)) < 0 )
+      str = str + temp.charAt(i);
+  }
+  SetCheckStatus( str );
+  return  str;
+}
+//--------------------------------------------------------------------
+function _DelPerm( str, perm )
+{
+  pos = str.indexOf(perm);
+  if( pos >= 0 )
+  {
+    str1 = str.substr(0, pos);
+    str2 = str.substr(pos+1, str.length);
+    str = str1 + str2;
+    str = _DelPerm( str, perm );
+  }
+  return  str;
+}
+//--------------------------------------------------------------------
+function SetPerm( name )
+{
+  var mf = document.PermForm;
+
+  if( mf[name].checked )
+    mf.UserPerm.value = _SetPerm( mf.UserPerm.value, name );
+  else
+    mf.UserPerm.value = _DelPerm( mf.UserPerm.value, name );
+}
+//--------------------------------------------------------------------
+function SetCheckStatus( perm )
+{
+  var mf = document.PermForm;
+  len = perm.length;
+  for( i = 0; i < len; i++ )
+  {
+    if( perm.charAt(i) == 'a' )  mf.a.checked = true;
+    if( perm.charAt(i) == 'x' )  mf.x.checked = true;
+    if( perm.charAt(i) == 'l' )  mf.l.checked = true;
+    if( perm.charAt(i) == 'r' )  mf.r.checked = true;
+    if( perm.charAt(i) == 'w' )  mf.w.checked = true;
+    if( perm.charAt(i) == 'p' )  mf.p.checked = true;
+    if( perm.charAt(i) == 'u' )  mf.u.checked = true;
+    if( perm.charAt(i) == 'd' )  mf.d.checked = true;
+  }
+}
+//--------------------------------------------------------------------
+function Apply()
+{
+  mf.UserPerm.value = _SetPerm( mf.UserPerm.value, "" );
+  window.opener.document.ConfigForm[window.name].value = mf.UserPerm.value;
+  self.close();
+}
+//--------------------------------------------------------------------
+</SCRIPT>
+
+<FORM NAME=PermForm>
+<INPUT TYPE=hidden NAME='UserPerm' VALUE='' onclick='' CLASS=editbox>
+<DIV ALIGN=center>
+<TABLE WIDTH='($cfg.EzTableWidth)' BORDER=0 CELLPADDING=0 CELLSPACING=0>
+	<TR>
+		<TD ALIGN=center>
+<TABLE BORDER=0 BGCOLOR=black CELLSPACING=0 CELLPADDING=1>
+	<TR>
+		<TD>
+<TABLE BORDER=0 BGCOLOR=white CELLSPACING=0 CELLPADDING=3>
+	<TR BGCOLOR=dimgray>
+		<TD>
+			<FONT COLOR=white>게시판 권한 설정</FONT>
+		</TD>
+	</TR>
+	<TR>
+		<TD NOWRAP>
+			<INPUT TYPE=checkbox NAME='a' onclick='javascript:SetPerm("a")'>관리자(현재 지원x)
+      <BR>
+			<INPUT TYPE=checkbox NAME='x' onclick='javascript:SetPerm("x")'>모든 게시물 수정/삭제
+      <BR>
+			<INPUT TYPE=checkbox NAME='l' onclick='javascript:SetPerm("l")'>목록보기
+      <BR>
+			<INPUT TYPE=checkbox NAME='r' onclick='javascript:SetPerm("r")'>본문읽기
+      <BR>
+			<INPUT TYPE=checkbox NAME='w' onclick='javascript:SetPerm("w")'>글작성
+      <BR>
+			<INPUT TYPE=checkbox NAME='p' onclick='javascript:SetPerm("p")'>답변글 작성
+      <BR>
+			<INPUT TYPE=checkbox NAME='u' onclick='javascript:SetPerm("u")'>업로드
+      <BR>
+			<INPUT TYPE=checkbox NAME='d' onclick='javascript:SetPerm("d")'>다운로드
+			<BR>
+			<BR>
+  		<DIV ALIGN=center>
+			<INPUT TYPE=button VALUE=' 확     인 ' CLASS=button onclick='javascript:Apply()'>
+	  	</DIV>
+		</TD>
+	</TR>
+</TABLE>
+		</TD>
+	</TR>
+</TABLE>
+		</TD>
+	</TR>
+</TABLE>
+</DIV>
+</FORM>
+
+<SCRIPT LANGUAGE="JavaScript">
+//----------------------------------------------------------------------------
+if( !window.opener )
+{
+  alert( "관리자 메뉴에서만 실행하십시오." );
+  self.close();
+}
+else
+{
+  var str = window.name;
+  var pos = str.indexOf( '_' );
+  if( pos >= 0 )
+  {
+    name = str.substr( 0, pos );
+    value = str.substr( pos+1, str.length );
+    var mf = document.PermForm;
+    value = _SetPerm( value, "" );
+    mf.UserPerm.value = value;
+    SetCheckStatus( value );
+  }
+}
+//----------------------------------------------------------------------------
+</SCRIPT>
+
+</BODY>
+</HTML>

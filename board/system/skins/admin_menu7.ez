@@ -1,0 +1,201 @@
+[%System%]
+MENU7=글쓰기
+[%End%]
+
+[%MENU7%]
+<DIV ID='MENU7'>
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>글 읽기/쓰기</FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+      <TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=0>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>글읽기 권한</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzAccessRead' VALUE=0 ($if cfg.EzAccessRead=0)checked($endif)>누구나
+            <INPUT TYPE=radio NAME='EzAccessRead' VALUE=1 ($if cfg.EzAccessRead=1)checked($endif)>관리자만
+            <INPUT TYPE=radio NAME='EzAccessRead' VALUE=2 ($if cfg.EzAccessRead=2)checked($endif)>글작성시 공개/비공개 선택
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>글작성 권한</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzAccessWrite' VALUE=0 ($if cfg.EzAccessWrite=0)checked($endif)>누구나
+            <INPUT TYPE=radio NAME='EzAccessWrite' VALUE=1 ($if cfg.EzAccessWrite=1)checked($endif)>관리자만            
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>답변글 작성</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzAccessReply' VALUE=0 ($if cfg.EzAccessReply=0)checked($endif)>누구나
+            <INPUT TYPE=radio NAME='EzAccessReply' VALUE=1 ($if cfg.EzAccessReply=1)checked($endif)>관리자만 &nbsp;
+            <FONT COLOR=blue>관련글 제한수</FONT>
+            <INPUT TYPE=text NAME='EzReplyDepth' VALUE='($cfg.EzReplyDepth)' SIZE='3' MAXLENGTH=3 CLASS=editbox>(0이면 무제한)
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>연속 글쓰기</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzDobaeLimit' VALUE='($cfg.EzDobaeLimit)' SIZE=6 CLASS=editbox>개 제한
+            <FONT COLOR=blue>(0이면 검사안함)</FONT><BR><FONT COLOR=red>시간/IP당 글쓰기 갯수를 제한합니다.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>글작성시 제한</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            공백없이 <INPUT TYPE=text NAME='EzCheckSpace' VALUE='($cfg.EzCheckSpace)' SIZE=6 CLASS=editbox>자이상 글을 쓰면 제한
+            <BR><FONT COLOR=blue>(0이면 검사안함)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>필수 입력사항</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzMustMail' VALUE=1 ($if cfg.EzMustMail=1)checked($endif)>이메일
+            <INPUT TYPE=checkbox NAME='EzMustHome' VALUE=1 ($if cfg.EzMustHome=1)checked($endif)>홈페이지
+            <INPUT TYPE=checkbox NAME='EzMustFileUpload' VALUE=1 ($if cfg.EzMustFileUpload=1)checked($endif)>파일업로드
+            <INPUT TYPE=checkbox NAME='EzMustImgUpload' VALUE=1 ($if cfg.EzMustImgUpload=1)checked($endif)>미리보기업로드
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>HTML문서 작성</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzNoHtml' VALUE=1 ($if cfg.EzNoHtml=1)checked($endif)>불가<BR>
+            <FONT COLOR=blue>HTML문서를 작성하지 못하도록 합니다.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR=($cfg.color.LeftCell)><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+          <TD><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>답변글 제목</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzReSubject' VALUE='($cfg.EzReSubject)' SIZE='20' CLASS=editbox> <FONT COLOR=blue>[출력 예] Re: 안녕하세요. 채리님?</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>답변글 작성자</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzReText' VALUE='($cfg.EzReText)' SIZE='20' CLASS=editbox> <FONT COLOR=blue>[출력 예] 채리님께서 남기신 글입니다.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>답변글 본문</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzReLine' VALUE='($cfg.EzReLine)' SIZE='20' CLASS=editbox> <FONT COLOR=blue>[출력 예] :본문 내용입니다.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR=($cfg.color.LeftCell)><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+          <TD><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>기본 본문 메시지</TD>
+          <TD>
+            글 작성시 보이는 내용입니다.<BR>자동 숨기기로 설정하면 커서가 있는 경우 본문 내용이 자동으로 숨겨집니다.<BR>
+            <TEXTAREA NAME='DefCont' ROWS=5 COLS=55 CLASS=editbox>($cfg.DefCont)</TEXTAREA><BR>
+            <INPUT TYPE=radio NAME='EzAutoHideCont' VALUE=0 ($if cfg.EzAutoHideCont=0)checked($endif)>항상 보이기
+            <INPUT TYPE=radio NAME='EzAutoHideCont' VALUE=1 ($if cfg.EzAutoHideCont=1)checked($endif)>자동 숨기기
+          </TD>
+        </TR>
+        <TR>
+          <TD BGCOLOR=($cfg.color.LeftCell)><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+          <TD><HR SIZE=1 COLOR=($cfg.color.SplitLine)></TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>홈페이지 입력</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzShowHome' VALUE=1 ($if cfg.EzShowHome=1)checked($endif)>보이기
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>비밀번호 입력</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzShowPass' VALUE=1 ($if cfg.EzShowPass=1)checked($endif)>감추기
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right ALIGN=top>파일 업로드</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzFileUpload' VALUE=1 ($if cfg.EzFileUpload=1)checked($endif)>가능
+            <INPUT TYPE=text NAME='EzFileLimit' VALUE='($cfg.EzFileLimit)' SIZE=6 CLASS=editbox>
+            <FONT COLOR=blue>업로드 제한크기(단위 1k)</FONT><BR>
+            <INPUT TYPE=checkbox NAME='EzFilePreview' VALUE=1 ($if cfg.EzFilePreview=1)checked($endif)>멀티미디어 파일일 경우 자동으로 보여주기<BR>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right ALIGN=top>파일 다운방식</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzFileDownType' VALUE=0 ($if cfg.EzFileDownType=0)checked($endif)>단순 파일링크<BR>
+            <INPUT TYPE=radio NAME='EzFileDownType' VALUE=1 ($if cfg.EzFileDownType=1)checked($endif)>이지보드에서 파일전송 제어
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>미리보기 업로드</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzImgUpload' VALUE=1 ($if cfg.EzImgUpload=1)checked($endif)>가능
+            <INPUT TYPE=text NAME='EzImgLimit' VALUE='($cfg.EzImgLimit)' SIZE=6 CLASS=editbox>
+            <FONT COLOR=blue>업로드 제한크기(단위 1k)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>본문 수정시</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzMoveByCont' VALUE=0 ($if cfg.EzMoveByCont=0)checked($endif)>그대로
+            <INPUT TYPE=radio NAME='EzMoveByCont' VALUE=1 ($if cfg.EzMoveByCont=1)checked($endif)>목록 앞에 저장
+            <FONT COLOR=blue>관련글이 없는 경우에만 사용하세요.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>파일 수정시</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=radio NAME='EzMoveByFile' VALUE=0 ($if cfg.EzMoveByFile=0)checked($endif)>그대로
+            <INPUT TYPE=radio NAME='EzMoveByFile' VALUE=1 ($if cfg.EzMoveByFile=1)checked($endif)>목록 앞에 저장
+            <FONT COLOR=blue>관련글이 없는 경우에만 사용하세요.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>의견달기 저장갯수</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzCommentMax' VALUE='($cfg.EzCommentMax)' SIZE='4' CLASS=editbox> <FONT COLOR=blue>0이면 제한없음(최대 256개까지 저장)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>의견달기 출력갯수</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzCmtPageLine' VALUE='($cfg.EzCmtPageLine)' SIZE='4' CLASS=editbox> <FONT COLOR=blue>0이면 제한없음(최대 256개까지 저장)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>의견달기 출력방향</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <SELECT NAME='EzCmtOrder'>
+              <OPTION VALUE=0 ($if cfg.EzBorderStyle=0)selected($endif)>최근글먼저</OPTION>
+              <OPTION VALUE=1 ($if cfg.EzBorderStyle=1)selected($endif)>최근글나중</OPTION>
+            </SELECT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>검색 갯수</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzFindLimit' VALUE='($cfg.EzFindLimit)' SIZE='4' CLASS=editbox> <FONT COLOR=blue>설정된 개수만큼씩 검색합니다.(0이면 게시물전체 검색)</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>검색 방법</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzFindOpt' VALUE=1 ($if cfg.EzFindOpt=1)checked($endif)> <FONT COLOR=blue>검색시 관련글까지 함께 검색</FONT>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+</DIV>
+[%End%]

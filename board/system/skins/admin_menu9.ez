@@ -1,0 +1,126 @@
+[%System%]
+MENU9=회원관리
+[%End%]
+
+[%MENU9%]
+<DIV ID='MENU9'>
+<TABLE WIDTH=550 BGCOLOR=($cfg.color.Border) BORDER=0 CELLSPACING=1 CELLPADDING=2>
+  <TR>
+    <TD BGCOLOR=($cfg.color.Table)>
+      &nbsp;
+      <FONT COLOR=($cfg.color.TopTxt)>회원관리</FONT>
+      <FONT COLOR=($cfg.color.TopHelpTxt)>
+        <INPUT TYPE=radio NAME='EzUseMember' VALUE=0 ($if cfg.EzUseMember=0)checked($endif)>사용안함
+        <INPUT TYPE=radio NAME='EzUseMember' VALUE=1 ($if cfg.EzUseMember=1)checked($endif)>사용함
+;        <INPUT TYPE=radio NAME='EzUseMember' VALUE=0 ($if cfg.EzUseMember=0)checked($endif)>회원관리 기능 사용안함
+;        <INPUT TYPE=radio NAME='EzUseMember' VALUE=1 ($if cfg.EzUseMember=1)checked($endif)>게시판별 회원관리
+;        <INPUT TYPE=radio NAME='EzUseMember' VALUE=2 ($if cfg.EzUseMember=2)checked($endif)>전체 회원관리
+      </FONT>
+    </TD>
+  </TR>
+  <TR>
+    <TD BGCOLOR=($cfg.color.RightCell)>
+      <TABLE WIDTH=100% BGCOLOR=($cfg.color.RightCell) BORDER=0 CELLPADDING=2 CELLSPACING=1>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>회원파일</TD>
+          <TD WIDTH=440 HEIGHT=20>
+;            <INPUT TYPE=hidden NAME='EzMemberFile' VALUE='($cfg.EzMemberFile)' CLASS=editbox>
+;            <INPUT TYPE=button VALUE='저장' onclick='FormSubmit()' CLASS=button1>
+            <INPUT TYPE=button VALUE='회원 DB 편집' onclick='EditMember("member")' CLASS=button2>
+            <FONT COLOR=blue>회원수가 많은 경우엔 느릴 수 있습니다.</FONT>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right><B>기본 권한설정</B></TD>
+          <TD WIDTH=440 HEIGHT=20>
+            기본 권한을 설정합니다.
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>관리자 그룹</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            그룹권한 <INPUT TYPE=text NAME='EzPermAdmin' VALUE='($cfg.EzPermAdmin)' SIZE=10 CLASS=editbox>
+            <A HREF='javascript:SetPerm("EzPermAdmin")' TITLE='권한 설정'><IMG SRC='($path.system)/image/perm.gif' BORDER=0></A><BR>
+            그룹파일 <INPUT TYPE=text NAME='EzGrpAdmin' VALUE='($cfg.EzGrpAdmin)' SIZE=13 CLASS=editbox>
+            ($menu.grouplist,EzGrpAdmin)
+            <INPUT TYPE=button VALUE='그룹편집' onclick='EditMember(EzGrpAdmin.value)' CLASS=button2>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>사용자 1 그룹</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            그룹권한 <INPUT TYPE=text NAME='EzPermUser1' VALUE='($cfg.EzPermUser1)' SIZE=10 CLASS=editbox>
+            <A HREF='javascript:SetPerm("EzPermUser1")' TITLE='권한 설정'><IMG SRC='($path.system)/image/perm.gif' BORDER=0></A><BR>
+            그룹파일 <INPUT TYPE=text NAME='EzGrpUser1' VALUE='($cfg.EzGrpUser1)' SIZE=13 CLASS=editbox>
+            ($menu.grouplist,EzGrpUser1)
+            <INPUT TYPE=button VALUE='그룹편집' onclick='EditMember(EzGrpUser1.value)' CLASS=button2>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>사용자 2 그룹</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            그룹권한 <INPUT TYPE=text NAME='EzPermUser2' VALUE='($cfg.EzPermUser2)' SIZE=10 CLASS=editbox>
+            <A HREF='javascript:SetPerm("EzPermUser2")' TITLE='권한 설정'><IMG SRC='($path.system)/image/perm.gif' BORDER=0></A><BR>
+            그룹파일 <INPUT TYPE=text NAME='EzGrpUser2' VALUE='($cfg.EzGrpUser2)' SIZE=13 CLASS=editbox>
+            ($menu.grouplist,EzGrpUser2)
+            <INPUT TYPE=button VALUE='그룹편집' onclick='EditMember(EzGrpUser2.value)' CLASS=button2>
+          </TD>
+        </TR>
+        <TR>
+          <TD VALIGN=TOP WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>사용자 3 그룹</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            그룹권한 <INPUT TYPE=text NAME='EzPermUser3' VALUE='($cfg.EzPermUser3)' SIZE=10 CLASS=editbox>
+            <A HREF='javascript:SetPerm("EzPermUser3")' TITLE='권한 설정'><IMG SRC='($path.system)/image/perm.gif' BORDER=0></A><BR>
+            그룹파일 <INPUT TYPE=text NAME='EzGrpUser3' VALUE='($cfg.EzGrpUser3)' SIZE=13 CLASS=editbox>
+            ($menu.grouplist,EzGrpUser3)
+            <INPUT TYPE=button VALUE='그룹편집' onclick='EditMember(EzGrpUser3.value)' CLASS=button2>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>손님권한</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=text NAME='EzPermGuest' VALUE='($cfg.EzPermGuest)' SIZE=10 CLASS=editbox>
+            <A HREF='javascript:SetPerm("EzPermGuest")' TITLE='권한 설정'><IMG SRC='($path.system)/image/perm.gif' BORDER=0></A>
+            로그인하지 않은 경우의 권한을 설정합니다.
+            아무런 권한을 주지 않으려는 경우 공백으로 남겨두십시오.
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>&nbsp;</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <HR SIZE=1 COLOR=black NOSHADE>
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>권한삭제</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <INPUT TYPE=checkbox NAME='EzPermDelMail' VALUE=1 ($if cfg.EzPermDelMail)checked($endif)>이메일
+            <INPUT TYPE=checkbox NAME='EzPermDelHome' VALUE=1 ($if cfg.EzPermDelHome)checked($endif)>홈페이지
+            <BR>
+            <INPUT TYPE=text NAME='EzPermDel' VALUE='($cfg.EzPermDel)' SIZE=10 CLASS=editbox>
+            <A HREF='javascript:SetPerm("EzPermDel")' TITLE='권한 설정'><IMG SRC='($path.system)/image/perm.gif' BORDER=0></A>
+            선택한 정보가 없는 사용자의 경우 삭제할 권한을 설정합니다.
+          </TD>
+        </TR>
+        <TR>
+          <TD WIDTH=110 BGCOLOR=($cfg.color.LeftCell) ALIGN=right>&nbsp;</TD>
+          <TD WIDTH=440 HEIGHT=20>
+            <TABLE BORDER=0 BGCOLOR=#000000 CELLSPACING=1 CELLPADDING=1>
+              <TR><TH COLSPAN=3 ALIGN=center BGCOLOR=dimgray><FONT COLOR=white>권한 설명</TH></TR>
+              <TR><TD NOWRAP ALIGN=center BGCOLOR=silver><FONT COLOR=white>&nbsp;l&nbsp;</TD><TD NOWRAP BGCOLOR=white>목록보기</TD><TD BGCOLOR=white ROWSPAN=7><FONT COLOR=blue>예) 목록보기와 본문읽기, 글쓰기만 허용할때 <B>lrw</B> 로 설정한다.</TD></TR>
+              <TR><TD NOWRAP ALIGN=center BGCOLOR=silver><FONT COLOR=white>&nbsp;r&nbsp;</TD><TD NOWRAP BGCOLOR=white>본문읽기</TD></TR>
+              <TR><TD NOWRAP ALIGN=center BGCOLOR=silver><FONT COLOR=white>&nbsp;w&nbsp;</TD><TD NOWRAP BGCOLOR=white>글쓰기</TD></TR>
+              <TR><TD NOWRAP ALIGN=center BGCOLOR=silver><FONT COLOR=white>&nbsp;p&nbsp;</TD><TD NOWRAP BGCOLOR=white>답변쓰기</TD></TR>
+              <TR><TD NOWRAP ALIGN=center BGCOLOR=silver><FONT COLOR=white>&nbsp;x&nbsp;</TD><TD NOWRAP BGCOLOR=white>글 수정/삭제</TD></TR>
+              <TR><TD NOWRAP ALIGN=center BGCOLOR=silver><FONT COLOR=white>&nbsp;d&nbsp;</TD><TD NOWRAP BGCOLOR=white>다운로드</TD></TR>
+              <TR><TD NOWRAP ALIGN=center BGCOLOR=silver><FONT COLOR=white>&nbsp;u&nbsp;</TD><TD NOWRAP BGCOLOR=white>업로드</TD></TR>
+            </TABLE>
+          </TD>
+        </TR>
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+<BR>
+</DIV>
+[%End%]
