@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="UTF" xml:lang="UTF">
 <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF">
-		<title>OpenAPI 2.0 - Áöµµ »ı¼º</title>
+		<title>OpenAPI 2.0 - ì§€ë„ ìƒì„±</title>
 		<!-- prevent IE6 flickering -->
 		<script type="text/javascript">
 			try {document.execCommand('BackgroundImageCache', false, true);} catch(e) {}
@@ -37,13 +37,13 @@
 var oOffset = new nhn.api.map.Size(14, 37);
 var oIcon = new nhn.api.map.Icon('http://static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
    
-var oMarker = new nhn.api.map.Marker(oIcon, { title : '³×¿À¿¥ÅØ ÁÖ½ÄÈ¸»ç' });  //¸¶Ä¿¸¦ »ı¼ºÇÑ´Ù 
-oMarker.setPoint(oPoint); //¸¶Ä¿ÀÇ ÁÂÇ¥¸¦ oPoint ¿¡ ÀúÀåµÈ ÁÂÇ¥·Î ÁöÁ¤ÇÑ´Ù
-oMap.addOverlay(oMarker); //¸¶Ä¿¸¦ ³×ÀÌ¹ö ÁöµµÀ§¿¡ Ç¥½ÃÇÑ´Ù
+var oMarker = new nhn.api.map.Marker(oIcon, { title : 'ë„¤ì˜¤ì— í… ì£¼ì‹íšŒì‚¬' });  //ë§ˆì»¤ë¥¼ ìƒì„±í•œë‹¤ 
+oMarker.setPoint(oPoint); //ë§ˆì»¤ì˜ ì¢Œí‘œë¥¼ oPoint ì— ì €ì¥ëœ ì¢Œí‘œë¡œ ì§€ì •í•œë‹¤
+oMap.addOverlay(oMarker); //ë§ˆì»¤ë¥¼ ë„¤ì´ë²„ ì§€ë„ìœ„ì— í‘œì‹œí•œë‹¤
  
-var oLabel = new nhn.api.map.MarkerLabel(); // ¸¶Ä¿ ¶óº§¸¦ ¼±¾ğÇÑ´Ù. 
-oMap.addOverlay(oLabel); // - ¸¶Ä¿ÀÇ ¶óº§À» Áöµµ¿¡ Ãß°¡ÇÑ´Ù. 
-oLabel.setVisible(true, oMarker); // ¸¶Ä¿ÀÇ ¶óº§À» º¸ÀÌ°Ô ¼³Á¤ÇÑ´Ù.
+var oLabel = new nhn.api.map.MarkerLabel(); // ë§ˆì»¤ ë¼ë²¨ë¥¼ ì„ ì–¸í•œë‹¤. 
+oMap.addOverlay(oLabel); // - ë§ˆì»¤ì˜ ë¼ë²¨ì„ ì§€ë„ì— ì¶”ê°€í•œë‹¤. 
+oLabel.setVisible(true, oMarker); // ë§ˆì»¤ì˜ ë¼ë²¨ì„ ë³´ì´ê²Œ ì„¤ì •í•œë‹¤.
 		</script>
 
 
