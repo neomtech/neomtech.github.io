@@ -91,21 +91,21 @@ if ( notice_getcookie( "Notice" ) != "done" )
 						<TD WIDTH="634" align=center valign=top>
 
 						
-<link href="http://userstorylab.com/css/flexslider.css" rel="stylesheet" type="text/css" />
-<link href="http://userstorylab.com/css/fluid.css" rel="stylesheet" type="text/css">
+<link href="effect/flexslider.css" rel="stylesheet" type="text/css" />
+<link href="effect/fluid.css" rel="stylesheet" type="text/css">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-<script src="js/jquery.easing.1.3.js"></script>
+<script src="effect/jquery.easing.1.3.js"></script>
 
 
-<script src="http://userstorylab.com/js/sha1.js"></script>
-<script src="http://userstorylab.com/js/codebird.js"></script>
-<script src="js/userstorylabTw.js"></script>
+<script src="effect/sha1.js"></script>
+<script src="effect/codebird.js"></script>
+<script src="effect/userstorylabTw.js"></script>
 
 
-<script src="http://userstorylab.com/js/jquery.smooth-scroll.js"></script>
-<script src="http://userstorylab.com/js/jquery.flexslider.js"></script>
-<script src="http://userstorylab.com/js/overthrow.js"></script>
+<script src="effect/jquery.smooth-scroll.js"></script>
+<script src="effect/jquery.flexslider.js"></script>
+<script src="effect/overthrow.js"></script>
 <script>
     $(document).ready(function() {
       //smooth-scroll
@@ -315,7 +315,7 @@ if ( notice_getcookie( "Notice" ) != "done" )
 		<TD HEIGHT=1 BGCOLOR="#E7E7E7"></TD>
 	</TR>
 	<TR>
-		<TD><iframe name="footer" scrolling="NO" frameborder="NO" noresize src="footer.html" width=980 height=100%></iframe></TD>
+		<TD><iframe name="footer" scrolling="NO" frameborder="NO" noresize src="footer_main.html" width=980 height=100%></iframe></TD>
 	</TR>
 </TABLE>
 <!-- 하단메뉴 끝 -->
