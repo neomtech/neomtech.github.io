@@ -1,37 +1,40 @@
-﻿<HTML>
+﻿
+<HTML>
 <HEAD>
 <TITLE> 네오엠텍 홈페이지에 오신것을 환영합니다.</TITLE>
 <LINK HREF="font.css" REL="StyleSheet" TYPE="text/css">
 </HEAD>
 
-<BODY topmargin=0 leftmargin=0 marginwidth=0 marginheight=0 >
+<BODY BGCOLOR="#FFFFFF" topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
 
-<div id="footer">
 
-	<!-- // f_con -->
-	<div class="f_bottom">
-		<div class="bottomcon">
-			<p class="logo_foot">
-			</p>
-			<div class="foot_con">
-				<p class="foot_ad">
 
-        	<span>서울특별시 구로구 벽산디지털밸리 7차 1306호 | 대표:장석준<br/>
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 WIDTH=980 HEIGHT=50 class="doc">
+	<TR>
+		<TD WIDTH=110></TD>
+		<TD>
+		        	<span>서울특별시 구로구 구로동 에이스테크노타워 2차 703호 | 대표:장석준<br/>
         	사업문의 E-Mail: neo@neomtech.com | TEL:02-6675-6565 | FAX:02-6675-6566
-        	
 			</span>
-
-				</p>
-				<p class="foot_copy">Copyright 2004-2014 NEOMTECH. CO All Rights Reserved.</p>
-			</div>
-			<!-- // foot_con -->
-		</div>
-		<!-- // foot_link -->
-	</div>
-	<!-- // f_bottom -->
-</div>
+		</TD>
+<!--
+		<TD WIDTH=470 align=right><IMG SRC="images/menu_footer_1.gif" WIDTH="223" HEIGHT="26" BORDER=0 ALT=""></TD>
+--> 
+	</TR>
+</TABLE>
 
 
 
+
+
+<!--
+<map name="footer">
+  <area shape="rect" coords=	"1,2,52,35" href="index.asp" target="_top" alt="하단로고">
+  <area shape="rect" coords="84,7,133,27" href="company/info.html" target="_top" alt="회사소개">
+  <area shape="rect" coords="149,6,197,27"  target="_top" alt="고객문의">
+  <area shape="rect" coords="213,6,264,26"  target="_top" alt="사이트맵">
+  <area shape="rect" coords="285,8,351,25"  target="_top" alt="contact">
+</map>
+--> 
 </BODY>
 </HTML>
